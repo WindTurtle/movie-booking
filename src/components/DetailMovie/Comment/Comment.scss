@@ -1,0 +1,127 @@
+@import "../../connect";
+.youthink {
+  margin-bottom: spacing(2);
+  .youthink__items {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-white-0;
+    padding: spacing(1.5) spacing(2);
+    border-radius: 5px;
+    cursor: pointer;
+    .items__img {
+      margin-right: spacing(1);
+      img {
+        width: 30px;
+        border-radius: 50%;
+      }
+    }
+    .items__text {
+      margin-right: spacing(20);
+      color: $color-gray-2;
+      @include Text($fs-0, $fw-regular);
+      @include responsive_mobile {
+        @include Text($fs-0 - 3, $fw-regular);
+        margin-right: spacing(8);
+      }
+      @include responsive_tablet {
+        @include Text($fs-0 - 3, $fw-regular);
+        margin-right: spacing(17);
+      }
+      @include responsive_laptop--mini {
+        @include Text($fs-0 - 1, $fw-regular);
+        margin-right: spacing(20);
+      }
+    }
+    .items__stars {
+      i {
+        @include Text($fs-2, $fw-bold);
+        color: $color-blue;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.list__comment {
+  .comment__items {
+    margin-bottom: spacing(2);
+    padding: spacing(2) spacing(2) spacing(1) spacing(2);
+    background-color: $color-white-0;
+    border: 1px solid $color-white-0;
+    border-radius: 5px;
+    .comment__info {
+      display: flex;
+      justify-content: space-between;
+      .items__img {
+        flex-grow: 0;
+        margin-right: spacing(0.7);
+        img {
+          width: 30px;
+          border-radius: 50%;
+        }
+      }
+      .items__info {
+        flex-grow: 5;
+        .info--name {
+          margin: 0;
+          @include Text($fs-1, $fw-medium);
+        }
+        .info--time {
+          margin: 0;
+          @include Text($fs-1 - 2, $fw-light);
+        }
+      }
+      .items__rating {
+        .rating--point {
+          text-align: center;
+          color: $color-green;
+          margin: 0;
+        }
+        .rating--stars {
+          i {
+            @include Text($fs-1 - 6, $fw-bold);
+            margin-left: 0;
+            color: $color-blue;
+          }
+        }
+      }
+    }
+    .comment__content {
+      padding: spacing(2) 0 0 0;
+    }
+    .comment__icon {
+      i {
+        transition: all 0.3s;
+        margin-right: spacing(0.7);
+        color: $color-gray-2;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      .count--number {
+        @include Text($fs-0, $fw-medium);
+        color: $color-black-1;
+      }
+      .like--text {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+.readMore {
+  display: flex;
+  justify-content: center;
+  padding-top: spacing(3);
+  margin-bottom: spacing(2);
+  .btn__readmore {
+    border: 1px solid $color-gray-2;
+    color: $color-gray-2;
+    padding: spacing(0.5) spacing(2);
+    box-shadow: none;
+    &:hover {
+      border: 1px solid $color-blue;
+      background-color: $color-blue;
+      color: $color-white-0;
+    }
+  }
+}

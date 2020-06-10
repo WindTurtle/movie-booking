@@ -1,0 +1,289 @@
+@import "../../connect";
+
+.tabBookMovie {
+  padding: spacing(0) spacing(20);
+  padding-bottom: spacing(5);
+  background-color: rgb(10, 32, 41);
+  @include responsive_mobile {
+    padding: spacing(0) spacing(1.5);
+  }
+  @include responsive_tablet {
+    padding: spacing(3) spacing(1.5);
+  }
+  @include responsive_laptop--mini {
+    padding: spacing(3) spacing(2);
+  }
+  @include responsive_laptop--medium {
+    padding: spacing(3) spacing(5);
+  }
+  .container-fluid {
+    .nav-pills {
+      justify-content: center;
+      .nav-item {
+        transition: all 0.2s;
+        border: none;
+        .nav-link {
+          color: $color-white-0;
+          background: none;
+          @include Text($fs-2, $fw-medium);
+          transition: all 0.1s;
+          border: none;
+          transform: scale(1);
+          @include responsive_mobile {
+            @include Text($fs-1 + 2, $fw-medium);
+          }
+          @include responsive_tablet {
+            @include Text($fs-1 + 2, $fw-medium);
+          }
+          &.active {
+            background: none;
+            color: $color-blue;
+          }
+          &:hover {
+            // @include Text($fs-3, $fw-medium);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+    #movieTheater {
+      padding-bottom: spacing(3);
+      #pills-schedule {
+        .movieTheater__row {
+          padding: 0;
+          border: 2px solid #fff;
+          border-radius: 5px;
+          .row__left {
+            padding: 0;
+            max-width: 29.333333%;
+            border-right: 0.5px solid $color-gray-6;
+            @include responsive_mobile {
+              min-width: 100%;
+            }
+            @include responsive_tablet {
+              min-width: 100%;
+            }
+            .nav {
+              .nav-link {
+                padding: spacing(2);
+                opacity: 0.5;
+                border-bottom: 1px solid $color-gray-1;
+                &.active {
+                  background: none;
+                  opacity: 1;
+                }
+                &:hover {
+                  opacity: 1;
+                }
+                .img__content {
+                  position: relative;
+                  img {
+                    width: 50px;
+                    height: 50px;
+                  }
+                  .img__text {
+                    position: absolute;
+                    left: 60px;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    .img__name {
+                      overflow: hidden;
+                      white-space: nowrap;
+                      text-overflow: ellipsis;
+                      text-transform: uppercase;
+                      color: $color-black-1;
+                      @include Text($fs-2 - 4, $fw-medium);
+                      @include responsive_mobile {
+                        @include Text($fs-1, $fw-medium);
+                      }
+                      @include responsive_tablet {
+                        @include Text($fs-1 + 2, $fw-medium);
+                      }
+                    }
+                    .img__discount {
+                      display: flex;
+                      .img__icon {
+                        @include Text($fs-1, $fw-bold);
+                        color: $color-black-1;
+                        padding-top: spacing(0.4);
+                      }
+                      .img__description {
+                        @include Text($fs-1 + 1, $fw-regular);
+                        color: $color-red-0;
+                        padding-left: spacing(0.4);
+                        @include responsive_mobile {
+                          @include Text($fs-1 - 2, $fw-medium);
+                        }
+                        @include responsive_tablet {
+                          @include Text($fs-1, $fw-medium);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .tab-content {
+            .nav__container {
+              overflow-x: scroll;
+              overflow-y: hidden;
+              &::-webkit-scrollbar {
+                height: 4px;
+                background-color: $color-gray-6;
+              }
+              &::-webkit-scrollbar-thumb {
+                background-color: $color-gray-2;
+                border-radius: 5px;
+              }
+              .nav {
+                justify-content: start;
+                .nav-item {
+                  margin-right: spacing(2);
+                  @include responsive_mobile {
+                    margin-right: spacing(0.9);
+                  }
+                  @include responsive_tablet {
+                    margin-right: spacing(0.9);
+                  }
+                  &.disable {
+                    pointer-events: none;
+                    opacity: 0.5;
+                  }
+                  .nav-link {
+                    @include Text($fs-0, $fw-regular);
+                    padding-top: spacing(2);
+                    color: $color-black-1;
+                    &.active {
+                      color: $color-blue;
+                    }
+                    &:hover {
+                      transform: none;
+                    }
+                    .days__item {
+                      .dayOfWeek {
+                        @include Text($fs-0, $fw-medium);
+                        @include responsive_mobile {
+                          @include Text($fs-0 - 3, $fw-medium);
+                        }
+                      }
+                      .day {
+                        text-align: center;
+                        margin: 0;
+                        @include Text($fs-2, $fw-regular);
+                        @include responsive_mobile {
+                          @include Text($fs-2 - 2, $fw-medium);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .tab-pane {
+              .theater__content {
+                .list__theater {
+                  .list__item {
+                    border-bottom: 1px solid $color-gray-1;
+                    list-style: none;
+                    padding: spacing(2) spacing(0.5);
+                    &:last-child {
+                      border-bottom: none;
+                    }
+                    .theater__link {
+                      text-decoration: none;
+                      .row {
+                        .theater__img {
+                          max-width: 12%;
+                          padding-right: 0;
+                          padding-left: spacing(2);
+                          img {
+                            width: 100%;
+                          }
+                        }
+                        .theater__title {
+                          .theater__name {
+                            @include Text($fs-0, $fw-medium);
+                            display: block;
+                            &.cgv-color {
+                              color: $color-red-0;
+                            }
+                            &.bhd-color {
+                              color: $color-green-1;
+                            }
+                            &.glx-color {
+                              color: $color-orange;
+                            }
+                            &.lotte-color {
+                              color: $color-red-1;
+                            }
+                            .theater__subname {
+                              color: $color-black-1;
+                            }
+                          }
+                          .theater__address {
+                            @include Text($fs-1, $fw-regular);
+                            color: $color-gray-2;
+                            .theater__map {
+                              color: $color-red-0;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .collapse {
+                      .collapse__content {
+                        .film__version {
+                          @include Text($fs-0 + 1, $fw-medium);
+                          margin: spacing(2) 0;
+                        }
+                        .film__timeshow {
+                          ul {
+                            .timeshow__item {
+                              display: inline;
+                              .timeshow__link {
+                                text-decoration: none;
+                                .time__begin {
+                                  background-color: $color-gray-5;
+                                  border: 1px solid $color-gray-6;
+                                  padding: spacing(1) spacing(1);
+                                  margin-right: spacing(1);
+                                  border-radius: 7px;
+                                  color: $color-green;
+                                  @include Text($fs-0 + 1, $fw-medium);
+                                  &:hover {
+                                    color: $color-blue;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      #pills-info {
+
+      }
+      #pills-comment {
+        padding: 0 spacing(13);
+        @include responsive_mobile {
+          padding: 0;
+        }
+        @include responsive_tablet {
+          padding: 0;
+        }
+        @include responsive_laptop--mini {
+          padding: 0 spacing(8);
+        }
+      }
+    }
+  }
+}

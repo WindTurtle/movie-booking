@@ -1,0 +1,111 @@
+@import "../connect";
+
+.backgroundBody {
+  background: url("https://i.ibb.co/Ybnw70Q/homeappbg.jpg");
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  .container-fluid {
+    padding: spacing(10) spacing(5);
+    max-width: 500px;
+    .loginForm {
+      animation-name: slidedown;
+      animation-duration: 2s;
+      position: relative;
+      background: linear-gradient(to bottom, $color-navy-0, $color-navy-1);
+      text-align: center;
+      padding: spacing(3);
+      .img__link {
+        text-decoration: none;
+        color: $color-white-0;
+        .img__logo {
+          margin-bottom: spacing(4);
+          padding-top: spacing(1);
+          img {
+            width: 90px;
+          }
+        }
+      }
+      .formMessage {
+        color: $color-white-0;
+        @include Text($fs-0, $fw-regular);
+        margin-bottom: spacing(1);
+      }
+      .formSocial {
+        .formLogin {
+          border-radius: 10px;
+          .form-group {
+            .input {
+              width: 100%;
+              padding: 14px;
+              border-radius: 4px;
+              border: 0;
+              color: #3e3e3e;
+              &::placeholder {
+                font-family: "Lato", sans-serif;
+              }
+            }
+            .btnLogin {
+              background-color: rgba(36, 41, 44, 0.9);
+              border: none;
+              width: 100%;
+              text-align: center;
+              padding: 14px;
+              border-radius: 4px;
+              color: white;
+              transition: 0.5s all;
+              &:hover {
+                background-color: $color-blue;
+              }
+            }
+          }
+        }
+      }
+      .close__btn {
+        position: absolute;
+        content: "";
+        top: -18px;
+        right: -18px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #081630;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        &::before {
+          position: absolute;
+          content: "";
+          display: block;
+          border-left: 2px solid #455570;
+          width: 2px;
+          height: 30px;
+          top: 2px;
+          left: 17.5px;
+          transform: rotate(-45deg);
+        }
+        &::after {
+          content: "";
+          display: block;
+          border-left: 2px solid #455570;
+          width: 2px;
+          height: 30px;
+          position: absolute;
+          top: 3px;
+          left: 17.5px;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+@keyframes slidedown {
+  from {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

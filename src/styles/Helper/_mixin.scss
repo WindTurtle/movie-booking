@@ -1,0 +1,34 @@
+@mixin Text($fs, $fw) {
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+$mobile: "only screen and (max-width: #{getBreakpoint("small")})";
+$tablet: "only screen and (min-width: #{getBreakpoint("small") + 1px}) and (max-width: #{getBreakpoint("medium") - 1px})";
+$screen__small: "only screen and (min-width: #{getBreakpoint("medium")}) and (max-width: #{getBreakpoint("large")})";
+$screen__medium: "only screen and (min-width: #{getBreakpoint("large") + 1px}) and (max-width: #{getBreakpoint("extra-large") - 1px})";
+
+
+@mixin responsive_mobile() {
+  @media #{$mobile} {
+    @content;
+  }
+}
+
+@mixin responsive_tablet() {
+  @media #{$tablet} {
+    @content;
+  }
+}
+
+@mixin responsive_laptop--mini() {
+  @media #{$screen__small} {
+    @content;
+  }
+}
+
+@mixin responsive_laptop--medium() {
+  @media #{$screen__medium} {
+    @content;
+  }
+}

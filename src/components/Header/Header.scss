@@ -1,0 +1,311 @@
+@import "../connect";
+header {
+  position: fixed;
+  z-index: 25;
+  width: 100%;
+  top: -1%;
+  box-shadow: 0 0 15px $color-black-dark-3;
+  transition: all 0.2s;
+  .bg-dark {
+    background-color: rgba(50, 50, 50, 0.9) !important;
+  }
+  &:hover {
+    background-color: rgb(22, 19, 19);
+  }
+  .navbar {
+    padding-bottom: 0;
+    .navbar-brand {
+      flex-grow: 4;
+      @include responsive_mobile {
+        flex-grow: 15;
+      }
+      @include responsive_tablet {
+        flex-grow: 15;
+      }
+      @include responsive_laptop--medium {
+        flex-grow: 15;
+      }
+      img {
+        width: 50px;
+        height: 45px;
+        // background-color: $color-white-0;
+        border-radius: 5px;
+        animation-name: spin;
+        animation-duration: 4000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+    .header__mobile {
+      display: none;
+      @include responsive_mobile {
+        display: block;
+        margin-right: spacing(3);
+      }
+      @include responsive_tablet {
+        display: block;
+        margin-right: spacing(3);
+      }
+      @include responsive_laptop--mini {
+        display: block;
+        margin-right: spacing(3);
+      }
+      .header__login {
+        display: flex;
+        justify-content: space-between;
+        .login__link {
+          text-decoration: none;
+          img {
+            width: 30px;
+            border-radius: 50%;
+            margin: spacing(0.3);
+          }
+          .login__text {
+            @include Text($fs-0 - 1, $fw-regular);
+            color: $color-gray-2;
+            margin-right: spacing(2);
+            a {
+              text-decoration: none;
+              color: $color-gray-2;
+            }
+            &::after {
+              content: "";
+              border-right: 0.5px dotted $color-black-0;
+              margin: spacing(1);
+              padding: spacing(0.5) spacing(0.1);
+              color: $color-gray-2;
+              cursor: context-menu;
+              @include responsive_mobile {
+                content: none;
+              }
+              @include responsive_tablet {
+                content: none;
+              }
+              @include responsive_laptop--mini {
+                content: none;
+              }
+            }
+          }
+        }
+        .logOut__btn {
+          margin-right: spacing(2);
+          border: 1px solid $color-blue;
+          padding: spacing(0.7);
+          border-radius: 20px;
+          cursor: pointer;
+          transition: 0.5s ease-in-out;
+          &:hover {
+            box-shadow: 2px 2px 4px 1px $color-gray-2;
+          }
+        }
+        #province__dropdown {
+          margin-left: spacing(2);
+          @include responsive_mobile {
+            margin-top: spacing(0.5);
+          }
+          @include responsive_tablet {
+            margin-top: spacing(0.5);
+          }
+          @include responsive_laptop--mini {
+            margin-top: spacing(0.5);
+          }
+          .dropdown-toggle {
+            text-decoration: none;
+            @include Text($fs-0 - 1, $fw-regular);
+            color: $color-gray-2;
+            &:after {
+              content: none;
+            }
+            .dropdown__icon {
+              margin-right: spacing(0.7);
+            }
+            .dropdown__text {
+              margin-right: spacing(2);
+            }
+          }
+          .dropdown-menu {
+            &.show {
+              top: 26px !important;
+              left: -10% !important;
+              overflow-y: scroll;
+              height: 200px;
+              border-radius: 5px;
+              &::-webkit-scrollbar {
+                width: 4px;
+                background-color: $color-gray-6;
+              }
+              &::-webkit-scrollbar-thumb {
+                background-color: $color-gray-2;
+                border-radius: 5px;
+              }
+            }
+            .dropdown-item {
+              transition: all 0.2s;
+              @include Text($fs-0 - 1, $fw-regular);
+              &:hover {
+                background-color: $color-blue;
+              }
+            }
+          }
+        }
+      }
+    }
+    .navbar-toggler {
+      outline: none;
+      border: none;
+      background-color: $color-blue;
+    }
+    .navbar-collapse {
+      flex-grow: 2;
+      @include responsive_mobile {
+        text-align: center;
+      }
+      @include responsive_tablet {
+        text-align: center;
+      }
+      @include responsive_laptop--mini {
+        text-align: center;
+      }
+      .navbar-nav {
+        .nav-item {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          margin-right: spacing(1);
+          padding-top: spacing(1);
+          transition: all 0.2s;
+          border-bottom: none;
+          &:hover i {
+            // color: $color-green;
+            color: $color-blue;
+          }
+          &:hover .nav-link {
+            // color: $color-green;
+            color: $color-blue;
+          }
+          i {
+            color: $color-gray-2;
+            text-align: center;
+          }
+          .nav-link {
+            text-decoration: none;
+            color: $color-gray-2;
+            @include Text($fs-0 - 1, $fw-regular);
+          }
+        }
+      }
+      .header__login {
+        @include responsive_mobile {
+          display: none;
+        }
+        @include responsive_tablet {
+          display: none;
+        }
+        @include responsive_laptop--mini {
+          display: none;
+        }
+        .login__link {
+          text-decoration: none;
+          img {
+            width: 30px;
+            border-radius: 50%;
+            margin: spacing(0.3);
+          }
+          .login__text {
+            @include Text($fs-0 - 1, $fw-regular);
+            color: $color-gray-2;
+            a {
+              text-decoration: none;
+              color: $color-gray-2;
+            }
+            &::after {
+              content: "";
+              border-right: 0.5px dotted $color-black-0;
+              margin: spacing(1);
+              padding: spacing(0.5) spacing(0.1);
+              color: $color-gray-2;
+              cursor: context-menu;
+              @include responsive_mobile {
+                content: none;
+              }
+              @include responsive_tablet {
+                content: none;
+              }
+              @include responsive_laptop--mini {
+                content: none;
+              }
+            }
+          }
+        }
+        .logOut__btn {
+          border: 1px solid $color-blue;
+          padding: spacing(0.7);
+          border-radius: 20px;
+          cursor: pointer;
+          transition: 0.5s ease-in-out;
+          &:hover {
+            box-shadow: 2px 2px 4px 1px $color-gray-2;
+          }
+        }
+        #province__dropdown {
+          @include responsive_mobile {
+            margin-top: spacing(0.5);
+          }
+          @include responsive_tablet {
+            margin-top: spacing(0.5);
+          }
+          @include responsive_laptop--mini {
+            margin-top: spacing(0.5);
+          }
+          .dropdown-toggle {
+            text-decoration: none;
+            @include Text($fs-0 - 1, $fw-regular);
+            color: $color-gray-2;
+            &:after {
+              content: none;
+            }
+            .dropdown__icon {
+              margin-right: spacing(0.7);
+            }
+            .dropdown__text {
+              margin-right: spacing(2);
+            }
+          }
+          .dropdown-menu {
+            &.show {
+              top: 26px !important;
+              left: -10% !important;
+              overflow-y: scroll;
+              height: 200px;
+              border-radius: 5px;
+              &::-webkit-scrollbar {
+                width: 4px;
+                background-color: $color-gray-6;
+              }
+              &::-webkit-scrollbar-thumb {
+                background-color: $color-gray-2;
+                border-radius: 5px;
+              }
+            }
+            .dropdown-item {
+              transition: all 0.2s;
+              @include Text($fs-0 - 1, $fw-regular);
+              &:hover {
+                background-color: $color-blue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

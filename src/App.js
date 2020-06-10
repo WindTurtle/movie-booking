@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import { BrowserRouter, Switch } from "react-router-dom";
+import "./App.scss";
+import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import DetailMovie from "./pages/DetailMovie";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import BookingTicket from "./pages/BookingTicket";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Fragment>
+        <Switch>
+          <HomeTemplate exact path="/" Component={Home} />
+          <HomeTemplate exact path="/home" Component={Home} />
+          <HomeTemplate
+            exact
+            path="/moviedetail/:maphim"
+            Component={DetailMovie}
+          />
+          <HomeTemplate
+            exact
+            path="/booking/:maLichChieu"
+            Component={BookingTicket}
+          />
+          <HomeTemplate exact path="/login" Component={Login} />
+          <HomeTemplate exact path="/register" Component={Register} />
+          <HomeTemplate exact path="/profile" Component={Profile} />
+        </Switch>
+      </Fragment>
+    </BrowserRouter>
   );
 }
 

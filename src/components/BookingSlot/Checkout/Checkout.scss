@@ -1,0 +1,225 @@
+@import "../../connect";
+.checkOut__right {
+  box-shadow: -8px -13px 17px -2px $color-gray-3;
+  padding-right: 0;
+  @include responsive_mobile {
+    padding: 0 spacing(2);
+  }
+  @include responsive_tablet {
+    padding: 0 spacing(2);
+  }
+  .checkout__form {
+    overflow-y: scroll;
+    height: 450px;
+    @include responsive_mobile {
+      overflow-y: visible;
+      height: auto;
+    }
+    @include responsive_tablet {
+      overflow-y: visible;
+      height: auto;
+    }
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: $color-gray-6;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-gray-2;
+      border-radius: 5px;
+    }
+    .total__price {
+      text-align: center;
+      padding: spacing(2);
+      border-bottom: 1px dotted $color-gray-3;
+      .price {
+        color: $color-green-1;
+        @include Text($fs-4, $fw-regular);
+        letter-spacing: spacing(0.3);
+        @include responsive_laptop--mini {
+          @include Text($fs-3 + 5, $fw-regular);
+        }
+      }
+    }
+    .film__info {
+      padding: spacing(1.2) 0;
+      border-bottom: 1px dotted $color-gray-3;
+      .film__age--C {
+        padding: spacing(0.3) spacing(0.7);
+        background-color: $color-red-0;
+        border-radius: 5px;
+        color: $color-white-0;
+        margin-right: spacing(0.5);
+        @include Text($fs-1, $fw-regular);
+        @include responsive_laptop--mini {
+          @include Text($fs-1 - 2, $fw-bold);
+          padding: spacing(0.2) spacing(0.6);
+        }
+      }
+      .film__name {
+        @include Text($fs-0, $fw-medium);
+      }
+      .theater__name {
+        margin-top: spacing(0.5);
+        @include Text($fs-0, $fw-regular);
+        margin-bottom: 0;
+      }
+      .film__detail {
+        @include Text($fs-0 - 1, $fw-regular);
+        margin: 0;
+        @include responsive_laptop--mini {
+          @include Text($fs-1 + 1, $fw-regular);
+        }
+      }
+      .film__address {
+        @include Text($fs-0 - 1, $fw-regular);
+        font-style: italic;
+        margin: 0;
+        @include responsive_laptop--mini {
+          @include Text($fs-1 + 1, $fw-regular);
+        }
+      }
+    }
+    .count__slot {
+      padding: spacing(1.2) 0;
+      border-bottom: 1px dotted $color-gray-3;
+      .slot {
+        color: $color-red-0;
+        @include responsive_laptop--mini {
+          @include Text($fs-1 + 1, $fw-regular);
+        }
+      }
+      .price {
+        color: $color-green-1;
+        letter-spacing: spacing(0.1);
+      }
+    }
+    .container-form {
+      border-bottom: 1px dotted $color-gray-3;
+      position: relative;
+      &.active .label__name {
+        transform: translate(0, 4px) scale(0.75);
+        color: $color-blue;
+      }
+      input {
+        border: none;
+        font-size: 16px;
+        margin: 5px 0 5px;
+        outline: 0;
+        box-shadow: none;
+        &:valid {
+          padding-top: spacing(2.5);
+        }
+        &::placeholder {
+          @include Text($fs-1, $fw-regular);
+        }
+      }
+      .label__name {
+        color: $color-gray-2;
+        font-size: 16px;
+        position: absolute;
+        transform-origin: top left;
+        transform: translate(0, 16px) scale(1);
+        transition: all 0.1s ease-in-out;
+        @include responsive_laptop--mini {
+          @include Text($fs-1 + 1, $fw-regular);
+        }
+      }
+    }
+    .discountForm {
+      border-bottom: 1px dotted $color-gray-3;
+      margin-top: spacing(1);
+      position: relative;
+      #txtDiscountCode {
+        border: 0;
+        &:valid {
+          padding-top: spacing(3);
+        }
+        &::placeholder {
+          @include Text($fs-1, $fw-regular);
+          color: $color-black-0;
+        }
+        box-shadow: none;
+      }
+      .label__name {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        margin: 0;
+        color: $color-gray-2;
+        @include Text($fs-1 + 2, $fw-regular);
+        transition: all 0.4s;
+        @include responsive_laptop--mini {
+          @include Text($fs-1 + 1, $fw-regular);
+        }
+      }
+      #btnCheckCode {
+        padding: spacing(0.3) spacing(1.2);
+        @include Text($fs-1, $fw-regular);
+        background-color: $color-gray-2;
+        border-color: $color-gray-2;
+        color: $color-white-0;
+        @include responsive_laptop--mini {
+          @include Text($fs-1 - 2, $fw-regular);
+          // padding: spacing(0) spacing(2);
+        }
+      }
+    }
+    .payForm {
+      padding: spacing(1) 0;
+      .pay__link {
+        text-decoration: none;
+        .text {
+          color: $color-black-0;
+        }
+        .text__notification {
+          margin-top: spacing(1);
+          margin-bottom: 0;
+          color: $color-red-0;
+          @include Text($fs-1, $fw-regular);
+        }
+      }
+    }
+  }
+  .textNotification {
+    padding: spacing(1) spacing(1) spacing(7) spacing(0);
+    @include responsive_mobile {
+      width: 40%;
+      padding: spacing(0);
+    }
+    @include responsive_tablet {
+      width: 40%;
+      padding: spacing(0);
+    }
+    @include responsive_laptop--medium {
+      margin-bottom: spacing(5);
+    }
+    .text {
+      @include Text($fs-1 - 1, $fw-regular);
+      .link {
+        color: $color-orange;
+      }
+    }
+  }
+  .btnBook {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 15px;
+    height: 60px;
+    text-align: center;
+    background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
+    @include Text($fs-2 + 2, $fw-regular);
+    color: $color-gray-5;
+    cursor: pointer;
+    @include responsive_mobile {
+      width: 50%;
+      left: 50%;
+    }
+    @include responsive_tablet {
+      width: 50%;
+      left: 50%;
+    }
+  }
+}

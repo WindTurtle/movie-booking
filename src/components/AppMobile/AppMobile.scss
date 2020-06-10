@@ -1,0 +1,90 @@
+@import "../connect";
+
+.forMobile {
+  padding: spacing(5) spacing(15);
+  @include responsive_mobile {
+    padding: spacing(8) spacing(2);
+  }
+  @include responsive_tablet {
+    padding: spacing(8) spacing(2);
+  }
+  @include responsive_laptop--mini {
+    padding: spacing(8) spacing(2);
+  }
+  @include responsive_laptop--medium {
+    padding: spacing(8) spacing(2);
+  }
+  .container {
+    .forMobile__content {
+      .row {
+        .forMobile__left {
+          padding-top: spacing(3);
+          @include responsive_mobile {
+            text-align: center;
+          }
+          @include responsive_tablet {
+            text-align: center;
+          }
+          .text__app {
+            color: $color-white-0;
+            @include Text($fs-5, $fw-medium);
+            margin-bottom: spacing(3);
+          }
+          .text__description {
+            color: $color-white-0;
+            @include Text($fs-0 + 1, $fw-regular);
+            margin-bottom: spacing(3);
+          }
+          .btn__app {
+            color: $color-white-cream;
+            background-color: $color-blue;
+            border: 1px solid $color-blue;
+            border-radius: 5px;
+            @include Text($fs-2 - 2, $fw-regular);
+            padding: spacing(0.7) spacing(1.5);
+            margin-bottom: spacing(1);
+          }
+          .text__appversion {
+            color: $color-white-0;
+            @include Text($fs-0, $fw-regular);
+            .appforos__link {
+              text-decoration: underline;
+              color: $color-white-0;
+            }
+          }
+        }
+        .forMobile__right {
+          padding: 0 spacing(13);
+          @include responsive_laptop--mini {
+            padding: spacing(4) spacing(10);
+          }
+          @include responsive_laptop--medium {
+            padding: spacing(0) spacing(13);
+          }
+          .mobile__frame {
+            position: relative;
+            .mobileCarousel {
+              position: absolute;
+              width: 100%;
+              padding: spacing(0.5);
+              top: 0;
+              &.owl-loaded {
+                display: block;
+              }
+              .item {
+                img {
+                  border-radius: 22px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.background__homeapp {
+  background: url("https://i.ibb.co/Ybnw70Q/homeappbg.jpg");
+  background-size: contain;
+}

@@ -1,0 +1,334 @@
+@import "../connect";
+
+.schedule {
+  margin: 0 spacing(16);
+  margin-bottom: spacing(3);
+
+  @include responsive_mobile {
+    margin: 0 spacing(3);
+  }
+  @include responsive_tablet {
+    margin: 0 spacing(3);
+  }
+  @include responsive_laptop--mini {
+    margin: 0 spacing(3);
+  }
+  @include responsive_laptop--medium {
+    margin: 0 spacing(5);
+  }
+  .schedule__title {
+    color: $color-blue;
+  }
+  .schedule__content {
+    .container {
+      .schedule__row {
+        // overflow-y: scroll;
+        border: 1px solid $color-gray-2;
+        border-radius: 5px;
+        // &::-webkit-scrollbar {
+        //   width: 4px;
+        //   background-color: $color-gray-6;
+        // }
+        // &::-webkit-scrollbar-thumb {
+        //   background-color: $color-gray-2;
+        //   border-radius: 5px;
+        // }
+        .main__tab {
+          padding: 0;
+          max-width: 9%;
+          border-right: 0.5px solid $color-gray-6;
+          @include responsive_mobile {
+            min-width: 100%;
+            border-right: none;
+          }
+          @include responsive_tablet {
+            min-width: 100%;
+            border-right: none;
+          }
+          @include responsive_laptop--mini {
+            max-width: 12%;
+          }
+          .nav {
+            @include responsive_mobile {
+              flex-direction: row !important;
+            }
+            @include responsive_tablet {
+              flex-direction: row !important;
+            }
+            .nav-link {
+              padding: 1rem 1rem;
+              @include responsive_mobile {
+                padding: 1.2rem 1.2rem;
+              }
+              @include responsive_tablet {
+                padding: 1.2rem 1.2rem;
+              }
+              opacity: 0.5;
+              border-bottom: 1px solid #fff;
+              display: inline;
+              max-width: 100%;
+              transition: linear 0.2s;
+              &.active {
+                background: none;
+                opacity: 1;
+              }
+              &:hover {
+                opacity: 1;
+              }
+              img {
+                width: 50px;
+                height: 50px;
+              }
+            }
+          }
+        }
+        .main__tabContent {
+          max-width: 90.9%;
+          flex: 0 0 100%;
+          @include responsive_mobile {
+            max-width: 100%;
+            flex: 0 0 100%;
+          }
+          @include responsive_tablet {
+            max-width: 100%;
+            flex: 0 0 100%;
+          }
+          @include responsive_laptop--mini {
+            max-width: 87.9%;
+            flex: 0 0 100%;
+          }
+          .tab-content {
+            .tab-pane {
+              .secondary__row {
+                .secondary__tab {
+                  border-right: 1px solid $color-gray-6;
+                  padding: 0;
+                  max-height: 500px;
+                  overflow-y: scroll;
+                  &::-webkit-scrollbar {
+                    width: 4px;
+                    background-color: $color-gray-6;
+                  }
+                  &::-webkit-scrollbar-thumb {
+                    background-color: $color-gray-2;
+                    border-radius: 5px;
+                  }
+                  .nav {
+                    .nav-link {
+                      color: $color-white-0;
+                      display: flex;
+                      border-bottom: 1px solid $color-gray-2;
+                      padding: spacing(1.5);
+                      opacity: 0.5;
+                      transition: linear 0.3s;
+                      padding-bottom: spacing(0.2);
+                      &:last-child {
+                        border-bottom: none;
+                        &:hover {
+                          border-bottom: none;
+                        }
+                      }
+                      @include responsive_mobile {
+                        padding: spacing(0.3);
+                      }
+                      @include responsive_tablet {
+                        padding: spacing(0.3);
+                      }
+                      &.active {
+                        opacity: 1;
+                        border-bottom: 1px solid $color-blue;
+                      }
+                      &:hover {
+                        opacity: 1;
+                        border-bottom: 1px solid $color-blue;
+                      }
+                      &:hover .text__theater .name__theater {
+                        overflow: auto;
+                        -webkit-line-clamp: 2;
+                      }
+                      .img__theater {
+                        margin: spacing(0.6) spacing(0.9);
+                        img {
+                          width: 50px;
+                          height: 50px;
+                        }
+                      }
+                      &.active {
+                        background: none;
+                      }
+                      .text__theater {
+                        .name__theater {
+                          @include Text($fs-0, $fw-regular);
+                          color: $color-red-1;
+                          display: -webkit-box;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          -webkit-line-clamp: 1;
+                          -webkit-box-orient: vertical;
+                          &.theater--BHD {
+                            color: $color-green-1;
+                          }
+                          &.theater--GLX {
+                            color: $color-orange;
+                          }
+                          .name__aftertheater {
+                            color: $color-black-0;
+                          }
+                        }
+                        .address__theater {
+                          @include Text($fs-0 - 2, $fw-regular);
+                          color: $color-gray-2;
+                          display: -webkit-box;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          -webkit-line-clamp: 1;
+                          -webkit-box-orient: vertical;
+                          margin: 0;
+                          // white-space: nowrap;
+                        }
+                        .detail__theater {
+                          @include Text($fs-0 - 2, $fw-regular);
+                          color: $color-red-0;
+                        }
+                      }
+                    }
+                  }
+                }
+                .secondary__tabContent {
+                  padding: 0;
+                  .tab-content {
+                    max-height: 500px;
+                    overflow-y: scroll;
+                    &::-webkit-scrollbar {
+                      width: 4px;
+                      background-color: $color-gray-6;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                      background-color: $color-gray-2;
+                      border-radius: 5px;
+                    }
+                    .tab-pane {
+                      &:last-child {
+                        border-bottom: none;
+                      }
+                      .tab__list {
+                        ul {
+                          list-style: none;
+                          margin-bottom: 0;
+                          .film__item {
+                            padding: spacing(1.5);
+                            @include responsive_tablet {
+                              padding: spacing(0.5);
+                            }
+                            padding-bottom: spacing(1.4);
+                            border-bottom: 1px solid $color-gray-6;
+                            transition: linear 0.5s;
+                            &:hover {
+                              border-bottom: 1px solid $color-blue;
+                            }
+                            .film__link {
+                              text-decoration: none;
+                              .row {
+                                .film__img {
+                                  @include responsive_mobile {
+                                    max-width: 100%;
+                                  }
+                                  @include responsive_tablet {
+                                    max-width: 100%;
+                                  }
+                                  img {
+                                    width: 50px;
+                                    height: 50px;
+                                  }
+                                }
+                                .film__title {
+                                  padding-left: 0;
+                                  @include responsive_mobile {
+                                    padding-left: spacing(1.5);
+                                  }
+                                  @include responsive_tablet {
+                                    padding-left: spacing(1.5);
+                                  }
+                                  @include responsive_laptop--mini {
+                                    padding-left: spacing(1.5);
+                                  }
+                                  .age--P {
+                                    background-color: $color-green;
+                                    padding: spacing(0.2) spacing(1.2);
+                                    color: $color-white-cream;
+                                    border-radius: 5px;
+                                    margin-right: spacing(0.5);
+                                    @include Text($fs-0 - 2, $fw-medium);
+                                  }
+                                  .age--C {
+                                    background-color: $color-blue;
+                                    padding: spacing(0.2) spacing(0.5);
+                                    color: $color-white-cream;
+                                    border-radius: 5px;
+                                    margin-right: spacing(0.5);
+                                    @include Text($fs-0 - 2, $fw-medium);
+                                  }
+                                  .film__name {
+                                    @include Text($fs-0, $fw-medium);
+                                    color: $color-black-0;
+                                  }
+                                  .film__timming {
+                                    @include Text($fs-0 - 2, $fw-medium);
+                                    color: $color-gray-2;
+                                    margin: spacing(0.5);
+                                  }
+                                }
+                              }
+                            }
+                            .collapse {
+                              white-space: nowrap;
+                              .film__version {
+                                @include Text($fs-0 + 1, $fw-medium);
+                                margin-bottom: spacing(1.5);
+                              }
+                              .collapse__content {
+                                display: inline-flex;
+                                .film__timeshow {
+                                  margin-top: spacing(2);
+                                  ul {
+                                    .timeshow__item {
+                                      margin-bottom: spacing(2.5);
+                                      .timeshow__link {
+                                        text-decoration: none;
+                                        .time__begin {
+                                          background-color: $color-gray-5;
+                                          border: 1px solid $color-gray-6;
+                                          padding: spacing(1) spacing(1);
+                                          margin-right: spacing(1);
+                                          border-radius: 7px;
+                                          color: $color-green;
+                                          @include Text($fs-0 + 1, $fw-medium);
+                                          transition: all 0.3s;
+                                          &:hover {
+                                            color: $color-blue;
+                                          }
+                                          .time__end {
+                                            @include Text($fs-1, $fw-medium);
+                                            color: $color-gray-2;
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

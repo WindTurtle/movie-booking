@@ -1,0 +1,266 @@
+@import "../../connect";
+.movieInfo {
+  margin-top: spacing(6.5);
+  min-height: 300px;
+  background-color: rgb(10, 32, 41);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  .full__background {
+    width: 100%;
+    @include responsive_mobile {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    @include responsive_tablet {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      filter: blur(15px);
+      @include responsive_mobile {
+        filter: blur(5px);
+      }
+      @include responsive_tablet {
+        filter: blur(5px);
+      }
+    }
+    .overlay__gradient {
+      background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .play__mobile {
+      display: none;
+      @include responsive_mobile {
+        display: block;
+      }
+      @include responsive_tablet {
+        display: block;
+      }
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      line-height: 78px;
+      border-radius: 50%;
+      text-align: center;
+      top: 25%;
+      left: 45%;
+      border: 2px solid $color-white-0;
+      background-color: rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      transition: linear 0.2s;
+      .fa-play {
+        @include Text($fs-2 + 2, $fw-bold);
+        color: $color-white-0;
+      }
+    }
+    .rating__point {
+      display: none;
+      @include responsive_mobile {
+        display: block;
+      }
+      @include responsive_tablet {
+        display: block;
+      }
+      position: absolute;
+      background-color: $color-black-dark-4;
+      border-radius: 4px;
+      padding: 2px;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 60px;
+      text-align: center;
+      .film__point {
+        @include responsive_mobile {
+          margin: 0;
+          color: $color-white-cream;
+          @include Text($fs-2 - 2, $fw-regular);
+        }
+        @include responsive_tablet {
+          margin: 0;
+          color: $color-white-cream;
+          @include Text($fs-2 - 2, $fw-regular);
+        }
+      }
+      .rating__stars {
+        color: $color-blue;
+        @include responsive_mobile {
+          @include Text($fs-1 - 6, $fw-bold);
+          color: $color-blue;
+        }
+        @include responsive_tablet {
+          @include Text($fs-1 - 6, $fw-bold);
+          color: $color-blue;
+        }
+      }
+    }
+  }
+  .form__info {
+    position: absolute;
+    padding: (0) spacing(20);
+    @include responsive_mobile {
+      display: none;
+    }
+    @include responsive_tablet {
+      display: none;
+    }
+    @include responsive_laptop--mini {
+      padding: (0) spacing(2);
+    }
+    @include responsive_laptop--medium {
+      padding: (0) spacing(5);
+    }
+    .row {
+      .movie__poster {
+        .poster__img {
+          position: relative;
+          &:hover .play__btn {
+            opacity: 1;
+          }
+          .play__btn {
+            position: absolute;
+            opacity: 0;
+            width: 75px;
+            height: 75px;
+            line-height: 78px;
+            border-radius: 50%;
+            text-align: center;
+            top: 35%;
+            left: 35%;
+            border: 2px solid $color-white-0;
+            background-color: rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: linear 0.2s;
+            @include responsive_laptop--mini {
+              left: 42%;
+            }
+            @include responsive_laptop--medium {
+              left: 32%;
+            }
+            .fa-play {
+              @include Text($fs-2 + 2, $fw-bold);
+              color: $color-white-0;
+            }
+          }
+        }
+      }
+      .movie__info {
+        margin-left: spacing(1);
+        padding-right: 0;
+        padding-top: spacing(6.5);
+        @include responsive_laptop--mini {
+          margin-left: spacing(4);
+        }
+        .showtime {
+          color: $color-white-light;
+          margin-bottom: spacing(0.5);
+        }
+        .age--C {
+          color: $color-white-0;
+          padding: spacing(0.4) spacing(0.7);
+          margin-right: spacing(0.6);
+          margin-top: spacing(0.6);
+          background-color: $color-red-0;
+          border-radius: 4px;
+          @include Text($fs-0 + 2, $fw-regular);
+        }
+        .name {
+          color: $color-white-0;
+          @include Text($fs-3, $fw-regular);
+        }
+        .during {
+          margin-top: spacing(0.5);
+          color: $color-white-0;
+          @include Text($fs-0, $fw-regular);
+        }
+        .bookTicket-btn {
+          margin-top: spacing(1);
+          color: $color-white-0;
+          padding: spacing(0.5) spacing(2.5);
+          background-color: $color-blue;
+          border: 1px solid $color-blue;
+          border-radius: 4px;
+          outline: none;
+          transition: all 0.2s;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+      .movie__rating {
+        transform: translateY(20%);
+        padding: 0;
+        .rating__point {
+          position: relative;
+          width: 130px;
+          height: 130px;
+          border-radius: 50%;
+          border: 7px solid #333;
+          text-align: center;
+          line-height: 120px;
+          @include Text($fs-6 + 5, $fw-regular);
+          color: $color-white-0;
+          background-color: $color-black-dark-3;
+          margin-bottom: spacing(1);
+          .vongtronxanh {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 7px solid $color-green-1;
+            border-radius: 50%;
+            top: -7px;
+            left: -7px;
+            clip: rect(0, 1.7em, 3em, 0);
+            transform: rotate(200deg);
+          }
+        }
+        .rating__stars {
+          //   text-align: center;
+          color: $color-blue;
+          @include Text($fs-2, $fw-bold);
+          padding-left: spacing(1.5);
+        }
+        .rating__text {
+          // text-align: center;
+          color: $color-white-0;
+          @include Text($fs-0, $fw-regular);
+          padding: spacing(0.7);
+        }
+      }
+    }
+  }
+  .film__infoMobile {
+    display: none;
+    @include responsive_mobile {
+      display: block;
+    }
+    @include responsive_tablet {
+      display: block;
+      bottom: -1%;
+      left: 3%;
+    }
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    .days {
+      color: $color-gray-2;
+    }
+    .name {
+      color: $color-white-light;
+      @include Text($fs-2, $fw-medium);
+    }
+    .during {
+      color: $color-gray-2;
+    }
+  }
+}

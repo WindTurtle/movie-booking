@@ -1,0 +1,22 @@
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .close__btn {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        right: -20px;
+        top: -20px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        transition: 0.5s all;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

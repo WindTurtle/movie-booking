@@ -1,0 +1,32 @@
+@import "../../connect";
+.row__above {
+  margin-bottom: spacing(4);
+  .info__category {
+    .category__item {
+      margin-bottom: spacing(2);
+      .category__name {
+        color: $color-white-0;
+        float: left;
+        width: 35%;
+        @include Text($fs-1 + 1, $fw-bold);
+      }
+      .category__content {
+        color: $color-white-1;
+        float: left;
+        width: 40%;
+      }
+    }
+  }
+  .info__content {
+    @include Text($fs-1 + 1, $fw-regular);
+    .info__title {
+      color: $color-white-0;
+      margin-bottom: spacing(1);
+      @include Text($fs-1 + 1, $fw-bold);
+    }
+    .info__text {
+      color: $color-white-1;
+      text-align: justify;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@import "../connect";
+.profile {
+  margin-top: spacing(6.4);
+  .row {
+    justify-content: space-between;
+    .col-avt {
+      // background-color: $color-white-0;
+      box-shadow: 1px 1px 9px 1px $color-gray-2;
+      .img-avt {
+        background: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-european-business-movie-poster-board-vector-background-material-image_134683.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        height: 300px;
+        border-radius: 0 0 20px 20px;
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          border: 3px solid $color-white-0;
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          transform: translateX(-50%);
+          box-shadow: 1px 1px 9px 1px $color-black-0;
+        }
+        .btn-danger {
+          position: absolute;
+          right: 20px;
+          top: 80%;
+        }
+        .btn-success {
+          position: absolute;
+          left: 20px;
+          top: 10%;
+          @include Text($fs-3, $fw-bold);
+        }
+      }
+      .tableInfo {
+        padding: spacing(10) spacing(2);
+        .row {
+          .col-left {
+            box-shadow: 1px 1px 9px 1px $color-gray-6;
+            border-radius: 20px;
+            padding: spacing(3);
+            animation: slideToRight 1s linear;
+            @include responsive_mobile {
+              margin-bottom: spacing(1.5);
+            }
+            @include responsive_tablet {
+              margin-bottom: spacing(1.5);
+            }
+          }
+          .col-right {
+            box-shadow: 1px 1px 9px 1px $color-gray-6;
+            border-radius: 20px;
+            min-width: 65%;
+            padding: spacing(3);
+            animation: slideToLeft 1s linear;
+            .moviebookedCarousel {
+              .item {
+                .item__img {
+                  img {
+                    width: 200px;
+                    height: 230px;
+                    border-radius: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideToRight {
+  from {
+    transform: translateX(-250px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToLeft {
+  from {
+    transform: translateX(350px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
