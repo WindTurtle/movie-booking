@@ -1,5 +1,5 @@
 import axios from "axios";
-import { domain } from "../config/setting";
+import { domain, token } from "../config/setting";
 export class QuanLyNguoiDung {
   dangNhap = (userLogin) => {
     return axios({
@@ -13,6 +13,16 @@ export class QuanLyNguoiDung {
       url: `${domain}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
       method: "POST",
       data: userLogin,
+    });
+  };
+  datVe = (thongTinDatVe) => {
+    return axios({
+      url: `${domain}/quanlydatve/datve`,
+      method: "POST",
+      data: thongTinDatVe,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+      },
     });
   };
 }

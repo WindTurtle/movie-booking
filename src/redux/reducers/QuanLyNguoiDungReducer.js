@@ -17,6 +17,7 @@ export default (state = initialState, action) => {
     case DANG_XUAT: {
       localStorage.removeItem("userLogin");
       state.taiKhoan = "";
+      window.location.reload();
       return { ...state };
     }
     default:

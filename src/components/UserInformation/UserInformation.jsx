@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserInformation.scss";
 import OwlCarousel from "react-owl-carousel";
-
+import { Redirect } from "react-router-dom";
 export default function Information(props) {
   const responsive = {
     0: {
@@ -21,7 +21,9 @@ export default function Information(props) {
     },
   };
   const info = JSON.parse(localStorage.getItem("userLogin"));
-  
+  if (!localStorage.getItem("userLogin")) {
+    return <Redirect to="/home" />;
+  }
   return (
     <div className="profile container-fluid text-light">
       <div className="row">

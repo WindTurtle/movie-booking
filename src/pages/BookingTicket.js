@@ -27,7 +27,11 @@ export default function BookingTicket(props) {
             danhSachGheDangDat={danhSachGheDangDat}
             setDanhSachGheDangDat={setDanhSachGheDangDat}
           />
-          <Checkout param={props} thongTinPhongVe={thongTinPhongVe} />
+          <Checkout
+            param={props}
+            thongTinPhongVe={thongTinPhongVe}
+            danhSachGheDangDat={danhSachGheDangDat}
+          />
         </div>
       </div>
     </Fragment>

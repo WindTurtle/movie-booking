@@ -7,15 +7,20 @@ export default function ChooseSlot(props) {
       return <i className="fa fa-couch slot__item item--picked"></i>;
     } else {
       let cssGheDangDat = "";
+
       let index = danhSachGheDangDat?.findIndex(
         (gheDangDat) => gheDangDat.stt === ghe.stt
       );
       if (index !== -1) {
         cssGheDangDat = "item--picking";
       }
+      let cssGheVip = "";
+      if (ghe.loaiGhe === "Vip") {
+        cssGheVip = "item--vip";
+      }
       return (
         <i
-          className={`fa fa-couch slot__item ${cssGheDangDat}`}
+          className={`fa fa-couch slot__item ${cssGheVip} ${cssGheDangDat}`}
           onClick={() => {
             datGhe(ghe);
           }}
@@ -53,11 +58,8 @@ export default function ChooseSlot(props) {
         </div>
         <div className="bookSlot__content">
           <div className="theater__info d-flex justify-content-between">
-            <div className="theater__img d-flex">
-              <img
-                src="https://cdn2.iconfinder.com/data/icons/cinema-hall-and-movie-making/50/21-512.png"
-                alt="hinhanh"
-              />
+            <div className="theater__img d-flex bg-light">
+              <img src={thongTinPhongVe.thongTinPhim?.hinhAnh} alt="hinhanh" />
               <div className="theater__name">
                 <span className="name">
                   <span className="subname">
@@ -76,20 +78,30 @@ export default function ChooseSlot(props) {
           </div>
           <div className="chooseSlot">
             <div className="screen__img">
-              <img src="https://i.ibb.co/zWgWjtg/screen.png" alt />
+              <img src="https://i.ibb.co/zWgWjtg/screen.png" alt="screen" />
             </div>
             <div className="picking row">
               <div className="slot__picking col-12">
                 <div className="slot__row">{renderDanhSachGhe()}</div>
               </div>
             </div>
-            <div className="slot__detail">
-              <i className="fa fa-couch item--picking" />
-              <span className="slot__text">Ghế đang chọn</span>
-              <i className="fa fa-couch item--picked" />
-              <span className="slot__text">Ghế đã chọn</span>
-              <i className="fa fa-couch item--regular" />
-              <span className="slot__text">Ghế chưa chọn</span>
+            <div className="slot__detail row">
+              <div className="col-md-3 col-sm-6 col-xs-6">
+                <i className="fa fa-couch item--picking" />
+                <span className="slot__text">Ghế đang chọn</span>
+              </div>
+              <div className="col-md-3 col-sm-6 col-xs-6">
+                <i className="fa fa-couch item--picked" />
+                <span className="slot__text">Ghế đã chọn</span>
+              </div>
+              <div className="col-md-3 col-sm-6 col-xs-6">
+                <i className="fa fa-couch item--regular" />
+                <span className="slot__text">Ghế chưa chọn</span>
+              </div>
+              <div className="col-md-3 col-sm-6 col-xs-6">
+                <i className="fa fa-couch item--vip" />
+                <span className="slot__text">Ghế Vip</span>
+              </div>
             </div>
           </div>
         </div>

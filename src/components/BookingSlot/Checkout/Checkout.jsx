@@ -1,14 +1,74 @@
 import React from "react";
 import "./Checkout.scss";
+import swal from "sweetalert";
+import { userLogin } from "../../../config/setting";
+import { qlyNguoiDung } from "../../../services/QuanLyNguoiDungServices";
+import { Redirect } from "react-router-dom";
 export default function Checkout(props) {
-  let { thongTinPhongVe } = props;
-  console.log(thongTinPhongVe);
-  
+  let { thongTinPhongVe, danhSachGheDangDat, param } = props;
+  const renderThongTinGheDangDat = () => {
+    return danhSachGheDangDat.map((gheDangDat, index) => {
+      return (
+        <span key={index} className="mr-2">
+          Ghế: {gheDangDat.tenGhe},
+        </span>
+      );
+    });
+  };
+  const renderTongTien = () => {
+    return danhSachGheDangDat
+      .reduce((tongTien, gheDangDat, index) => {
+        return (tongTien += gheDangDat.giaVe);
+      }, 0)
+      .toLocaleString();
+  };
+
+  if (!localStorage.getItem(userLogin)) {
+    swal({
+      title: "Bạn chưa đăng nhập",
+      icon: "warning",
+      buttons: "Ok",
+    });
+    return <Redirect to="/login" />;
+  }
+
+  const datVe = () => {
+    let thongTinDatVe = {
+      maLichChieu: param.match.params.maLichChieu,
+      danhSachVe: danhSachGheDangDat,
+      taiKhoanNguoiDung: JSON.parse(localStorage.getItem("userLogin")).taiKhoan,
+    };
+    qlyNguoiDung
+      .datVe(thongTinDatVe)
+      .then((res) => {
+        console.log(res.data);
+        swal({
+          title: "Bạn chắc chứ?",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            swal("Thanh toán thành công! Chúc bạn xem phim vui vẻ", {
+              icon: "success",
+            });
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          } else {
+            swal("Chọn lại nào!");
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  };
   return (
     <div className="checkOut__right col-md-3 col-sm-12">
       <div className="checkout__form">
         <div className="total__price">
-          <span className="price">0đ</span>
+          <span className="price">₫{renderTongTien()}</span>
         </div>
         <div className="film__info">
           <span className="film__age--C">
@@ -17,20 +77,21 @@ export default function Checkout(props) {
           <span className="film__name">
             {thongTinPhongVe.thongTinPhim?.tenPhim}
           </span>
-          <p className="theater__name">
-            {thongTinPhongVe.thongTinPhim?.tenCumRap}
-          </p>
           <p className="film__detail">
             {thongTinPhongVe.thongTinPhim?.ngayChieu} -{" "}
             {thongTinPhongVe.thongTinPhim?.gioChieu}
+          </p>
+          <p className="theater__name">
+            {thongTinPhongVe.thongTinPhim?.tenCumRap}
           </p>
           <p className="film__address">
             {thongTinPhongVe.thongTinPhim?.diaChi}
           </p>
         </div>
-        <div className="count__slot d-flex justify-content-between">
-          <span className="slot">Ghế</span>
-          <span className="price">0đ</span>
+        <div className="count__slot">
+          <div>Ghế đã chọn: </div>
+          <div className="slot">{renderThongTinGheDangDat()}</div>
+          {/* <span className="price">0đ</span> */}
         </div>
         <div className="discountForm d-flex justify-content-between">
           <div className="discountForm__content">
@@ -64,7 +125,13 @@ export default function Checkout(props) {
           <span className="link">Email</span> đã nhập.{" "}
         </span>
       </div>
-      <div id="btnBook" className="btnBook">
+      <div
+        id="btnBook"
+        className="btnBook"
+        onClick={() => {
+          datVe();
+        }}
+      >
         Đặt Vé
       </div>
     </div>

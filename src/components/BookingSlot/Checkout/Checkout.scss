@@ -84,6 +84,17 @@
       border-bottom: 1px dotted $color-gray-3;
       .slot {
         color: $color-red-0;
+        overflow-y: scroll;
+        height: 70px;
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: $color-gray-6;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $color-blue;
+          border-radius: 5px;
+        }
+        // border: 1px solid $color-gray-1;
         @include responsive_laptop--mini {
           @include Text($fs-1 + 1, $fw-regular);
         }
@@ -159,6 +170,11 @@
         background-color: $color-gray-2;
         border-color: $color-gray-2;
         color: $color-white-0;
+        transition: linear 0.3s;
+        &:hover {
+          background-color: $color-blue;
+          border: 1px solid $color-blue;
+        }
         @include responsive_laptop--mini {
           @include Text($fs-1 - 2, $fw-regular);
           // padding: spacing(0) spacing(2);

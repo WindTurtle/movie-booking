@@ -79,7 +79,7 @@ export default function TheaterCluster(props) {
         >
           <div className="img__theater">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_owxVcwq6IosYGPxqj-9QAZU-Xk9OEEKtt9jPqEm3dQ52i2xG&usqp=CAU"
+              src="https://cdn2.iconfinder.com/data/icons/cinema-hall-and-movie-making/50/21-512.png"
               alt="sdsd"
             />
           </div>
