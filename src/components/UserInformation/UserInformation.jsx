@@ -30,6 +30,7 @@ export default function Information(props) {
         <div className="col-12 col-avt">
           <div className="img-avt p-5 text-center">
             <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="hinhanh" />
+            <button className="btn btn-success">Chỉnh sửa thông tin</button>
           </div>
           <div className="tableInfo">
             <div className="row">
