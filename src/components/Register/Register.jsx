@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import "../Register/Register.scss";
+import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
+import { groupID } from "../../config/setting";
+import swal from "sweetalert";
 export default class Register extends Component {
   state = {
     values: {
@@ -8,17 +11,18 @@ export default class Register extends Component {
       taiKhoan: "",
       matKhau: "",
       email: "",
-      soDienThoai: "",
+      soDT: "",
+      maLoaiNguoiDung: "KhachHang",
+      maNhom: groupID,
     },
     errors: {
       hoTen: "",
       taiKhoan: "",
       matKhau: "",
       email: "",
-      soDienThoai: "",
+      soDT: "",
     },
   };
-
   handleChangeInput = (event) => {
     var { value, name } = event.target;
     //tạo ra object this.state.values mới
@@ -66,6 +70,25 @@ export default class Register extends Component {
       return;
     }
     // gọi api hoạc dispatch redux
+    let { thongTin } = this.props;
+    qlyNguoiDung
+      .dangKy(values)
+      .then((res) => {
+        swal({
+          title: "Đăng ký thành công",
+          icon: "success",
+          button: "OK",
+        });
+        thongTin.history.push("/login");
+      })
+      .catch((err) => {
+        swal({
+          title: err.response.data,
+          text: "Điền lại thông tin!",
+          icon: "warning",
+          button: "OK",
+        });
+      });
   };
 
   render() {
@@ -75,11 +98,15 @@ export default class Register extends Component {
           <div className="registerForm">
             <div className="img__logo">
               <NavLink className="img__link" to="/">
-                <img src="https://i.ibb.co/DW6CgB6/logo3.png" />
+                <img
+                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
+                  alt="logo"
+                />
+                <span className="text-logo">AP Movie</span>
               </NavLink>
             </div>
             <div className="formSocial">
-              <form className="formRegister" onSubmit={this.handleSubmit}>
+              <form className="formRegister">
                 <div className="form-group">
                   <input
                     className="input"
@@ -135,7 +162,11 @@ export default class Register extends Component {
                   </span>
                 </div>
                 <div className="form-group">
-                  <button className="btnLogin" type="submit">
+                  <button
+                    className="btnLogin"
+                    type="submit"
+                    onClick={this.handleSubmit}
+                  >
                     Đăng ký
                   </button>
                 </div>

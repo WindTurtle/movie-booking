@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { userLogin, token } from "../../config/setting";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
+import swal from "sweetalert";
 const Login = (props) => {
   let { thongTin } = props;
   const dispatch = useDispatch();
@@ -36,10 +37,21 @@ const Login = (props) => {
         localStorage.setItem(userLogin, JSON.stringify(res.data));
         localStorage.setItem(token, res.data.accessToken);
         dispatch(dangNhapAction(res.data.taiKhoan));
+        swal({
+          title: "Đăng nhập thành công",
+          text: "Xin chào " + res.data.taiKhoan,
+          icon: "success",
+          button: "OK",
+        });
         thongTin.history.push("/home");
       })
       .catch((err) => {
         console.log(err.response.data);
+        swal({
+          title: err.response.data,
+          icon: "error",
+          button: "OK",
+        });
       });
   };
   return (
@@ -49,7 +61,11 @@ const Login = (props) => {
           <div className="loginForm">
             <NavLink className="img__link" to="/">
               <div className="img__logo">
-                <img src="https://i.ibb.co/DW6CgB6/logo3.png" />
+                <img
+                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
+                  atl="logo"
+                />
+                <span className="text-logo">AP Movie</span>
               </div>
             </NavLink>
             <div className="formMessage">

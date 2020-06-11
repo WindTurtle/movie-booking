@@ -8,9 +8,16 @@ export class QuanLyNguoiDung {
       data: userLogin,
     });
   };
+  dangKy = (thongTin) => {
+    return axios({
+      url: `${domain}/QuanLyNguoiDung/DangKy`,
+      method: "POST",
+      data: thongTin,
+    });
+  };
   layThongTinTaiKhoan = (userLogin) => {
     return axios({
-      url: `${domain}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
+      url: `${domain}/QuanLyNguoiDung/ThongTinTaiKhoan`,
       method: "POST",
       data: userLogin,
     });

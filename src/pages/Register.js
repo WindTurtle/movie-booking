@@ -1,9 +1,9 @@
 import React from "react";
 import RegisterForm from "../components/Register/Register";
-const Register = () => {
+const Register = (props) => {
   return (
     <div>
-      <RegisterForm />
+      <RegisterForm thongTin={props} />
     </div>
   );
 };

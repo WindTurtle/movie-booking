@@ -24,6 +24,11 @@
           img {
             width: 90px;
           }
+          .text-logo {
+            color: $color-blue;
+            font-family: "Metal Mania", cursive;
+            @include Text($fs-3 + 5, $fw-regular);
+          }
         }
       }
       .formMessage {
