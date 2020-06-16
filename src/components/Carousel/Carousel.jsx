@@ -21,6 +21,7 @@ export default class Carousel extends Component {
                 <img
                   className="img-fluid"
                   src="https://s3img.vcdn.vn/123phim/2020/05/tunnel-15906774078880.png"
+                  atl="img1"
                 />
                 <div
                   className="background__overlay"
@@ -36,6 +37,7 @@ export default class Carousel extends Component {
                 <img
                   className="img-fluid"
                   src="https://s3img.vcdn.vn/123phim/2020/05/boogey-15906772704394.png"
+                  atl="img2"
                 />
                 <div
                   className="background__overlay"
@@ -51,6 +53,7 @@ export default class Carousel extends Component {
                 <img
                   className="img-fluid"
                   src="https://s3img.vcdn.vn/123phim/2020/05/nang-3-15894691284433.png"
+                  atl="img3"
                 />
                 <div
                   className="background__overlay"
@@ -67,6 +70,7 @@ export default class Carousel extends Component {
                   className="img-fluid"
                   atl="11"
                   src="https://s3img.vcdn.vn/123phim/2020/05/vi-anh-deo-tin-15906776637571.png"
+                  atl="img4"
                 />
                 <div
                   className="background__overlay"
@@ -83,6 +87,7 @@ export default class Carousel extends Component {
                   className="img-fluid"
                   atl="11"
                   src="https://s3img.vcdn.vn/123phim/2020/05/duong-ham-sinh-tu-15899693071981.png"
+                  atl="img5"
                 />
                 <div
                   className="background__overlay"

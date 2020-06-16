@@ -182,12 +182,16 @@ footer {
           }
           img {
             width: 80px;
-            height: 60px;
+            height: 65px;
             border-radius: 7px;
             @include responsive_laptop--mini {
               width: 75px;
-              height: 40px;
+              height: 65px;
             }
+          }
+          .text-logo {
+            color: $color-blue;
+            font-family: "Metal Mania", cursive;
           }
         }
         .below__middle {

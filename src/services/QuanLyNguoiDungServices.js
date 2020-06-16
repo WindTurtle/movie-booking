@@ -1,5 +1,5 @@
 import axios from "axios";
-import { domain, token } from "../config/setting";
+import { domain, token, groupID } from "../config/setting";
 export class QuanLyNguoiDung {
   dangNhap = (userLogin) => {
     return axios({
@@ -15,11 +15,11 @@ export class QuanLyNguoiDung {
       data: thongTin,
     });
   };
-  layThongTinTaiKhoan = (userLogin) => {
+  layThongTinTaiKhoan = (taiKhoan) => {
     return axios({
       url: `${domain}/QuanLyNguoiDung/ThongTinTaiKhoan`,
       method: "POST",
-      data: userLogin,
+      data: taiKhoan,
     });
   };
   datVe = (thongTinDatVe) => {

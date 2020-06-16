@@ -3,7 +3,6 @@ import "./ShowTimeHome.scss";
 import TheaterSystem from "./TheaterSystem/TheaterSystem";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
 import TheaterCluster from "./TheaterCluster/TheaterCluster";
-import ShowTime from "./ShowTimes/ShowTime";
 export default function ShowTimeHome(props) {
   let [rap, setRap] = useState([]);
   useEffect(() => {

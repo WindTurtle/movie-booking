@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../MovieInfo/MovieInfo.scss";
 import ModalTrailer from "../../ModalTrailer/ModalTrailer";
 
@@ -8,12 +8,12 @@ export default function MovieInfo(props) {
   const renderStar = (rating) => {
     if (rating > 5) rating = 5;
     var content = [];
-    for (var i = 0; i < rating; i++) {
+    for (let i = 0; i < rating; i++) {
       var star = [];
       star.push(<i class="fa fa-star"></i>);
       content.push(star);
     }
-    for (var i = 0; i < 5 - rating; i++) {
+    for (let i = 0; i < 5 - rating; i++) {
       var star = [];
       star.push(<i class="fa fa-star"></i>);
       content.push(star);

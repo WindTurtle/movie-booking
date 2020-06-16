@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./ChooseSlot.scss";
+import swal from "sweetalert";
 export default function ChooseSlot(props) {
   let { thongTinPhongVe, danhSachGheDangDat, setDanhSachGheDangDat } = props;
   const renderGhe = (daDat, ghe) => {
@@ -45,6 +46,18 @@ export default function ChooseSlot(props) {
       return <Fragment key={index}>{renderGhe(ghe.daDat, ghe)}</Fragment>;
     });
   };
+  const [counter, setCounter] = useState(60 * 5);
+  useEffect(() => {
+    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+    if (counter === 0) {
+      swal("Bạn đã chọn vé quá lâu! Ahihi", {
+        icon: "error",
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+  }, [counter]);
   return (
     <div className="checkOut__left col-md-9 col-sm-12 p-0">
       <div className="bookSlot">
@@ -73,7 +86,7 @@ export default function ChooseSlot(props) {
             </div>
             <div className="timeKeepSlot">
               <p className="text">thời gian giữ ghế</p>
-              <span className="time">5:00</span>
+              <span className="time">{counter + "s"}</span>
             </div>
           </div>
           <div className="chooseSlot">

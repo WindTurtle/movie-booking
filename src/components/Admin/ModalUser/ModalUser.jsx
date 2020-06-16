@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import "../Register/Register.scss";
-import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
-import { groupID } from "../../config/setting";
+import "./ModalUser.scss";
+import { groupID } from "../../../config/setting";
+import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
-export default class Register extends Component {
+export default class ModalUser extends Component {
   state = {
     values: {
       hoTen: "",
@@ -12,7 +11,7 @@ export default class Register extends Component {
       matKhau: "",
       email: "",
       soDT: "",
-      maLoaiNguoiDung: "KhachHang",
+      maLoaiNguoiDung: "",
       maNhom: groupID,
     },
     errors: {
@@ -21,6 +20,7 @@ export default class Register extends Component {
       matKhau: "",
       email: "",
       soDT: "",
+      maLoaiNguoiDung: "",
     },
   };
   handleChangeInput = (event) => {
@@ -30,9 +30,6 @@ export default class Register extends Component {
       ...this.state.values,
       [name]: value,
     };
-
-    //set trường hợp rỗng
-    //tạo ra object this.state.errors mới
     let newErrors = {
       ...this.state.errors,
       [name]: value === "" ? "không được bỏ trống!" : "",
@@ -49,7 +46,6 @@ export default class Register extends Component {
     //setState lại values và errors
     this.setState({ values: newValues, errors: newErrors });
   };
-
   handleSubmit = (event) => {
     event.preventDefault();
     let valid = true;
@@ -70,16 +66,17 @@ export default class Register extends Component {
       return;
     }
     // gọi api hoạc dispatch redux
-    let { thongTin } = this.props;
-    qlyNguoiDung
-      .dangKy(values)
+    qLyAdminService
+      .themNguoiDung(values)
       .then((res) => {
         swal({
-          title: "Đăng ký thành công",
+          title: "Thêm thành công",
           icon: "success",
           button: "OK",
         });
-        thongTin.history.push("/login");
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       })
       .catch((err) => {
         swal({
@@ -93,94 +90,105 @@ export default class Register extends Component {
 
   render() {
     return (
-      <section className="backgroundBody">
-        <div className="container-fluid">
-          <div className="registerForm">
-            <div className="img__logo">
-              <NavLink className="img__link" to="/">
-                <img
-                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
-                  alt="logo"
-                />
-                <span className="text-logo">AP Movie</span>
-              </NavLink>
+      <div
+        className="modal fade"
+        id="UserModal"
+        tabIndex={-1}
+        role="dialog"
+        aria-labelledby="UserModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="UserModalTitle">
+                Thêm người dùng
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
             </div>
-            <div className="formSocial">
-              <form className="formRegister">
-                <div className="form-group">
+            <div className="modal-body">
+              <form onSubmit={this.handleSubmit} className="user-form">
+                <div className="textb">
                   <input
-                    className="input"
+                    type="text"
                     name="taiKhoan"
-                    placeholder="Tên tài khoản"
                     onChange={this.handleChangeInput}
+                    required
                   />
+                  <div className="placeholder">Tài khoản</div>
                   <span className="text-danger">
                     {this.state.errors.taiKhoan}
                   </span>
                 </div>
-                <div className="form-group">
+                <div className="textb">
                   <input
-                    className="input"
-                    name="matKhau"
                     type="password"
-                    placeholder="Mật khẩu"
+                    name="matKhau"
                     onChange={this.handleChangeInput}
+                    required
                   />
+                  <div className="placeholder">Mật khẩu</div>
                   <span className="text-danger">
                     {this.state.errors.matKhau}
                   </span>
                 </div>
-                <div className="form-group">
+                <div className="textb">
                   <input
-                    className="input"
-                    name="hoTen"
                     type="text"
-                    placeholder="Họ tên"
+                    name="hoTen"
                     onChange={this.handleChangeInput}
+                    required
                   />
+                  <div className="placeholder">Họ tên</div>
                   <span className="text-danger">{this.state.errors.hoTen}</span>
                 </div>
-                <div className="form-group">
+                <div className="textb">
                   <input
-                    className="input"
+                    type="text"
                     name="email"
-                    placeholder="Email"
                     onChange={this.handleChangeInput}
+                    required
                   />
+                  <div className="placeholder">Email</div>
                   <span className="text-danger">{this.state.errors.email}</span>
                 </div>
-                <div className="form-group">
+                <div className="textb">
                   <input
-                    className="input"
-                    name="soDT"
                     type="text"
-                    placeholder="Số điện thoại"
+                    name="soDT"
                     onChange={this.handleChangeInput}
+                    required
                   />
+                  <div className="placeholder">Số điện thoại</div>
+                  <span className="text-danger">{this.state.errors.soDT}</span>
+                </div>
+                <div className="textb">
+                  <select
+                    name="maLoaiNguoiDung"
+                    onChange={this.handleChangeInput}
+                    id="loaiNguoiDung"
+                  >
+                    <option value="#">--Chọn loại người dùng--</option>
+                    <option value="KhachHang">Khách Hàng</option>
+                    <option value="QuanTri">Quản Trị</option>
+                  </select>
                   <span className="text-danger">
-                    {this.state.errors.soDienThoai}
+                    {this.state.errors.maLoaiNguoiDung}
                   </span>
                 </div>
-                <div className="form-group">
-                  <button
-                    className="btnLogin"
-                    type="submit"
-                    onClick={this.handleSubmit}
-                  >
-                    Đăng ký
-                  </button>
-                </div>
-                <div className="form-group">
-                  <NavLink className="text-light" to="/login">
-                    Bạn đã có tài khoản?
-                  </NavLink>
-                </div>
+                <button className="btn fas fa-arrow-right" />
               </form>
             </div>
-            <NavLink className="close__btn" to="/"></NavLink>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }

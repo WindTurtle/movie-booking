@@ -1,0 +1,46 @@
+@import "../../connect";
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: spacing(1);
+  .btnAdd {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: $color-blue;
+    outline: none;
+    transition: all 0.3s ease;
+    position: fixed;
+    left: 10px;
+    background-color: rgba(50, 50, 50, 0.9);
+    bottom: 10px;
+    border: 2px solid rgba(50, 50, 50, 0.9);
+    z-index: 105;
+    &:hover {
+      border: 2px solid $color-blue;
+      background: $color-blue;
+      color: whitesmoke;
+      box-shadow: 0 5px 12px 0 rgba($color: $color-blue, $alpha: 0.5);
+    }
+  }
+}
+.table-responsive-sm {
+  .table-hover {
+    tbody {
+      tr {
+        td {
+          .edit-action {
+            color: $color-blue;
+            cursor: pointer;
+            
+          }
+          .delete-action {
+            color: $color-red-0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,12 @@ import DetailMovie from "./pages/DetailMovie";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import BookingTicket from "./pages/BookingTicket";
+import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
+import Dashboard from "./pages/Dashboard";
+import UserManagement from "./pages/UserManagement";
+import MovieManagement from "./pages/MovieManagement";
+import { LoginAdminTemplate } from "./templates/LoginAdminTemplate/LoginAdminTemplate";
+import LoginAdmin from "./pages/LoginAdmin";
 
 function App() {
   return (
@@ -29,6 +35,18 @@ function App() {
           <HomeTemplate exact path="/login" Component={Login} />
           <HomeTemplate exact path="/register" Component={Register} />
           <HomeTemplate exact path="/profile" Component={Profile} />
+          <AdminTemplate exact path="/dashboard" Component={Dashboard} />
+          <AdminTemplate
+            exact
+            path="/usermanagement"
+            Component={UserManagement}
+          />
+          <AdminTemplate
+            exact
+            path="/moviemanagement"
+            Component={MovieManagement}
+          />
+          <LoginAdminTemplate exact path="/loginadmin" Component={LoginAdmin} />
         </Switch>
       </Fragment>
     </BrowserRouter>

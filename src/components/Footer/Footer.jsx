@@ -251,15 +251,16 @@ export default class Footer extends Component {
           <hr className="gachchan" />
           <div className="footer__below">
             <div className="below__row row">
-              <div className="below__left col-md-1 col-xs-12 col-sm-12">
+              <div className="below__left col-md-3 col-xs-12 col-sm-12">
                 <img
-                  src="https://static2.lolwallpapers.net/2015/09/Freljord-Avarosan.jpg"
+                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
                   alt="hello"
                 />
+                <span className="text-logo">AP Movie</span>
               </div>
-              <div className="below__middle col-md-9 col-sm-12 col-xs-12">
+              <div className="below__middle col-md-7 col-sm-12 col-xs-12">
                 <div className="middle__title">
-                  AP Movie – SẢN PHẨM CỦA ANH PHONG
+                  AP Movie – DỰ ÁN ĐẶT VÉ XEM PHIM
                 </div>
                 <span>
                   <span>Số Điện Thoại (Hotline): 1900 000 222</span>
