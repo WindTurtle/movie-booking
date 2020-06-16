@@ -36,7 +36,7 @@ export default function InfoTicketBooked(props) {
             aria-controls="collapseOne"
           >
             <h4 className="text-dark" style={{ textDecoration: "none" }}>
-              Xem thông tin
+              Lịch sử đặt vé
             </h4>
           </button>
         </h2>

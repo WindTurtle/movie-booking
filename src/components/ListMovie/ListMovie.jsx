@@ -180,7 +180,7 @@ export default function ListMovie(props) {
                   </div>
                   <div className="carousel-item">
                     <div className="row__content row__above row">
-                      {renderDanhSachPhim(15, 19)}
+                      {renderDanhSachPhim(24, 28)}
                     </div>
                   </div>
                 </div>

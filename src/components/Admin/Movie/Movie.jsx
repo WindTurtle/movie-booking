@@ -8,7 +8,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-
+import "./Movie.scss";
+import AddMovieModal from "../AddMovieModal/AddMovieModal";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: '#e1f5fe',
+    backgroundColor: "#e1f5fe",
     color: theme.palette.common.black,
   },
   body: {
@@ -40,7 +41,7 @@ export default function Movie(props) {
             <TableCell>{phim.tenPhim}</TableCell>
             <TableCell>{phim.biDanh}</TableCell>
             <TableCell>
-              <img style={{ width: 50, height: 50 }} src={phim.hinhAnh}></img>
+              <img style={{ width: 120, height: 170 }} src={phim.hinhAnh}></img>
             </TableCell>
             <TableCell>{phim.trailer}</TableCell>
             <TableCell>{phim.moTa}</TableCell>
@@ -80,6 +81,14 @@ export default function Movie(props) {
   let { danhSachPhim } = props;
   return (
     <Paper className={classes.root}>
+      <button
+        className="btnAdd"
+        data-toggle="modal"
+        data-target="#addMovieModal"
+      >
+        <i className="fa fa-plus"></i>
+      </button>
+      <AddMovieModal />
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>

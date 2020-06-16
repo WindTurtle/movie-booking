@@ -27,5 +27,15 @@ export class QuanLyAdmin {
       },
     });
   };
+  themPhim = (phim) => {
+    return axios({
+      url: `${domain}/QuanLyPhim/ThemPhim`,
+      method: "POST",
+      data: phim,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+      },
+    });
+  };
 }
 export const qLyAdminService = new QuanLyAdmin();

@@ -63,11 +63,8 @@ export default function Information(props) {
                       <th scope="row">Loại người dùng</th>
                       <td>{info.maLoaiNguoiDung}</td>
                     </tr>
-                    <tr>
-                      <th scope="row">{renderAdmin()}</th>
-                      <td></td>
-                    </tr>
                   </tbody>
+                  {renderAdmin()}
                 </table>
               </div>
               <div className="col-md-7 col-sm-12 col-right bg-light">
