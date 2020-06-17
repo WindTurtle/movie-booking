@@ -27,11 +27,36 @@ export class QuanLyAdmin {
       },
     });
   };
-  themPhim = (phim) => {
+  xoaNguoiDung = (taiKhoan) => {
     return axios({
-      url: `${domain}/QuanLyPhim/ThemPhim`,
+      url: `${domain}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+      },
+    });
+  };
+  themPhim = (form_data) => {
+    return axios({
+      url: `${domain}/QuanLyPhim/ThemPhimUploadHinh`,
+      method: "POST",
+      data: form_data,
+    });
+  };
+  suaPhim = (phim) => {
+    return axios({
+      url: `${domain}/QuanLyPhim/CapNhatPhim`,
       method: "POST",
       data: phim,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+      },
+    });
+  };
+  xoaPhim = (maPhim) => {
+    return axios({
+      url: `${domain}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+      method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
       },

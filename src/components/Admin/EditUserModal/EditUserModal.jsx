@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./EditModal.scss";
+import "./EditUserModal.scss";
 import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
 
-export default class EditModal extends Component {
+export default class EditUserModal extends Component {
   state = {
     values: {
       hoTen: "",
@@ -25,11 +25,9 @@ export default class EditModal extends Component {
     },
   };
 
-  
   handleChangeInput = (event) => {
     var { value, name } = event.target;
-    
-    
+
     //tạo ra object this.state.values mới
     let newValues = {
       ...this.state.values,

@@ -10,6 +10,9 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import "./Movie.scss";
 import AddMovieModal from "../AddMovieModal/AddMovieModal";
+import EditMovieModal from "../EditMovieModal/EditMovieModal";
+import { qLyAdminService } from "../../../services/QuanLyAdminService";
+import swal from "sweetalert";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -29,6 +32,25 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
+const xoaPhim = (maPhim) => {
+  qLyAdminService
+    .xoaPhim(maPhim)
+    .then((res) => {
+      swal({
+        title: "Xóa phim thành công",
+        icon: "success",
+        button: "OK",
+      });
+    })
+    .catch((err) => {
+      swal({
+        title: err.response.data,
+        text: "Xóa không thành công",
+        icon: "warning",
+        button: "OK",
+      });
+    });
+};
 export default function Movie(props) {
   const renderDanhSachPhim = () => {
     let { danhSachPhim } = props;
@@ -50,15 +72,21 @@ export default function Movie(props) {
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div className="edit-action">
+                  <EditMovieModal />
                   <i
                     style={{ cursor: "pointer", color: "#60c5ef" }}
                     class="fa fa-edit"
+                    data-toggle="modal"
+                    data-target="#editMovieModal"
                   ></i>
                 </div>
                 <div className="delete-action">
                   <i
                     style={{ cursor: "pointer", color: "#fb4226" }}
                     class="fa fa-trash-alt"
+                    onClick={() => {
+                      xoaPhim(phim.maPhim);
+                    }}
                   ></i>
                 </div>
               </div>

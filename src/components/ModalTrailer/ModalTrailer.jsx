@@ -18,7 +18,7 @@ export default function ModalTrailer(props) {
             height="500px"
             src={xemChiTiet.trailer}
             frameBorder={0}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
           <div className="close__btn" data-dismiss="modal">

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import "./AddMovieModal.scss";
+import "./EditMovieModal.scss";
+import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
-export default class AddMovieModal extends Component {
+export default class EditMovieModal extends Component {
   state = {
     values: {
-      hinhAnh: {},
+      hinhAnh: "",
       maPhim: "",
       tenPhim: "",
       biDanh: "",
@@ -13,7 +14,7 @@ export default class AddMovieModal extends Component {
       moTa: "",
       ngayKhoiChieu: "",
       danhGia: "",
-      maNhom: "",
+      maNhom: groupID,
     },
     errors: {
       maPhim: "",
@@ -55,9 +56,6 @@ export default class AddMovieModal extends Component {
         newErrors.danhGia = "Chỉ được nhập số từ 1 tới 10";
       }
     }
-    if (name === "hinhAnh") {
-      newValues = { hinhAnh: event.target.files[0] };
-    }
     this.setState({ values: newValues, errors: newErrors });
     console.log(this.state);
   };
@@ -82,16 +80,12 @@ export default class AddMovieModal extends Component {
       return;
     }
     // gọi api hoạc dispatch redux
-    var form_data = new FormData();
-    for (var key in this.state.values) {
-      form_data.append(key, this.state.values[key]);
-    }
 
     qLyAdminService
-      .themPhim(form_data)
+      .suaPhim(values)
       .then((res) => {
         swal({
-          title: "Thêm phim thành công",
+          title: "Sửa phim thành công",
           icon: "success",
           button: "OK",
         });
@@ -113,17 +107,17 @@ export default class AddMovieModal extends Component {
     return (
       <div
         className="modal fade"
-        id="addMovieModal"
+        id="editMovieModal"
         tabIndex={-1}
         role="dialog"
-        aria-labelledby="addMovieModal"
+        aria-labelledby="editMovieModal"
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="addMovieModalTitle">
-                Thêm phim
+              <h5 className="modal-title" id="editMovieModalTitle">
+                Sửa phim
               </h5>
               <button
                 type="button"
@@ -175,18 +169,18 @@ export default class AddMovieModal extends Component {
                       </span>
                     </div>
                     <div className="textb">
-                      {/* <input
+                      <input
                         type="text"
                         name="hinhAnh"
                         onChange={this.handleChangeInput}
                         required
-                      /> */}
-                      <input
+                      />
+                      {/* <input
                         type="file"
                         name="hinhAnh"
                         onChange={this.handleChangeInput}
-                      ></input>
-                      {/* <div className="placeholder">Hình ảnh</div> */}
+                      ></input> */}
+                      <div className="placeholder">Hình ảnh</div>
                       <span className="text-danger">
                         {this.state.errors.hinhAnh}
                       </span>
@@ -239,18 +233,6 @@ export default class AddMovieModal extends Component {
                       <div className="placeholder">Rating</div>
                       <span className="text-danger">
                         {this.state.errors.danhGia}
-                      </span>
-                    </div>
-                    <div className="textb">
-                      <input
-                        type="text"
-                        name="maNhom"
-                        onChange={this.handleChangeInput}
-                        required
-                      />
-                      <div className="placeholder">Mã nhóm</div>
-                      <span className="text-danger">
-                        {this.state.errors.maNhom}
                       </span>
                     </div>
                   </div>

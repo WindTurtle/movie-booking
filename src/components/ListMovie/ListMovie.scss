@@ -82,8 +82,8 @@
               }
             }
             .carousel-control-next {
-              right: -6%;
-              width: 6%;
+              right: -3%;
+              width: 3%;
               @include responsive_mobile {
                 bottom: 20%;
               }
@@ -262,6 +262,7 @@
                           top: 12px;
                           right: 12px;
                           width: 60px;
+                          height: 65px;
                           text-align: center;
                           @include responsive_mobile {
                             top: 5px;
@@ -420,8 +421,8 @@
               }
             }
             .carousel-control-next {
-              right: -6%;
-              width: 6%;
+              right: -3%;
+              width: 3%;
               @include responsive_mobile {
                 bottom: 20%;
               }
@@ -466,7 +467,7 @@
                     &:hover .item__link .item__img .overlay {
                       opacity: 1;
                     }
-                    &:hover .item__link .item__info .item__button {
+                    &:hover .item__link .item__info {
                       opacity: 1;
                     }
                     &:hover
@@ -589,12 +590,13 @@
                           bottom: 12px;
                           right: 12px;
                           width: 60px;
+                          height: 65px;
                           text-align: center;
-                          // .film__point {
-                          //   margin: 0;
-                          //   color: $color-white-cream;
-                          //   @include Text($fs-2, $fw-regular);
-                          // }
+                          .film__point {
+                            margin: 0;
+                            color: $color-white-cream;
+                            @include Text($fs-2, $fw-regular);
+                          }
                           @include responsive_mobile {
                             bottom: 5px;
                             right: 5px;
@@ -659,9 +661,9 @@
                         .film__during {
                           color: $color-white-0;
                           @include Text($fs-1 + 1, $fw-regular);
-                          &:hover .item__button {
-                            opacity: 1;
-                          }
+                          // &:hover .item__button {
+                          //   opacity: 1;
+                          // }
                           @include responsive_mobile {
                             @include Text($fs-1, $fw-medium);
                           }
@@ -670,38 +672,6 @@
                           }
                           @include responsive_tablet {
                             @include Text($fs-0, $fw-medium);
-                          }
-                        }
-                        .item__button {
-                          position: absolute;
-                          width: 100%;
-                          top: 0;
-                          background: linear-gradient(
-                            to left,
-                            $color-red-0,
-                            $color-red-1 100%
-                          );
-                          text-align: center;
-                          border-radius: 5px;
-                          opacity: 0;
-                          transition: linear 0.2s;
-                          .buyTicket__button {
-                            display: none;
-                            color: $color-white-cream;
-                            @include Text($fs-2, $fw-regular);
-                            @include responsive_mobile {
-                              @include Text($fs-1 + 3, $fw-medium);
-                            }
-                            @include responsive_tablet {
-                              @include Text($fs-1 + 3, $fw-medium);
-                            }
-                            @include responsive_laptop--mini {
-                              @include Text($fs-1 + 3, $fw-medium);
-                            }
-                            &:hover {
-                              background-color: $color-red-0;
-                              width: 100%;
-                            }
                           }
                         }
                       }
