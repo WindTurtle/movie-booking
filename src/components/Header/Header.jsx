@@ -62,7 +62,7 @@ export default function Header(props) {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <i className="fa fa-film"></i>
-              <NavLink className="nav-link" to="/#listMovie">
+              <NavLink className="nav-link" to="/allmovie">
                 Phim
               </NavLink>
             </li>

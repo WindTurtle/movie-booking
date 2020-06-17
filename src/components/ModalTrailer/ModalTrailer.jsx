@@ -5,6 +5,7 @@ export default function ModalTrailer(props) {
   return (
     <div
       className="modal fade bd-example-modal-lg"
+      id={"d" + xemChiTiet.maPhim}
       tabIndex={-1}
       role="dialog"
       aria-labelledby="myLargeModalLabel"

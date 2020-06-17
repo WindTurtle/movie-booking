@@ -14,6 +14,7 @@ import UserManagement from "./pages/UserManagement";
 import MovieManagement from "./pages/MovieManagement";
 import { LoginAdminTemplate } from "./templates/LoginAdminTemplate/LoginAdminTemplate";
 import LoginAdmin from "./pages/LoginAdmin";
+import AllMovie from "./pages/AllMovie";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Switch>
           <HomeTemplate exact path="/" Component={Home} />
           <HomeTemplate exact path="/home" Component={Home} />
+          <HomeTemplate exact path="/allmovie" Component={AllMovie} />
           <HomeTemplate
             exact
             path="/moviedetail/:maphim"
