@@ -32,7 +32,11 @@ export default function MovieInfo(props) {
           style={{ height: "450px" }}
         />
         <div className="overlay__gradient" />
-        <div className="play__mobile">
+        <div
+          className="play__mobile"
+          data-toggle="modal"
+          data-target=".bd-example-modal-lg"
+        >
           <i className="fa fa-play" />
         </div>
         <div className="rating__point">

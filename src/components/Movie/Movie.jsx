@@ -32,7 +32,7 @@ export default function AllMovie() {
   const renderDanhSachPhim = () => {
     return danhSachPhimSearch.map((phim, index) => {
       return (
-        <div className="item__inrow col-md-3 mb-5" key={index}>
+        <div className="item__inRow col-md-3 mb-5" key={index}>
           <div className="item__link">
             <div className="item__img">
               <img src={phim.hinhAnh} alt={"image" + index} />

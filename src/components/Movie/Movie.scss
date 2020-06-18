@@ -78,7 +78,7 @@
   }
 
   .row {
-    .item__inrow {
+    .item__inRow {
       @include responsive_mobile {
         max-width: 50%;
       }

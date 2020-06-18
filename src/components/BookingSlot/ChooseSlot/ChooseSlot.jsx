@@ -85,7 +85,7 @@ export default function ChooseSlot(props) {
               </div>
             </div>
             <div className="timeKeepSlot">
-              <p className="text">thời gian giữ ghế</p>
+              <p className="title__text">thời gian giữ ghế</p>
               <span className="time">{counter + "s"}</span>
             </div>
           </div>

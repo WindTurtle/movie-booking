@@ -174,7 +174,7 @@
         }
         .timeKeepSlot {
           text-align: center;
-          .text {
+          .title__text {
             color: $color-gray-2;
             @include Text($fs-1 - 2, $fw-regular);
             margin: 0;

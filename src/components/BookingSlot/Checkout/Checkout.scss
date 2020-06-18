@@ -185,7 +185,7 @@
       padding: spacing(1) 0;
       .pay__link {
         text-decoration: none;
-        .text {
+        .title__text {
           color: $color-black-0;
         }
         .text__notification {
@@ -210,9 +210,9 @@
     @include responsive_laptop--medium {
       margin-bottom: spacing(5);
     }
-    .text {
+    .noti__text {
       @include Text($fs-1 - 1, $fw-regular);
-      .link {
+      .noti__link {
         color: $color-orange;
       }
     }

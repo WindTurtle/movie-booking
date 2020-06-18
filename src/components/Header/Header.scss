@@ -16,7 +16,7 @@ header {
   .navbar {
     padding-bottom: 0;
     .navbar-brand {
-      flex-grow: 2;
+      flex-grow: 2.5;
       @include responsive_mobile {
         flex-grow: 15;
       }

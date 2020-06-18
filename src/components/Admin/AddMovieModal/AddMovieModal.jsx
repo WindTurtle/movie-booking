@@ -5,10 +5,9 @@ import swal from "sweetalert";
 export default class AddMovieModal extends Component {
   state = {
     values: {
-      hinhAnh: {},
-      maPhim: "",
       tenPhim: "",
       biDanh: "",
+      hinhAnh: {},
       trailer: "",
       moTa: "",
       ngayKhoiChieu: "",
@@ -16,15 +15,14 @@ export default class AddMovieModal extends Component {
       maNhom: "",
     },
     errors: {
-      maPhim: "",
       tenPhim: "",
       biDanh: "",
       hinhAnh: "",
       trailer: "",
       moTa: "",
       ngayKhoiChieu: "",
-      maNhom: "",
       danhGia: "",
+      maNhom: "",
     },
   };
   handleChangeInput = (event) => {
@@ -39,13 +37,8 @@ export default class AddMovieModal extends Component {
       [name]: value === "" ? "không được bỏ trống!" : "",
     };
 
-    if (name === "maPhim") {
-      let regexNumberic = /^[0-9]*$/;
-      if (value.match(regexNumberic)) {
-        newErrors.maPhim = "";
-      } else {
-        newErrors.maPhim = "Mã phim chỉ là số";
-      }
+    if (name === "hinhAnh") {
+      newValues = { hinhAnh: event.target.files[0] };
     }
     if (name === "danhGia") {
       let regexNumberic = /^[0-9]*$/;
@@ -55,11 +48,8 @@ export default class AddMovieModal extends Component {
         newErrors.danhGia = "Chỉ được nhập số từ 1 tới 10";
       }
     }
-    if (name === "hinhAnh") {
-      newValues = { hinhAnh: event.target.files[0] };
-    }
+
     this.setState({ values: newValues, errors: newErrors });
-    console.log(this.state);
   };
   handleSubmit = (event) => {
     event.preventDefault();
@@ -80,33 +70,33 @@ export default class AddMovieModal extends Component {
     if (!valid) {
       alert("thông tin không hợp lệ");
       return;
-    }
-    // gọi api hoạc dispatch redux
-    var form_data = new FormData();
-    for (var key in this.state.values) {
-      form_data.append(key, this.state.values[key]);
-    }
-
-    qLyAdminService
-      .themPhim(form_data)
-      .then((res) => {
-        swal({
-          title: "Thêm phim thành công",
-          icon: "success",
-          button: "OK",
+    } else {
+      // gọi api hoạc dispatch redux
+      var form_data = new FormData();
+      for (let key in this.state.values) {
+        form_data.append(key, this.state.values[key]);
+      }
+      qLyAdminService
+        .themPhim(form_data)
+        .then((res) => {
+          swal({
+            title: "Thêm phim thành công",
+            icon: "success",
+            button: "OK",
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        })
+        .catch((err) => {
+          swal({
+            title: err.response.data,
+            text: "Điền lại thông tin!",
+            icon: "warning",
+            button: "OK",
+          });
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
-      })
-      .catch((err) => {
-        swal({
-          title: err.response.data,
-          text: "Điền lại thông tin!",
-          icon: "warning",
-          button: "OK",
-        });
-      });
+    }
   };
 
   render() {
@@ -138,7 +128,7 @@ export default class AddMovieModal extends Component {
               <form onSubmit={this.handleSubmit} className="user-form">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
-                    <div className="textb">
+                    {/* <div className="textb">
                       <input
                         type="text"
                         name="maPhim"
@@ -148,6 +138,19 @@ export default class AddMovieModal extends Component {
                       <div className="placeholder">Mã phim</div>
                       <span className="text-danger">
                         {this.state.errors.maPhim}
+                      </span>
+                    </div> */}
+                    <div className="textb">
+                      <input
+                        type="file"
+                        name="hinhAnh"
+                        onChange={this.handleChangeInput}
+                      />
+                      <div className="placeholder" style={{ top: "-20px" }}>
+                        Hình ảnh
+                      </div>
+                      <span className="text-danger">
+                        {this.state.errors.hinhAnh}
                       </span>
                     </div>
                     <div className="textb">
@@ -175,25 +178,6 @@ export default class AddMovieModal extends Component {
                       </span>
                     </div>
                     <div className="textb">
-                      {/* <input
-                        type="text"
-                        name="hinhAnh"
-                        onChange={this.handleChangeInput}
-                        required
-                      /> */}
-                      <input
-                        type="file"
-                        name="hinhAnh"
-                        onChange={this.handleChangeInput}
-                      ></input>
-                      {/* <div className="placeholder">Hình ảnh</div> */}
-                      <span className="text-danger">
-                        {this.state.errors.hinhAnh}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-sm-12">
-                    <div className="textb">
                       <input
                         type="text"
                         name="trailer"
@@ -205,6 +189,8 @@ export default class AddMovieModal extends Component {
                         {this.state.errors.trailer}
                       </span>
                     </div>
+                  </div>
+                  <div className="col-md-6 col-sm-12">
                     <div className="textb">
                       <input
                         type="text"

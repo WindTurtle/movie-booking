@@ -13,6 +13,7 @@ import AddMovieModal from "../AddMovieModal/AddMovieModal";
 import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
+import { Hidden } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -85,7 +86,17 @@ export default function Movie(props) {
                     style={{ cursor: "pointer", color: "#fb4226" }}
                     class="fa fa-trash-alt"
                     onClick={() => {
-                      xoaPhim(phim.maPhim);
+                      swal({
+                        title: "Bạn chắc chứ?",
+                        text: `Xoá phim ${phim.tenPhim}`,
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                      }).then((willDelete) => {
+                        if (willDelete) {
+                          xoaPhim(phim.maPhim);
+                        }
+                      });
                     }}
                   ></i>
                 </div>

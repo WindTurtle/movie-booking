@@ -204,9 +204,9 @@ const AdminLayout = (props) => {
           </List>
           <Divider />
           <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
-            <ListItem button key="Đăng xuất">
+            <ListItem button key="Về trang chủ">
               <ExitToAppIcon style={{ marginRight: 32 }} />
-              <ListItemText primary="Đăng xuất" />
+              <ListItemText primary="Về trang chủ" />
             </ListItem>
           </NavLink>
         </Drawer>

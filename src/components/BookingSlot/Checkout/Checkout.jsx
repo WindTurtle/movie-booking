@@ -110,7 +110,7 @@ export default function Checkout(props) {
         </div>
         <div className="payForm">
           <a className="pay__link" href="#">
-            <span className="text">Hình thức thanh toán</span>
+            <span className="title__text">Hình thức thanh toán</span>
             <p className="text__notification">
               Vui lòng chọn ghế để hiển thị phương thức thanh toán phù hợp.
             </p>
@@ -119,10 +119,10 @@ export default function Checkout(props) {
       </div>
       <div className="textNotification text-center">
         <i className="fa fa-info-circle text-danger mr-1" />
-        <span className="text">
+        <span className="noti__text">
           Vé đã mua không thể đổi hoặc hoàn tiền Mã vé sẽ được gửi qua tin nhắn{" "}
-          <span className="link">ZMS</span> (tin nhắn Zalo) và{" "}
-          <span className="link">Email</span> đã nhập.{" "}
+          <span className="noti__link">ZMS</span> (tin nhắn Zalo) và{" "}
+          <span className="noti__link">Email</span> đã nhập.{" "}
         </span>
       </div>
       <div
