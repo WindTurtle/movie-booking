@@ -1,19 +1,7 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { qLyPhimService } from "../../../services/QuanLyPhimServices";
+import React, { Fragment } from "react";
 import ShowTime from "../ShowTimes/ShowTime";
 export default function TheaterCluster(props) {
-  let [cumRap, setCumRap] = useState([]);
-  useEffect(() => {
-    qLyPhimService
-      .layCumRapTheoHeThong()
-      .then((result) => {
-        setCumRap(result.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  });
-
+  let { cumRap } = props;
   const renderCum = () => {
     return cumRap.map((cumRap, index) => {
       return (

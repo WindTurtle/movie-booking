@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../ListMovie/ListMovie.scss";
-import { qLyPhimService } from "../../services/QuanLyPhimServices";
-import { NavLink } from "react-router-dom";
 import MovieCarousel from "../MovieCarousel/MovieCarousel";
 export default function ListMovie(props) {
+  let { danhSachPhim } = props;
   return (
     <div id="listMovie" className="listMovie">
       <div className="container">
@@ -43,7 +42,7 @@ export default function ListMovie(props) {
               role="tabpanel"
               aria-labelledby="pills-home-tab"
             >
-              <MovieCarousel />
+              <MovieCarousel danhSachPhim={danhSachPhim} />
             </div>
             <div
               className="tab-pane fade"
@@ -51,7 +50,7 @@ export default function ListMovie(props) {
               role="tabpanel"
               aria-labelledby="pills-profile-tab"
             >
-              <MovieCarousel />
+              <MovieCarousel danhSachPhim={danhSachPhim} />
             </div>
           </div>
         </div>

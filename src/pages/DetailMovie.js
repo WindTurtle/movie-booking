@@ -6,7 +6,6 @@ const DetailMovie = (props) => {
   let [phim, setPhim] = useState([]);
   useEffect(() => {
     qLyPhimService.layThongTinPhim(props.match.params.maphim).then((result) => {
-      console.log(result.data);
       setPhim(result.data);
     });
   }, []);

@@ -7,19 +7,9 @@ import Slider from "react-slick";
 import "./MovieCarousel.scss";
 // import "owl.carousel/dist/assets/owl.carousel.css";
 // import "owl.carousel/dist/assets/owl.theme.default.css";
-export default function MovieCarousel() {
+export default function MovieCarousel(props) {
   var moment = require("moment");
-  let [danhSachPhim, setDanhSachPhim] = useState([]);
-  useEffect(() => {
-    qLyPhimService
-      .layDanhSachPhim()
-      .then((result) => {
-        setDanhSachPhim(result.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  });
+  let { danhSachPhim } = props;
   var settings = {
     dots: false,
     infinite: true,

@@ -3,7 +3,6 @@ import Statistic from "../components/Admin/Statistic/Statistic";
 import { qLyPhimService } from "../services/QuanLyPhimServices";
 export default function Dashboard() {
   let [heThongRap, setHeThongRap] = useState([]);
-
   useEffect(() => {
     qLyPhimService
       .layHeThongRap()
