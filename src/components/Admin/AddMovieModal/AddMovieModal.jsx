@@ -5,6 +5,7 @@ import swal from "sweetalert";
 export default class AddMovieModal extends Component {
   state = {
     values: {
+      maPhim: "",
       tenPhim: "",
       biDanh: "",
       hinhAnh: {},
@@ -15,6 +16,7 @@ export default class AddMovieModal extends Component {
       maNhom: "",
     },
     errors: {
+      maPhim: "",
       tenPhim: "",
       biDanh: "",
       hinhAnh: "",
@@ -38,7 +40,12 @@ export default class AddMovieModal extends Component {
     };
 
     if (name === "hinhAnh") {
-      newValues = { hinhAnh: event.target.files[0] };
+      newValues[name] = event.target.files[0];
+    }
+    if (name === "ngayKhoiChieu") {
+      var moment = require("moment");
+      // console.log(value);
+      newValues[name] = moment(value, "yyyy-MM-DD").format("DD/MM/yyyy");
     }
     if (name === "danhGia") {
       let regexNumberic = /^[0-9]*$/;
@@ -50,6 +57,7 @@ export default class AddMovieModal extends Component {
     }
 
     this.setState({ values: newValues, errors: newErrors });
+    console.log(this.state);
   };
   handleSubmit = (event) => {
     event.preventDefault();
@@ -128,18 +136,6 @@ export default class AddMovieModal extends Component {
               <form onSubmit={this.handleSubmit} className="user-form">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
-                    {/* <div className="textb">
-                      <input
-                        type="text"
-                        name="maPhim"
-                        onChange={this.handleChangeInput}
-                        required
-                      />
-                      <div className="placeholder">Mã phim</div>
-                      <span className="text-danger">
-                        {this.state.errors.maPhim}
-                      </span>
-                    </div> */}
                     <div className="textb">
                       <input
                         type="file"
@@ -151,6 +147,18 @@ export default class AddMovieModal extends Component {
                       </div>
                       <span className="text-danger">
                         {this.state.errors.hinhAnh}
+                      </span>
+                    </div>
+                    <div className="textb">
+                      <input
+                        type="text"
+                        name="maPhim"
+                        onChange={this.handleChangeInput}
+                        required
+                      />
+                      <div className="placeholder">Mã phim</div>
+                      <span className="text-danger">
+                        {this.state.errors.maPhim}
                       </span>
                     </div>
                     <div className="textb">
@@ -205,12 +213,18 @@ export default class AddMovieModal extends Component {
                     </div>
                     <div className="textb">
                       <input
-                        type="text"
+                        type="date"
                         name="ngayKhoiChieu"
+                        min="today"
                         onChange={this.handleChangeInput}
                         required
                       />
-                      <div className="placeholder">Ngày khởi chiếu</div>
+                      <div
+                        className="placeholder"
+                        style={{ left: "10px", top: "-20px" }}
+                      >
+                        Ngày khởi chiếu
+                      </div>
                       <span className="text-danger">
                         {this.state.errors.ngayKhoiChieu}
                       </span>

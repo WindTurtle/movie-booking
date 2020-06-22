@@ -21,19 +21,29 @@ export default function User(props) {
               <i
                 className="fa fa-user-edit"
                 data-toggle="modal"
-                data-target="#EditModal"
+                data-target={`#d1${user.taiKhoan}`}
               ></i>
             </div>
             <div
               className="delete-action"
               onClick={() => {
-                xoaNguoiDung(user.taiKhoan);
+                swal({
+                  title: "Bạn chắc chứ?",
+                  text: `Xoá ${user.taiKhoan}`,
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                }).then((willDelete) => {
+                  if (willDelete) {
+                    xoaNguoiDung(user.taiKhoan);
+                  }
+                });
               }}
             >
               <i className="fa fa-trash-alt"></i>
             </div>
           </td>
-          <EditModal />
+          <EditModal user={user} />
         </tr>
       );
     });

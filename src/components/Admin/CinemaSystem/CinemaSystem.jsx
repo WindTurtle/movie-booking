@@ -52,9 +52,12 @@ export default function CinemaSystem(props) {
   const renderHeThongRap = () => {
     return lstHeThongRap?.map((rap, index) => {
       return (
-        <Tab label={rap.tenHeThongRap} {...a11yProps(`${index}`)} key={index}>
-          <img src={rap.logo} atl={rap.logo} />
-        </Tab>
+        <Tab
+          label={rap.tenHeThongRap}
+          {...a11yProps(`${index}`)}
+          key={index}
+          style={{ outline: "none", color: "#333"}}
+        ></Tab>
       );
     });
   };

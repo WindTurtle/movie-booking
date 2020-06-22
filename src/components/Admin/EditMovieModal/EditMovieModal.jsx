@@ -3,10 +3,12 @@ import "./EditMovieModal.scss";
 import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
+import { Fragment } from "react";
+
 export default class EditMovieModal extends Component {
   state = {
     values: {
-      hinhAnh: "",
+      hinhAnh: {},
       maPhim: "",
       tenPhim: "",
       biDanh: "",
@@ -28,8 +30,39 @@ export default class EditMovieModal extends Component {
       danhGia: "",
     },
   };
+
+  componentDidMount() {
+    let { phim } = this.props;
+    var moment = require("moment");
+    this.setState({
+      values: {
+        hinhAnh: phim.hinhAnh,
+        maPhim: phim.maPhim,
+        tenPhim: phim.tenPhim,
+        biDanh: phim.biDanh,
+        trailer: phim.trailer,
+        moTa: phim.moTa,
+        ngayKhoiChieu: moment(phim.ngayKhoiChieu).format("DD/MM/yy"),
+        danhGia: phim.danhGia,
+        maNhom: groupID,
+      },
+      errors: {
+        maPhim: "",
+        tenPhim: "",
+        biDanh: "",
+        hinhAnh: "",
+        trailer: "",
+        moTa: "",
+        ngayKhoiChieu: "",
+        maNhom: "",
+        danhGia: "",
+      },
+    });
+  }
+
   handleChangeInput = (event) => {
     var { value, name } = event.target;
+    var moment = require("moment");
     //tạo ra object this.state.values mới
     let newValues = {
       ...this.state.values,
@@ -40,6 +73,10 @@ export default class EditMovieModal extends Component {
       [name]: value === "" ? "không được bỏ trống!" : "",
     };
 
+    if (name === "ngayKhoiChieu") {
+      // console.log(value);
+      newValues[name] = moment(value, "yyyy-MM-DD").format("DD/MM/yyyy");
+    }
     if (name === "maPhim") {
       let regexNumberic = /^[0-9]*$/;
       if (value.match(regexNumberic)) {
@@ -103,11 +140,12 @@ export default class EditMovieModal extends Component {
       });
   };
 
-  render() {
+  renderModal = () => {
+    let { phim } = this.props;
     return (
       <div
-        className="modal fade"
-        id="editMovieModal"
+        className="editMovieModal modal fade"
+        id={`d${phim.maPhim}`}
         tabIndex={-1}
         role="dialog"
         aria-labelledby="editMovieModal"
@@ -136,10 +174,19 @@ export default class EditMovieModal extends Component {
                       <input
                         type="text"
                         name="maPhim"
+                        className="text-secondary"
                         onChange={this.handleChangeInput}
+                        disabled
+                        value={this.state.values.maPhim}
+                        style={{ cursor: "no-drop" }}
                         required
                       />
-                      <div className="placeholder">Mã phim</div>
+                      <div
+                        className="placeholder"
+                        style={{ left: "10px", top: "-15px" }}
+                      >
+                        Mã phim
+                      </div>
                       <span className="text-danger">
                         {this.state.errors.maPhim}
                       </span>
@@ -149,6 +196,7 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="tenPhim"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.tenPhim}
                         required
                       />
                       <div className="placeholder">Tên phim</div>
@@ -161,6 +209,7 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="biDanh"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.biDanh}
                         required
                       />
                       <div className="placeholder">Bí danh</div>
@@ -173,13 +222,14 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="hinhAnh"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.hinhAnh}
                         required
                       />
                       {/* <input
-                        type="file"
-                        name="hinhAnh"
-                        onChange={this.handleChangeInput}
-                      ></input> */}
+                      type="file"
+                      name="hinhAnh"
+                      onChange={this.handleChangeInput}
+                    ></input> */}
                       <div className="placeholder">Hình ảnh</div>
                       <span className="text-danger">
                         {this.state.errors.hinhAnh}
@@ -192,6 +242,7 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="trailer"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.trailer}
                         required
                       />
                       <div className="placeholder">Trailer</div>
@@ -204,6 +255,7 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="moTa"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.moTa}
                         required
                       />
                       <div className="placeholder">Mô tả</div>
@@ -216,6 +268,7 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="ngayKhoiChieu"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.ngayKhoiChieu}
                         required
                       />
                       <div className="placeholder">Ngày khởi chiếu</div>
@@ -228,6 +281,7 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="danhGia"
                         onChange={this.handleChangeInput}
+                        value={this.state.values.danhGia}
                         required
                       />
                       <div className="placeholder">Rating</div>
@@ -237,12 +291,15 @@ export default class EditMovieModal extends Component {
                     </div>
                   </div>
                 </div>
-                <button className="btn fas fa-arrow-right" />
+                <button className="btn fas fa-check" />
               </form>
             </div>
           </div>
         </div>
       </div>
     );
+  };
+  render() {
+    return <Fragment>{this.renderModal()}</Fragment>;
   }
 }

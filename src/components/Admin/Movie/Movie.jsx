@@ -13,7 +13,7 @@ import AddMovieModal from "../AddMovieModal/AddMovieModal";
 import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
-import { Hidden } from "@material-ui/core";
+
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -42,6 +42,9 @@ const xoaPhim = (maPhim) => {
         icon: "success",
         button: "OK",
       });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     })
     .catch((err) => {
       swal({
@@ -73,18 +76,21 @@ export default function Movie(props) {
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div className="edit-action">
-                  <EditMovieModal />
+                  <EditMovieModal phim={phim} />
                   <i
-                    style={{ cursor: "pointer", color: "#60c5ef" }}
-                    class="fa fa-edit"
+                    style={{
+                      cursor: "pointer",
+                      color: "#60c5ef",
+                    }}
+                    className="fa fa-edit"
                     data-toggle="modal"
-                    data-target="#editMovieModal"
+                    data-target={`#d${phim.maPhim}`}
                   ></i>
                 </div>
                 <div className="delete-action">
                   <i
                     style={{ cursor: "pointer", color: "#fb4226" }}
-                    class="fa fa-trash-alt"
+                    className="fa fa-trash-alt"
                     onClick={() => {
                       swal({
                         title: "Bạn chắc chứ?",
@@ -124,6 +130,7 @@ export default function Movie(props) {
         className="btnAdd"
         data-toggle="modal"
         data-target="#addMovieModal"
+        style={{ outline: "none" }}
       >
         <i className="fa fa-plus"></i>
       </button>

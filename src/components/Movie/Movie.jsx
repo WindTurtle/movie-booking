@@ -55,7 +55,7 @@ export default function AllMovie(props) {
     });
   };
   return (
-    <div className="container">
+    <div className="container all-movie">
       <div className="search">
         <div id="wrap">
           <form autoComplete="on">

@@ -1,6 +1,13 @@
-@import './styles/Base/reset';
-@import './styles/Base/customize';
+@import "./styles/Base/reset";
+@import "./styles/Base/customize";
 
 @import "./styles/Helper/function";
 @import "./styles/Helper/variables";
 @import "./styles/Helper/mixin";
+
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

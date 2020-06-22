@@ -4,6 +4,7 @@ import swal from "sweetalert";
 import { userLogin } from "../../../config/setting";
 import { qlyNguoiDung } from "../../../services/QuanLyNguoiDungServices";
 import { Redirect } from "react-router-dom";
+import CreditModal from "../CreditModal/CreditModal";
 export default function Checkout(props) {
   let { thongTinPhongVe, danhSachGheDangDat, param } = props;
   const renderThongTinGheDangDat = () => {
@@ -128,12 +129,15 @@ export default function Checkout(props) {
       <div
         id="btnBook"
         className="btnBook"
-        onClick={() => {
-          datVe();
-        }}
+        data-toggle="modal"
+        data-target="#CreditModal"
+        // onClick={() => {
+        //   datVe();
+        // }}
       >
-        Đặt Vé
+        Thanh toán
       </div>
+      <CreditModal datVe={datVe} />
     </div>
   );
 }

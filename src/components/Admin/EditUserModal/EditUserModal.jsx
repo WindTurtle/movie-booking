@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./EditUserModal.scss";
 import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
@@ -25,6 +25,28 @@ export default class EditUserModal extends Component {
     },
   };
 
+  componentDidMount() {
+    let { user } = this.props;
+    this.setState({
+      values: {
+        hoTen: user.hoTen,
+        taiKhoan: user.taiKhoan,
+        matKhau: user.matKhau,
+        email: user.email,
+        soDT: user.soDt,
+        maLoaiNguoiDung: user.maLoaiNguoiDung,
+        maNhom: groupID,
+      },
+      errors: {
+        hoTen: "",
+        taiKhoan: "",
+        matKhau: "",
+        email: "",
+        soDT: "",
+        maLoaiNguoiDung: "",
+      },
+    });
+  }
   handleChangeInput = (event) => {
     var { value, name } = event.target;
 
@@ -90,11 +112,12 @@ export default class EditUserModal extends Component {
         });
       });
   };
-  render() {
+  renderModal = () => {
+    let { user } = this.props;
     return (
       <div
-        className="modal fade"
-        id="EditModal"
+        className="editUserModal modal fade"
+        id={`d1${user.taiKhoan}`}
         tabIndex={-1}
         role="dialog"
         aria-labelledby="EditModal"
@@ -121,10 +144,19 @@ export default class EditUserModal extends Component {
                   <input
                     type="text"
                     name="taiKhoan"
+                    className="text-secondary"
                     onChange={this.handleChangeInput}
+                    value={this.state.values.taiKhoan}
+                    disabled
+                    style={{ cursor: "no-drop" }}
                     required
                   />
-                  <div className="placeholder">Tài khoản</div>
+                  <div
+                    className="placeholder"
+                    style={{ left: "10px", top: "-15px" }}
+                  >
+                    Tài khoản
+                  </div>
                   <span className="text-danger">
                     {this.state.errors.taiKhoan}
                   </span>
@@ -134,6 +166,7 @@ export default class EditUserModal extends Component {
                     type="password"
                     name="matKhau"
                     onChange={this.handleChangeInput}
+                    value={this.state.values.matKhau}
                     required
                   />
                   <div className="placeholder">Mật khẩu</div>
@@ -146,6 +179,7 @@ export default class EditUserModal extends Component {
                     type="text"
                     name="hoTen"
                     onChange={this.handleChangeInput}
+                    value={this.state.values.hoTen}
                     required
                   />
                   <div className="placeholder">Họ tên</div>
@@ -156,6 +190,7 @@ export default class EditUserModal extends Component {
                     type="text"
                     name="email"
                     onChange={this.handleChangeInput}
+                    value={this.state.values.email}
                     required
                   />
                   <div className="placeholder">Email</div>
@@ -166,6 +201,7 @@ export default class EditUserModal extends Component {
                     type="text"
                     name="soDT"
                     onChange={this.handleChangeInput}
+                    value={this.state.values.soDT}
                     required
                   />
                   <div className="placeholder">Số điện thoại</div>
@@ -176,6 +212,7 @@ export default class EditUserModal extends Component {
                     name="maLoaiNguoiDung"
                     onChange={this.handleChangeInput}
                     id="loaiNguoiDung"
+                    value={this.state.values.maLoaiNguoiDung}
                   >
                     <option value="#">--Chọn loại người dùng--</option>
                     <option value="KhachHang">Khách Hàng</option>
@@ -192,5 +229,8 @@ export default class EditUserModal extends Component {
         </div>
       </div>
     );
+  };
+  render() {
+    return <Fragment>{this.renderModal()}</Fragment>;
   }
 }

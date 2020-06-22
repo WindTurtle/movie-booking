@@ -1,0 +1,299 @@
+@import "../connect";
+
+.bookMovie {
+  z-index: 18;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  background-color: $color-white-0;
+  max-width: 940px;
+  margin: auto;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: spacing(2);
+  border-radius: 5px;
+  box-shadow: 0 0 10px $color-black-dark-3;
+  @include responsive_mobile {
+    display: none;
+  }
+  @include responsive_tablet {
+    display: none;
+  }
+  @include responsive_laptop--mini {
+    display: none;
+  }
+  @include responsive_laptop--medium {
+    display: none;
+  }
+  #movie__dropdown {
+    .dropdown-toggle {
+      text-decoration: none;
+      @include Text($fs-0 - 1, $fw-regular);
+      @include responsive_tablet {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      @include responsive_laptop--mini {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      color: $color-black-0;
+      &:after {
+        display: inline;
+        border-top: 0;
+        border-right: 1px dotted $color-gray-6;
+        padding: spacing(1) spacing(0.1);
+        margin-right: spacing(1);
+      }
+      .dropdown__text {
+        margin-right: spacing(20);
+        @include responsive_mobile {
+          margin-right: spacing(6);
+        }
+        @include responsive_laptop--mini {
+          margin-right: spacing(13.5);
+        }
+      }
+      .dropdown__icon {
+        color: $color-gray-2;
+      }
+    }
+    .dropdown-menu {
+      &.show {
+        top: 10px !important;
+        left: -20px !important;
+        overflow-y: scroll;
+        height: 250px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px $color-black-dark-3;
+        @include responsive_mobile {
+          height: auto;
+        }
+        @include responsive_laptop--mini {
+          height: auto;
+        }
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: $color-gray-6;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $color-gray-2;
+          border-radius: 5px;
+        }
+      }
+      .dropdown-item {
+        transition: all 0.2s;
+        @include Text($fs-0 - 1, $fw-regular);
+        &:hover {
+          background-color: $color-blue;
+        }
+        @include responsive_mobile {
+          @include Text($fs-0 - 3, $fw-regular);
+        }
+        @include responsive_laptop--mini {
+          @include Text($fs-0 - 3, $fw-regular);
+        }
+      }
+    }
+  }
+  #theater__dropdown {
+    .dropdown-toggle {
+      text-decoration: none;
+      @include Text($fs-0 - 1, $fw-regular);
+      @include responsive_mobile {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      @include responsive_laptop--mini {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      color: $color-black-0;
+      &:after {
+        display: inline;
+        border-top: 0;
+        border-right: 1px dotted $color-gray-6;
+        padding: spacing(1) spacing(0.1);
+        margin-right: spacing(1);
+      }
+      .dropdown__text {
+        margin-right: spacing(10);
+        @include responsive_mobile {
+          margin-right: spacing(5);
+        }
+        @include responsive_laptop--mini {
+          margin-right: spacing(7);
+        }
+      }
+      .dropdown__icon {
+        color: $color-gray-2;
+      }
+    }
+    .dropdown-menu {
+      &.show {
+        top: 10px !important;
+        left: -10px !important;
+        overflow-y: scroll;
+        height: 250px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px $color-black-dark-3;
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: $color-gray-6;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $color-gray-2;
+          border-radius: 5px;
+        }
+      }
+      .dropdown-item {
+        transition: all 0.2s;
+        @include Text($fs-0 - 1, $fw-regular);
+        @include responsive_laptop--mini {
+          @include Text($fs-1, $fw-regular);
+        }
+        &:hover {
+          background-color: $color-blue;
+        }
+      }
+    }
+  }
+  #chooseday__dropdown {
+    .dropdown-toggle {
+      text-decoration: none;
+      @include Text($fs-0 - 1, $fw-regular);
+      color: $color-black-0;
+      @include responsive_mobile {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      @include responsive_laptop--mini {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      &:after {
+        display: inline;
+        border-top: 0;
+        border-right: 1px dotted $color-gray-6;
+        padding: spacing(1) spacing(0.1);
+        margin-right: spacing(1);
+      }
+      .dropdown__text {
+        margin-right: spacing(6);
+        @include responsive_mobile {
+          margin-right: spacing(2.5);
+        }
+        @include responsive_laptop--mini {
+          margin-right: spacing(5);
+        }
+      }
+      .dropdown__icon {
+        color: $color-gray-2;
+      }
+    }
+    .dropdown-menu {
+      &.show {
+        top: 10px !important;
+        left: -10px !important;
+        overflow-y: scroll;
+        height: 250px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px $color-black-dark-3;
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: $color-gray-6;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $color-gray-2;
+          border-radius: 5px;
+        }
+      }
+      .dropdown-item {
+        transition: all 0.2s;
+        @include responsive_laptop--mini {
+          @include Text($fs-0, $fw-regular);
+        }
+        &:hover {
+          background-color: $color-blue;
+        }
+        .dotw {
+          @include Text($fs-0, $fw-regular);
+          @include responsive_laptop--mini {
+            @include Text($fs-0 - 2, $fw-regular);
+          }
+        }
+        .days {
+          display: block;
+          @include Text($fs-1, $fw-light);
+        }
+      }
+    }
+  }
+  #showtime__dropdown {
+    .dropdown-toggle {
+      text-decoration: none;
+      @include Text($fs-0 - 1, $fw-regular);
+      color: $color-black-0;
+      @include responsive_mobile {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      @include responsive_laptop--mini {
+        @include Text($fs-0 - 3, $fw-regular);
+      }
+      &:after {
+        display: inline;
+        border-top: 0;
+        border-right: 1px dotted $color-gray-6;
+        padding: spacing(1) spacing(0.1);
+        margin-right: spacing(1);
+      }
+      .dropdown__text {
+        margin-right: spacing(5.5);
+      }
+      .dropdown__icon {
+        color: $color-gray-2;
+      }
+    }
+    .dropdown-menu {
+      &.show {
+        top: 10px !important;
+        left: -10px !important;
+        overflow-y: scroll;
+        height: 250px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px $color-black-dark-3;
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: $color-gray-6;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $color-gray-2;
+          border-radius: 5px;
+        }
+      }
+      .dropdown-item {
+        transition: all 0.2s;
+        @include responsive_laptop--mini {
+          @include Text($fs-0 - 1, $fw-regular);
+        }
+        &:hover {
+          background-color: $color-blue;
+        }
+      }
+    }
+  }
+  #bookTicketButton {
+    @include responsive_mobile {
+      @include Text($fs-0 - 3, $fw-regular);
+      margin-top: spacing(1.5);
+    }
+    @include responsive_laptop--mini {
+      @include Text($fs-0 - 3, $fw-regular);
+    }
+    &.btn {
+      background-color: $color-black-1;
+      color: $color-white-cream;
+      padding: spacing(0.7) spacing(2.5);
+      outline: none;
+      box-shadow: none;
+      @include responsive_mobile {
+        padding: spacing(0.5) spacing(1.5);
+      }
+    }
+  }
+}
