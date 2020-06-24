@@ -21,7 +21,6 @@ export default function Dashboard() {
       .layCumRapTheoHeThong()
       .then((res) => {
         setCumRap(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err.response.data);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useDispatch } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -12,6 +12,7 @@ import "./Movie.scss";
 import AddMovieModal from "../AddMovieModal/AddMovieModal";
 import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
+import { xemChiTietAction } from "../../../redux/actions/QuanLyPhimActions";
 import swal from "sweetalert";
 
 const useStyles = makeStyles({
@@ -55,6 +56,7 @@ const xoaPhim = (maPhim) => {
       });
     });
 };
+
 export default function Movie(props) {
   const renderDanhSachPhim = () => {
     let { danhSachPhim } = props;
@@ -76,7 +78,6 @@ export default function Movie(props) {
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div className="edit-action">
-                  <EditMovieModal phim={phim} />
                   <i
                     style={{
                       cursor: "pointer",
@@ -87,6 +88,7 @@ export default function Movie(props) {
                     data-target={`#d${phim.maPhim}`}
                   ></i>
                 </div>
+                <EditMovieModal phim={phim} />
                 <div className="delete-action">
                   <i
                     style={{ cursor: "pointer", color: "#fb4226" }}

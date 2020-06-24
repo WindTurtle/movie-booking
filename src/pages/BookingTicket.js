@@ -11,7 +11,6 @@ export default function BookingTicket(props) {
       .layThongTinPhongVe(maLichChieu)
       .then((result) => {
         setThongTinPhongVe(result.data);
-        console.log(result.data);
       })
       .catch((err) => {
         console.log(err.response.data);

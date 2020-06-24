@@ -1,13 +1,15 @@
-@import '../connect';
+@import "../connect";
 
 .listMovie {
   padding: spacing(6) spacing(15);
   @include responsive_mobile {
-    padding: spacing(3) spacing(0.5);
+    padding: spacing(13) spacing(0.5);
+    padding-bottom: spacing(1);
   }
   @include responsive_tablet {
-    padding: spacing(3) spacing(0.5);
+    padding: spacing(13) spacing(0.5);
     width: 100%;
+    padding-bottom: spacing(1);
   }
   @include responsive_laptop--mini {
     padding: spacing(3) spacing(0.5);
@@ -44,7 +46,6 @@
       }
       .tab-content {
         .tab-pane {
-
         }
       }
     }

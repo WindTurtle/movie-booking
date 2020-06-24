@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CardCinema from "../CardCinema/CardCinema";
+import SwipeableViews from "react-swipeable-views";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -56,7 +57,7 @@ export default function CinemaSystem(props) {
           label={rap.tenHeThongRap}
           {...a11yProps(`${index}`)}
           key={index}
-          style={{ outline: "none", color: "#333"}}
+          style={{ outline: "none", color: "#333" }}
         ></Tab>
       );
     });
@@ -64,20 +65,25 @@ export default function CinemaSystem(props) {
   const renderCumRap = () => {
     return cumRap?.map((cumRap, index) => {
       return (
-        <TabPanel value={value} index={index} key={index}>
+        <TabPanel value={value} index={index} key={index} dir={theme.direction}>
           <CardCinema cumRap={cumRap} />
         </TabPanel>
       );
     });
   };
   const classes = useStyles();
+  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
   return (
     <div className={classes.root}>
+      <h3>Danh Sách Cụm Rạp</h3>
       <AppBar
         position="static"
         color="default"
@@ -93,7 +99,13 @@ export default function CinemaSystem(props) {
           {renderHeThongRap()}
         </Tabs>
       </AppBar>
-      {renderCumRap()}
+      <SwipeableViews
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        {renderCumRap()}
+      </SwipeableViews>
     </div>
   );
 }

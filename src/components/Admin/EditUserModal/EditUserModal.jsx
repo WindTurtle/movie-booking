@@ -44,6 +44,7 @@ export default class EditUserModal extends Component {
         email: "",
         soDT: "",
         maLoaiNguoiDung: "",
+        maNhom: "",
       },
     });
   }

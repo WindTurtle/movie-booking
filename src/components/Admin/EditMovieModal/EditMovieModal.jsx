@@ -4,7 +4,6 @@ import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
 import { Fragment } from "react";
-
 export default class EditMovieModal extends Component {
   state = {
     values: {
@@ -303,3 +302,4 @@ export default class EditMovieModal extends Component {
     return <Fragment>{this.renderModal()}</Fragment>;
   }
 }
+

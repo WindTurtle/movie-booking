@@ -1,12 +1,9 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { qLyPhimService } from "../../services/QuanLyPhimServices";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./MovieCarousel.scss";
-// import "owl.carousel/dist/assets/owl.carousel.css";
-// import "owl.carousel/dist/assets/owl.theme.default.css";
 export default function MovieCarousel(props) {
   var moment = require("moment");
   let { danhSachPhim } = props;
@@ -51,7 +48,7 @@ export default function MovieCarousel(props) {
   const renderPhim = () => {
     return (
       <Slider {...settings}>
-        {danhSachPhim.map((phim, index) => {
+        {danhSachPhim.reverse().map((phim, index) => {
           return (
             <div className="item__inrow p-2 mb-2" key={index}>
               <div className="item__link">

@@ -23,14 +23,14 @@ class App extends Component {
   componentDidMount = () => {
     setTimeout(() => {
       this.setState({ loading: false });
-    }, 2000);
+    }, 1800);
   };
   render() {
     return (
       <div>
         {this.state.loading ? (
           <div className="loader">
-            <Stretch color="#60c5ef" />
+            <Stretch color="#60c5ef" size="70px"  />
           </div>
         ) : (
           <BrowserRouter>

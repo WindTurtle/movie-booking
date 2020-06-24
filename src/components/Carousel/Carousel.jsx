@@ -6,7 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import BookTicket from "../BookTicket/BookTicket";
 
 export default function Carousel(props) {
-  let { cumRap } = props;
+  let { danhSachPhim } = props;
   return (
     <div className="hotMovie">
       <div className="hotMovie__content">
@@ -101,7 +101,7 @@ export default function Carousel(props) {
           </div>
         </OwlCarousel>
       </div>
-      <BookTicket cumRap={cumRap} />
+      <BookTicket danhSachPhim={danhSachPhim} />
     </div>
   );
 }

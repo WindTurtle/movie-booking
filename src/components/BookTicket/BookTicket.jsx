@@ -1,174 +1,163 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./BookTicket.scss";
+import { NavLink } from "react-router-dom";
+import { qLyPhimService } from "../../services/QuanLyPhimServices";
 export default function BookTicket(props) {
-  const renderDSPhim = () => {
-    let { cumRap } = props;
-    return cumRap.lstCumRap?.map((phim, index) => {
+  let { danhSachPhim } = props;
+  var moment = require("moment");
+  let [thongTinPhim, setThongTinPhim] = useState([]);
+  let [maPhim, setMaPhim] = useState({});
+  let [maLichChieu, setMaLichChieu] = useState();
+  let [maCumRap, setMaCumRap] = useState();
+  var handleInput = (event) => {
+    let maPhim = parseInt(event.target.value);
+    setMaPhim(maPhim);
+  };
+  var handleInputLichChieu = (event) => {
+    let maLichChieu = event.target.value;
+    setMaLichChieu(maLichChieu);
+  };
+
+  var handleInputCumRap = (event) => {
+    let maCumRap = event.target.value;
+    setMaCumRap(maCumRap);
+  };
+
+  const renderDatVe = () => {
+    if (maLichChieu) {
       return (
-        <a className="dropdown-item" href="#" key={index}>
+        <NavLink to={`/booking/${maLichChieu}`}>
+          <button className="btn-style draw-border">ĐẶT VÉ</button>
+        </NavLink>
+      );
+    } else {
+      return <button className="btn-style-disable">ĐẶT VÉ</button>;
+    }
+  };
+
+  useEffect(() => {
+    qLyPhimService
+      .layThongTinPhim(maPhim)
+      .then((result) => {
+        setThongTinPhim(result.data);
+      })
+      .catch((err) => {
+        // console.log(err.response.data);
+      });
+  }, [maPhim]);
+
+  const renderDSPhim = () => {
+    return danhSachPhim?.map((phim, index) => {
+      return (
+        <option value={phim.maPhim} key={index}>
           {phim.tenPhim}
-        </a>
+        </option>
       );
     });
   };
+  const renderCumRap = () => {
+    return thongTinPhim.heThongRapChieu?.map((rap) => {
+      return rap.cumRapChieu?.map((cumRap, index) => {
+        return (
+          <option value={cumRap.maCumRap} key={index}>
+            {cumRap.tenCumRap}
+          </option>
+        );
+      });
+    });
+  };
+
+  const renderNgayChieu = () => {
+    return thongTinPhim.heThongRapChieu?.map((rap) => {
+      return rap.cumRapChieu.map((cumRap) => {
+        if (maCumRap === cumRap.maCumRap) {
+          return cumRap.lichChieuPhim.map((ngayChieu, index) => {
+            return (
+              <option value={ngayChieu.maLichChieu} key={index}>
+                {moment(ngayChieu.ngayChieuGioChieu).format("DD-MM-yyyy")}
+              </option>
+            );
+          });
+        }
+      });
+    });
+  };
+  const renderGioChieu = () => {
+    return thongTinPhim.heThongRapChieu?.map((rap) => {
+      return rap.cumRapChieu?.map((cumRap) => {
+        if (maCumRap === cumRap.maCumRap) {
+          return cumRap.lichChieuPhim?.map((ngayChieu, index) => {
+            return (
+              <option value={ngayChieu.maLichChieu} key={index}>
+                {moment(ngayChieu.ngayChieuGioChieu).format("hh:mm A")}
+              </option>
+            );
+          });
+        }
+      });
+    });
+  };
+
   return (
     <div className="bookMovie">
-      <div id="movie__dropdown" className="dropdown show d-inline">
-        <a
-          className="dropdown-toggle"
-          href="#"
-          role="button"
-          id="moviedropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <span className="dropdown__text">Phim</span>
-          <i className="fa fa-angle-down dropdown__icon" />
-        </a>
-        <div className="dropdown-menu" aria-labelledby="moviedropdownMenuLink">
-          {renderDSPhim()}
+      <div className="row">
+        <div id="movie__dropdown" className="select__item col-md-2 col-xs-6">
+          <div className="select__form">
+            <select
+              name="movie"
+              id="slct"
+              defaultValue={"DEFAULT"}
+              onChange={handleInput}
+            >
+              <option value="DEFAULT" disabled>
+                Chọn phim
+              </option>
+              {renderDSPhim()}
+            </select>
+          </div>
         </div>
-      </div>
-      <div id="theater__dropdown" className="dropdown show d-inline">
-        <a
-          className="dropdown-toggle"
-          href="#"
-          role="button"
-          id="theaterdropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <span className="dropdown__text">Rạp</span>
-          <i className="fa fa-angle-down dropdown__icon" />
-        </a>
-        <div
-          className="dropdown-menu"
-          aria-labelledby="theaterdropdownMenuLink"
-        >
-          <a className="dropdown-item" href="#">
-            BHD Star Bitexco
-          </a>
-          <a className="dropdown-item" href="#">
-            BHD Star Vincom 3/2
-          </a>
-          <a className="dropdown-item" href="#">
-            BHD Star Vincom Lê Văn Việt
-          </a>
-          <a className="dropdown-item" href="#">
-            CGV Aeon Bình Tân
-          </a>
-          <a className="dropdown-item" href="#">
-            CGV Crescent Mall
-          </a>
-          <a className="dropdown-item" href="#">
-            CGV Vincom Center Landmark 81
-          </a>
-          <a className="dropdown-item" href="#">
-            CineStar Hai Bà Trưng
-          </a>
-          <a className="dropdown-item" href="#">
-            Galaxy - Nguyễn Du
-          </a>
-          <a className="dropdown-item" href="#">
-            Lotte Cinema Cantavil
-          </a>
+        <div id="theater__dropdown" className="select__item col-md-2 col-xs-6">
+          <div className="select__form">
+            <select
+              name="slct"
+              id="slct"
+              onChange={handleInputCumRap}
+              defaultValue={"DEFAULT"}
+            >
+              <option value="DEFAULT" disabled>
+                Chọn rạp
+              </option>
+              {renderCumRap()}
+            </select>
+          </div>
         </div>
-      </div>
-      <div id="chooseday__dropdown" className="dropdown show d-inline">
-        <a
-          className="dropdown-toggle"
-          href="#"
-          role="button"
-          id="daydropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <span className="dropdown__text">Ngày xem</span>
-          <i className="fa fa-angle-down dropdown__icon" />
-        </a>
-        <div className="dropdown-menu" aria-labelledby="daydropdownMenuLink">
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Hôm nay</span>
-            <span className="days">2020-03-03</span>
-          </a>
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Ngày mai</span>
-            <span className="days">2020-03-04</span>
-          </a>
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Thứ năm</span>
-            <span className="days">2020-03-05</span>
-          </a>
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Thứ sáu</span>
-            <span className="days">2020-03-06</span>
-          </a>
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Thứ bảy</span>
-            <span className="days">2020-03-07</span>
-          </a>
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Chủ nhật</span>
-            <span className="days">2020-03-08</span>
-          </a>
-          <a className="dropdown-item" href="#">
-            <span className="dotw">Thứ hai</span>
-            <span className="days">2020-03-09</span>
-          </a>
+        <div id="chooseday__dropdown" className="select__item col-md-2 col-xs-6">
+          <div className="select__form">
+            <select name="slct" id="slct" defaultValue={"DEFAULT"}>
+              <option value="DEFAULT" disabled>
+                Chọn ngày
+              </option>
+              {renderNgayChieu()}
+            </select>
+          </div>
         </div>
-      </div>
-      <div id="showtime__dropdown" className="dropdown show d-inline">
-        <a
-          className="dropdown-toggle"
-          href="#"
-          role="button"
-          id="showtimedropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <span className="dropdown__text">Suất chiếu</span>
-          <i className="fa fa-angle-down dropdown__icon" />
-        </a>
-        <div
-          className="dropdown-menu"
-          aria-labelledby="showtimedropdownMenuLink"
-        >
-          <a className="dropdown-item" href="#">
-            11:00
-          </a>
-          <a className="dropdown-item" href="#">
-            12:30
-          </a>
-          <a className="dropdown-item" href="#">
-            13:00
-          </a>
-          <a className="dropdown-item" href="#">
-            13:30
-          </a>
-          <a className="dropdown-item" href="#">
-            14:00
-          </a>
-          <a className="dropdown-item" href="#">
-            14:20
-          </a>
-          <a className="dropdown-item" href="#">
-            15:00
-          </a>
-          <a className="dropdown-item" href="#">
-            21:00
-          </a>
-          <a className="dropdown-item" href="#">
-            22:30
-          </a>
+        <div id="showtime__dropdown" className="select__item col-md-2 col-xs-6">
+          <div className="select__form">
+            <select
+              name="slct"
+              id="slct"
+              defaultValue={"DEFAULT"}
+              onChange={handleInputLichChieu}
+            >
+              <option value="DEFAULT" disabled>
+                Chọn giờ
+              </option>
+              {renderGioChieu()}
+            </select>
+          </div>
         </div>
+        <div className="col-md-4 col-sm-12 select__item button__form">{renderDatVe()}</div>
       </div>
-      <button id="bookTicketButton" className="btn">
-        ĐẶT VÉ NGAY
-      </button>
     </div>
   );
 }

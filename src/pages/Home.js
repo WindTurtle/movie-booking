@@ -43,7 +43,7 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <Carousel cumRap={cumRap}/>
+      <Carousel danhSachPhim={danhSachPhim} />
       <ListMovie danhSachPhim={danhSachPhim} />
       <ShowTimeHome rap={rap} cumRap={cumRap} />
       <News />
