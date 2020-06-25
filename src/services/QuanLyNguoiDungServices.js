@@ -32,5 +32,20 @@ export class QuanLyNguoiDung {
       },
     });
   };
+
+  layBinhLuan = () => {
+    return axios({
+      url: "https://5e9829e75eabe7001681bbfb.mockapi.io/comment",
+      method: "GET",
+    });
+  };
+
+  themBinhLuan = (binhLuan) => {
+    return axios({
+      url: "https://5e9829e75eabe7001681bbfb.mockapi.io/comment",
+      method: "POST",
+      data: binhLuan,
+    });
+  };
 }
 export const qlyNguoiDung = new QuanLyNguoiDung();

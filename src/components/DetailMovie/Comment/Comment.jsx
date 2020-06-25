@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import "./Comment.scss";
 import ModalComment from "../ModalComment/ModalComment";
-import { Redirect } from "react-router-dom";
-export default function Comment() {
-  let comment = JSON.parse(localStorage.getItem("commentData"));
+import { useState } from "react";
+import { qlyNguoiDung } from "../../../services/QuanLyNguoiDungServices";
+export default function Comment(props) {
+  let { maPhim } = props;
   const renderStar = (rating) => {
     if (rating > 5) rating = 5;
     var content = [];
@@ -22,29 +23,36 @@ export default function Comment() {
   const countRatingMark = (rating) => {
     return rating * 0.5 + 10 * 0.5;
   };
+  let [comment, setComment] = useState([]);
+  useEffect(() => {
+    qlyNguoiDung
+      .layBinhLuan()
+      .then((res) => {
+        setComment(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   const renderComment = () => {
-    if (comment) {
-      return (
-        <Fragment>
-          <div className="comment__items">
+    return comment.reverse().map((item, index) => {
+      if (item.maPhim === parseInt(maPhim)) {
+        return (
+          <div className="comment__items" key={index}>
             <div className="comment__info">
               <div className="items__img">
                 <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="commentavt" />
               </div>
               <div className="items__info">
-                <p className="info--name">{comment.taiKhoan}</p>
-                <p className="info--time">{comment.ngayBinhLuan}</p>
+                <p className="info--name">{item.taiKhoan}</p>
+                <p className="info--time">{item.ngayBinhLuan}</p>
               </div>
               <div className="items__rating">
-                <p className="rating--point">
-                  {countRatingMark(comment.rating)}
-                </p>
-                <div className="rating--stars">
-                  {renderStar(comment.rating)}
-                </div>
+                <p className="rating--point">{countRatingMark(item.rating)}</p>
+                <div className="rating--stars">{renderStar(item.rating)}</div>
               </div>
             </div>
-            <div className="comment__content">{comment.binhLuan}</div>
+            <div className="comment__content">{item.binhLuan}</div>
             <hr />
             <div className="comment__icon">
               <i className="far fa-thumbs-up" />
@@ -52,11 +60,9 @@ export default function Comment() {
               <span className="like--text">Thích</span>
             </div>
           </div>
-        </Fragment>
-      );
-    } else {
-      return;
-    }
+        );
+      }
+    });
   };
   return (
     <Fragment>
@@ -75,71 +81,8 @@ export default function Comment() {
           </div>
         </div>
       </div>
-      <ModalComment />
-      <div className="list__comment">
-        {renderComment()}
-        <div className="comment__items">
-          <div className="comment__info">
-            <div className="items__img">
-              <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="commentavt" />
-            </div>
-            <div className="items__info">
-              <p className="info--name">Thai Nguyen</p>
-              <p className="info--time">2 giờ trước</p>
-            </div>
-            <div className="items__rating">
-              <p className="rating--point">7</p>
-              <div className="rating--stars">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="far fa-star" />
-                {/* <i class="fa fa-star"></i> */}
-              </div>
-            </div>
-          </div>
-          <div className="comment__content">
-            Phim hay, dịch quá không ai dám đi coi...
-          </div>
-          <hr />
-          <div className="comment__icon">
-            <i className="far fa-thumbs-up" />
-            <span className="count--number">20 </span>
-            <span className="like--text">Thích</span>
-          </div>
-        </div>
-        <div className="comment__items">
-          <div className="comment__info">
-            <div className="items__img">
-              <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="commentavt" />
-            </div>
-            <div className="items__info">
-              <p className="info--name">Sang Nguyen</p>
-              <p className="info--time">4 giờ trước</p>
-            </div>
-            <div className="items__rating">
-              <p className="rating--point">5</p>
-              <div className="rating--stars">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                {/* <i class="far fa-star"></i> */}
-                {/* <i class="fa fa-star"></i> */}
-              </div>
-            </div>
-          </div>
-          <div className="comment__content">
-            Phim hay, nhưng đi coi phim về mất chiếc dép. Ai lấy dép mình vui
-            lòng gọi vào số 0987652362. Cám ơn !!!
-          </div>
-          <hr />
-          <div className="comment__icon">
-            <i className="far fa-thumbs-up" />
-            <span className="count--number">1000 </span>
-            <span className="like--text">Thích</span>
-          </div>
-        </div>
-      </div>
+      <ModalComment maPhim={maPhim} />
+      <div className="list__comment">{renderComment()}</div>
       <div className="readMore">
         <button className="btn btn__readmore">XEM THÊM</button>
       </div>

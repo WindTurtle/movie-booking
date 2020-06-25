@@ -2,20 +2,25 @@ import React from "react";
 import "./ModalComment.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-
 import swal from "sweetalert";
-export default function ModalComment() {
+import { qlyNguoiDung } from "../../../services/QuanLyNguoiDungServices";
+export default function ModalComment(props) {
   const taiKhoan = useSelector(
     (state) => state.QuanLyNguoiDungReducer.taiKhoan
   );
+  let { maPhim } = props;
+
   var moment = require("moment");
   const getTime = () => {
     var d = new Date(); // for now
-    let formatTime = moment(d).format("hh:mm dd, DD/MM/yyyy");
+    let formatTime = moment(d).format("hh:mm A dd, DD/MM/yyyy");
     return formatTime;
   };
 
+  let randomId = Math.floor(Math.random() * 9999);
   let [state, setState] = useState({
+    id: randomId,
+    maPhim: parseInt(maPhim),
     taiKhoan: taiKhoan,
     binhLuan: "",
     rating: "",
@@ -31,18 +36,26 @@ export default function ModalComment() {
     setState(newState);
   };
 
-  console.log(state);
-
   let commentRating = () => {
-    localStorage.setItem("commentData", JSON.stringify(state));
-    swal({
-      title: "Đăng bình luận thành công",
-      icon: "success",
-      button: "OK",
-    });
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
+    qlyNguoiDung
+      .themBinhLuan(state)
+      .then((res) => {
+        swal({
+          title: "Đăng bình luận thành công",
+          icon: "success",
+          button: "OK",
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+      })
+      .catch((err) => {
+        swal({
+          title: "Đăng bình luận không thành công",
+          icon: "error",
+          button: "OK",
+        });
+      });
   };
 
   const renderButton = () => {
@@ -100,7 +113,7 @@ export default function ModalComment() {
                 <input
                   type="radio"
                   name="rating"
-                  value="5"
+                  value="10"
                   onChange={handleInput}
                   id="r1"
                 />
@@ -108,7 +121,7 @@ export default function ModalComment() {
                 <input
                   type="radio"
                   name="rating"
-                  value="4"
+                  value="8"
                   onChange={handleInput}
                   id="r2"
                 />
@@ -116,7 +129,7 @@ export default function ModalComment() {
                 <input
                   type="radio"
                   name="rating"
-                  value="3"
+                  value="6"
                   onChange={handleInput}
                   id="r3"
                 />
@@ -124,7 +137,7 @@ export default function ModalComment() {
                 <input
                   type="radio"
                   name="rating"
-                  value="2"
+                  value="4"
                   onChange={handleInput}
                   id="r4"
                 />
@@ -132,7 +145,7 @@ export default function ModalComment() {
                 <input
                   type="radio"
                   name="rating"
-                  value="1"
+                  value="2"
                   onChange={handleInput}
                   id="r5"
                 />

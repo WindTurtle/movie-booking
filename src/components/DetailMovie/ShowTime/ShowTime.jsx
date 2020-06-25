@@ -4,7 +4,7 @@ import "../ShowTime/ShowTime.scss";
 import Description from "../Description/Description";
 import Comment from "../Comment/Comment";
 export default function ShowTime(props) {
-  let { phim } = props;
+  let { phim, maPhim } = props;
   var moment = require("moment");
   const renderRap = () => {
     return phim.heThongRapChieu?.map((heThongRap, index) => {
@@ -34,7 +34,10 @@ export default function ShowTime(props) {
     return cumRap.lichChieuPhim?.slice(0, 4).map((lichChieu, index) => {
       return (
         <div className="timeshow__item" key={index}>
-          <NavLink className="timeshow__link" to={`/booking/${lichChieu.maLichChieu}`}>
+          <NavLink
+            className="timeshow__link"
+            to={`/booking/${lichChieu.maLichChieu}`}
+          >
             <span className="time__begin">
               {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
             </span>
@@ -180,7 +183,7 @@ export default function ShowTime(props) {
             role="tabpanel"
             aria-labelledby="pills-comment-tab"
           >
-            <Comment />
+            <Comment thongTin={phim} maPhim={maPhim} />
           </div>
         </div>
       </div>

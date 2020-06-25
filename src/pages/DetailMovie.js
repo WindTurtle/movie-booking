@@ -13,7 +13,7 @@ const DetailMovie = (props) => {
   return (
     <Fragment>
       <MovieInfo phim={phim} />
-      <ShowTime phim={phim} />
+      <ShowTime phim={phim} maPhim={props.match.params.maphim} />
     </Fragment>
   );
 };
