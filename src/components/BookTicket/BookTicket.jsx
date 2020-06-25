@@ -109,7 +109,7 @@ export default function BookTicket(props) {
               defaultValue={"DEFAULT"}
               onChange={handleInput}
             >
-              <option value="DEFAULT" disabled>
+              <option value="DEFAULT">
                 Chọn phim
               </option>
               {renderDSPhim()}
@@ -124,7 +124,7 @@ export default function BookTicket(props) {
               onChange={handleInputCumRap}
               defaultValue={"DEFAULT"}
             >
-              <option value="DEFAULT" disabled>
+              <option value="DEFAULT">
                 Chọn rạp
               </option>
               {renderCumRap()}
@@ -134,7 +134,7 @@ export default function BookTicket(props) {
         <div id="chooseday__dropdown" className="select__item col-md-2 col-xs-6">
           <div className="select__form">
             <select name="slct" id="slct" defaultValue={"DEFAULT"}>
-              <option value="DEFAULT" disabled>
+              <option value="DEFAULT">
                 Chọn ngày
               </option>
               {renderNgayChieu()}
@@ -149,7 +149,7 @@ export default function BookTicket(props) {
               defaultValue={"DEFAULT"}
               onChange={handleInputLichChieu}
             >
-              <option value="DEFAULT" disabled>
+              <option value="DEFAULT">
                 Chọn giờ
               </option>
               {renderGioChieu()}

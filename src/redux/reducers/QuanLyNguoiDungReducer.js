@@ -1,11 +1,15 @@
 import { DANG_NHAP } from "../types/QuanLyNguoiDungTypes";
 import { DANG_XUAT } from "../types/QuanLyNguoiDungTypes";
+import { BINH_LUAN } from "../types/QuanLyNguoiDungTypes";
+
 let taiKhoan = "";
 if (localStorage.getItem("userLogin")) {
   taiKhoan = JSON.parse(localStorage.getItem("userLogin")).taiKhoan;
 }
 const initialState = {
   taiKhoan: taiKhoan,
+  binhluan: "",
+  rating: "",
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +22,9 @@ export default (state = initialState, action) => {
       localStorage.removeItem("userLogin");
       state.taiKhoan = "";
       window.location.reload();
+      return { ...state };
+    }
+    case BINH_LUAN: {
       return { ...state };
     }
     default:

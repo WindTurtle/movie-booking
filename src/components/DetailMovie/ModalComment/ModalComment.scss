@@ -1,0 +1,62 @@
+@import "../../connect";
+#CommentModal {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        .comment-form {
+          width: calc(100% - 20px);
+          max-width: 800px;
+          background-color: #fff;
+          //   padding: 45px 40px;
+          z-index: 300;
+          .rating {
+            margin: 0 auto 100px auto;
+            display: flex;
+            flex-direction: row-reverse;
+            @include star-rating();
+          }
+          .textb {
+            margin-top: 50px;
+            margin-bottom: 12px;
+            position: relative;
+            textarea {
+              width: 100%;
+              height: 100px;
+              border: none;
+              background-color: #ededed;
+              border-radius: 4px;
+              color: #333;
+              font-size: 18px;
+              font-weight: 700;
+              padding: 14px 60px 0 10px;
+            }
+            & textarea:focus ~ .placeholder,
+            & textarea:valid ~ .placeholder {
+              left: 10px;
+              top: -14px;
+            }
+            .placeholder {
+              text-transform: uppercase;
+              font-size: 14px;
+              font-weight: 700;
+              position: absolute;
+              line-height: 50px;
+              top: 0;
+              left: 20px;
+              color: #9d9d9d;
+              user-select: none;
+              pointer-events: none;
+              transition: all 0.2s;
+            }
+          }
+        }
+      }
+      .modal-footer {
+        .button-post {
+          background-color: $color-blue;
+          color: $color-white-0;
+        }
+      }
+    }
+  }
+}
