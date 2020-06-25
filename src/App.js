@@ -16,6 +16,7 @@ import { LoginAdminTemplate } from "./templates/LoginAdminTemplate/LoginAdminTem
 import LoginAdmin from "./pages/LoginAdmin";
 import AllMovie from "./pages/AllMovie";
 import { Stretch } from "styled-loaders-react";
+import CreateShowTime from "./pages/CreateShowTime";
 class App extends Component {
   state = {
     loading: true,
@@ -30,7 +31,7 @@ class App extends Component {
       <div>
         {this.state.loading ? (
           <div className="loader">
-            <Stretch color="#60c5ef" size="70px"  />
+            <Stretch color="#60c5ef" size="70px" />
           </div>
         ) : (
           <BrowserRouter>
@@ -62,6 +63,11 @@ class App extends Component {
                   exact
                   path="/moviemanagement"
                   Component={MovieManagement}
+                />
+                <AdminTemplate
+                  exact
+                  path="/createshowtime"
+                  Component={CreateShowTime}
                 />
                 <LoginAdminTemplate
                   exact

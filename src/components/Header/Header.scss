@@ -9,6 +9,7 @@ header {
   transition: all 0.2s;
   .bg-dark {
     background-color: rgba(50, 50, 50, 0.9) !important;
+    background: none;
   }
   &:hover {
     background-color: rgb(22, 19, 19);

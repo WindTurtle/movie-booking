@@ -1,4 +1,4 @@
-import React, { useDispatch } from "react";
+import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -12,7 +12,6 @@ import "./Movie.scss";
 import AddMovieModal from "../AddMovieModal/AddMovieModal";
 import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
-import { xemChiTietAction } from "../../../redux/actions/QuanLyPhimActions";
 import swal from "sweetalert";
 
 const useStyles = makeStyles({
