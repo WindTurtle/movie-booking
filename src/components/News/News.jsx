@@ -113,7 +113,7 @@ export default class News extends Component {
                             <li className="menu-content-item">
                               <a
                                 href="/#"
-                                className="item__link fa fa-bookmark"
+                                className="item__link"
                               >
                                 <i className="fa fa-bookmark"></i>
                               </a>
