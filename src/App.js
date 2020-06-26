@@ -17,6 +17,7 @@ import LoginAdmin from "./pages/LoginAdmin";
 import AllMovie from "./pages/AllMovie";
 import { Stretch } from "styled-loaders-react";
 import CreateShowTime from "./pages/CreateShowTime";
+import ClusterCinema from "./pages/ClusterCinema";
 class App extends Component {
   state = {
     loading: true,
@@ -53,6 +54,11 @@ class App extends Component {
                 <HomeTemplate exact path="/login" Component={Login} />
                 <HomeTemplate exact path="/register" Component={Register} />
                 <HomeTemplate exact path="/profile" Component={Profile} />
+                <HomeTemplate
+                  exact
+                  path="/clustercinema"
+                  Component={ClusterCinema}
+                />
                 <AdminTemplate exact path="/dashboard" Component={Dashboard} />
                 <AdminTemplate
                   exact

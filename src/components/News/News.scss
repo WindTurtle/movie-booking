@@ -1,15 +1,31 @@
 @import "../connect";
+$regal-blue: #034378;
+$san-juan: #2d4e68;
+$bermuda: #77d7b9;
+$white: #fff;
+$black: #000;
+$open-sans: "Open Sans", sans-serif;
 
+@mixin cf {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
 .news {
   padding: spacing(0) spacing(15);
   @include responsive_mobile {
-    padding: spacing(0) spacing(1.5);
+    padding: spacing(2) spacing(1.5);
   }
   @include responsive_tablet {
-    padding: spacing(0) spacing(1.5);
+    padding: spacing(0) spacing(1);
   }
   @include responsive_laptop--mini {
-    padding: spacing(0) spacing(1.5);
+    padding: spacing(0) spacing(1);
   }
   @include responsive_laptop--medium {
     padding: spacing(0) spacing(3);
@@ -28,6 +44,19 @@
             transition: all 0.1s;
             border: none;
             transform: scale(1);
+            @include responsive_mobile {
+              @include Text($fs-2, $fw-medium);
+              margin: spacing(2) 0;
+            }
+            @include responsive_tablet {
+              margin: spacing(2) 0;
+            }
+            @include responsive_laptop--mini {
+              margin: spacing(2) 0;
+            }
+            @include responsive_laptop--medium {
+              margin: spacing(2) 0;
+            }
             &.active {
               background: none;
               color: $color-blue;
@@ -42,6 +71,260 @@
       .tab-content {
         .tab-pane {
           .tab__content {
+            .card-content {
+              display: flex;
+              justify-content: space-between;
+              margin: 10px auto 0;
+              .card {
+                margin-bottom: spacing(2);
+                width: 49%;
+                @include responsive_mobile {
+                  width: 100%;
+                }
+                @include responsive_tablet {
+                  width: 100%;
+                }
+                background: none;
+                .menu-content {
+                  @include cf;
+                  margin: 0;
+                  padding: 0;
+                  list-style-type: none;
+                  .menu-content-item {
+                    display: inline-block;
+                  }
+                  .item__link {
+                    color: $color-white-0;
+                    text-decoration: none;
+                  }
+                  .item-data {
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    font-size: 10px;
+                    font-weight: 700;
+                    font-family: "Open Sans";
+                    transform: translate(-50%, 0);
+                  }
+                }
+                .wrapper {
+                  background-color: $color-white-0;
+                  min-height: 540px;
+                  position: relative;
+                  overflow: hidden;
+                  box-shadow: 0 19px 38px rgba($color-black-0, 0.3),
+                    0 15px 12px rgba($color-black-0, 0.2);
+                  &:hover {
+                    .datanews {
+                      transform: translateY(0);
+                    }
+                  }
+                }
+                .datanews {
+                  position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  transform: translateY(calc(70px + 1em));
+                  transition: transform 0.3s;
+                  .contentnews {
+                    padding: 1em;
+                    position: relative;
+                    z-index: 1;
+                  }
+                }
+                .authornews {
+                  font-size: 12px;
+                }
+                .titlenews {
+                  margin-top: 10px;
+                }
+                .text-description {
+                  height: 70px;
+                  margin: 0;
+                }
+                input[type="checkbox"] {
+                  display: none;
+                }
+                input[type="checkbox"]:checked + .menu-content {
+                  transform: translateY(-60px);
+                }
+              }
+
+              // First example styles
+              .example-1 {
+                .wrapper {
+                  background: url("https://game8.vn/media/202003/images/mot-thanh-vien-avengers-se-tro-thanh-phan-dien-trong-avengers-5%20(1).jpg")
+                    20% 1% / cover no-repeat;
+                }
+                .datepost {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  background-color: $color-blue;
+                  color: $white;
+                  padding: 0.8em;
+                  span {
+                    display: block;
+                    text-align: center;
+                  }
+                  .daypost {
+                    font-weight: 700;
+                    font-size: 24px;
+                    text-shadow: 2px 3px 2px rgba($color-black-0, 0.18);
+                  }
+                  .monthpost {
+                    text-transform: uppercase;
+                  }
+                  .monthpost,
+                  .yearpost {
+                    font-size: 12px;
+                  }
+                }
+                .contentnews {
+                  background-color: $color-white-0;
+                  box-shadow: 0 5px 30px 10px rgba($color-black-0, 0.3);
+                }
+                .titlenews {
+                  .title__link {
+                    color: lighten($color-black-0, 50%);
+                    text-decoration: none;
+                  }
+                }
+                .menu-button {
+                  position: absolute;
+                  z-index: 999;
+                  top: 16px;
+                  right: 16px;
+                  width: 25px;
+                  text-align: center;
+                  cursor: pointer;
+                  span {
+                    width: 5px;
+                    height: 5px;
+                    background-color: lighten($color-black-0, 50%);
+                    color: lighten($color-black-0, 50%);
+                    position: relative;
+                    display: inline-block;
+                    border-radius: 50%;
+                    &::after,
+                    &::before {
+                      content: "";
+                      display: block;
+                      width: 5px;
+                      height: 5px;
+                      background-color: currentColor;
+                      position: absolute;
+                      border-radius: 50%;
+                    }
+                    &::before {
+                      left: -10px;
+                    }
+                    &::after {
+                      right: -10px;
+                    }
+                  }
+                }
+                .menu-content {
+                  text-align: center;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  z-index: -1;
+                  transition: transform 0.3s;
+                  transform: translateY(0);
+                  .menu-content-item {
+                    width: 33.333333%;
+                    float: left;
+                    background-color: $color-blue;
+                    height: 60px;
+                    position: relative;
+                  }
+                  .item__link {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 24px;
+                    text-decoration: none;
+                  }
+                  .item-data {
+                    top: -10px;
+                  }
+                }
+              }
+
+              // Second example styles
+              .example-2 {
+                .wrapper {
+                  background: url("https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg")
+                    center / cover no-repeat;
+                  &:hover {
+                    .menu-content {
+                      span {
+                        transform: translate(-50%, -10px);
+                        opacity: 1;
+                      }
+                    }
+                  }
+                }
+                .header-post {
+                  @include cf;
+                  color: $color-white-0;
+                  padding: 1em;
+                  .datepost {
+                    float: left;
+                    font-size: 12px;
+                  }
+                }
+                .menu-content {
+                  float: right;
+                  .menu-content-item {
+                    margin: 0 5px;
+                    position: relative;
+                  }
+                  .item-data {
+                    transition: all 0.3s;
+                    opacity: 0;
+                  }
+                }
+                .datanews {
+                  color: $color-white-0;
+                  transform: translateY(calc(70px + 4em));
+                }
+                .titlenews {
+                  .title__link {
+                    color: $color-white-0;
+                  }
+                }
+                .button-watch {
+                  display: block;
+                  width: 100px;
+                  margin: 2em auto 1em;
+                  text-align: center;
+                  font-size: 12px;
+                  color: $white;
+                  line-height: 1;
+                  position: relative;
+                  font-weight: 700;
+                  &::after {
+                    content: "\2192";
+                    opacity: 0;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    transition: all 0.3s;
+                  }
+                  &:hover {
+                    &::after {
+                      transform: translate(5px, -50%);
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
+            }
             .row__above {
               margin-bottom: spacing(2.5);
               .row__item {

@@ -45,9 +45,6 @@ export default function ModalComment(props) {
           icon: "success",
           button: "OK",
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 1500);
       })
       .catch((err) => {
         swal({
@@ -158,7 +155,9 @@ export default function ModalComment(props) {
                   onChange={handleInput}
                   required
                 />
-                <div className="placeholder">Bình luận</div>
+                <div className="placeholder" value={state.binhLuan}>
+                  Bình luận
+                </div>
               </div>
             </form>
           </div>

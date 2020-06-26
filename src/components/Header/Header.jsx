@@ -40,7 +40,10 @@ export default function Header(props) {
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="navbar-brand">
           <NavLink to="/" style={{ textDecoration: "none" }}>
-            <img src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1" alt="logo" />
+            <img
+              src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
+              alt="logo"
+            />
             <span className="text-logo">AP Movie</span>
           </NavLink>
         </div>
@@ -67,9 +70,9 @@ export default function Header(props) {
               </NavLink>
             </li>
             <li className="nav-item">
-              <i className="fa fa-calendar-alt" />
-              <NavLink className="nav-link" to="/#schedule">
-                Lịch Chiếu
+              <i class="fa fa-project-diagram"></i>
+              <NavLink className="nav-link" to="/clustercinema">
+                Cụm Rạp
               </NavLink>
             </li>
             <li className="nav-item">

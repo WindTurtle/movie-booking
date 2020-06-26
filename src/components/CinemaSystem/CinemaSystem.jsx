@@ -57,7 +57,7 @@ export default function CinemaSystem(props) {
           label={rap.tenHeThongRap}
           {...a11yProps(`${index}`)}
           key={index}
-          style={{ outline: "none", color: "#333" }}
+          style={{ outline: "none", color: "#333", paddingBottom: "35px" }}
         ></Tab>
       );
     });
@@ -82,12 +82,14 @@ export default function CinemaSystem(props) {
     setValue(index);
   };
   return (
-    <div className={classes.root}>
-      <h3>Danh Sách Cụm Rạp</h3>
+    <div className={classes.root} style={{ marginTop: "65px" }}>
       <AppBar
         position="static"
         color="default"
-        style={{ backgroundColor: "transparent" }}
+        style={{
+          backgroundColor: "#fff",
+          position: "sticky",
+        }}
       >
         <Tabs
           value={value}
@@ -103,6 +105,7 @@ export default function CinemaSystem(props) {
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
+        style={{ backgroundColor: "#333"}}
       >
         {renderCumRap()}
       </SwipeableViews>

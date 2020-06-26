@@ -55,172 +55,101 @@ export default class News extends Component {
                 aria-labelledby="pills-home-tab"
               >
                 <div className="tab__content">
-                  <div className="row__above row">
-                    <div className="row__item col-md-6 col-sm-12">
-                      <div className="item__img">
-                        <a href="#">
-                          <img
-                            className="img-fluid"
-                            src="https://s3img.vcdn.vn/123phim/2020/05/american-sniper-chinh-nghia-hay-phi-nghia-15905660338111.png"
-                            alt="hinhanh"
-                          />
-                        </a>
-                      </div>
-                      <div className="item__text">
-                        <a className="item__title" href="#">
-                          American Sniper - Chính nghĩa hay phi nghĩa?
-                        </a>
-                        <p className="item__description">
-                          Trở lại với phiên bản làm lại, liệu Classic Again có
-                          thành công như người tiền nhiệm?
-                        </p>
-                      </div>
-                      <div className="item__icon">
-                        <div className="icon__social d-inline">
-                          <i className="fa fa-thumbs-up" />
-                          <span className="count__number">2</span>
+                  <div className="card-content row">
+                    <div className="example-1 card">
+                      <div className="wrapper">
+                        <div className="datepost">
+                          <span className="daypost">01</span>
+                          <span className="monthpost">Tháng 7</span>
+                          <span className="yearpost">2020</span>
                         </div>
-                        <div className="icon__social d-inline">
-                          <i className="fa fa-comment-alt" />
-                          <span className="count__number">0</span>
+                        <div className="datanews">
+                          <div className="contentnews">
+                            <span className="authornews">Anh Phong</span>
+                            <h1 className="titlenews">
+                              <a className="title__link" href="#">
+                                Một thành viên của Avengers sẽ "biến chất"?
+                              </a>
+                            </h1>
+                            <p className="text-description">
+                            Marvel Studios đang ủ ý tưởng cho quân mình đánh quân ta, khi dự định biến một thành viên cao cấp của nhóm Avengers trở thành phản diện...
+                            </p>
+                            <label htmlFor="show-menu" className="menu-button">
+                              <span />
+                            </label>
+                          </div>
+                          <input type="checkbox" id="show-menu" />
+                          <ul className="menu-content">
+                            <li className="menu-content-item">
+                              <a
+                                className="item__link"
+                                href="#"
+                                className="item__link fa fa-tag"
+                              />
+                            </li>
+                            <li className="menu-content-item">
+                              <a href="#" className="item__link fa fa-heart">
+                                <span className="item-data">47</span>
+                              </a>
+                            </li>
+                            <li className="menu-content-item">
+                              <a href="#" className="item__link fa fa-comment">
+                                <span className="item-data">8</span>
+                              </a>
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
-                    <div className="row__item col-md-6 col-sm-12">
-                      <div className="item__img">
-                        <a href="#">
-                          <img
-                            className="img-fluid"
-                            src="https://s3img.vcdn.vn/123phim/2020/05/phim-cho-ca-gia-dinh-vui-ve-nhan-dip-le-quoc-te-thieu-nhi-1-6-15905643444860.png"
-                            alt="hinhanh"
-                          />
-                        </a>
-                      </div>
-                      <div className="item__text">
-                        <a className="item__title" href="#">
-                          Phim cho cả gia đình vui vẻ nhân dịp lễ Quốc Tế Thiếu
-                          Nhi 1/6
-                        </a>
-                        <p className="item__description">
-                          Kịch bản hoàn hảo, diễn xuất tuyệt vời đã khiến bộ
-                          phim bội thu gấp 7 lần kinh phí sản xuất.
-                        </p>
-                      </div>
-                      <div className="item__icon">
-                        <div className="icon__social d-inline">
-                          <i className="fa fa-thumbs-up" />
-                          <span className="count__number">0</span>
+                    <div className="example-2 card">
+                      <div className="wrapper">
+                        <div className="header-post">
+                          <div className="datepost">
+                            <span className="daypost">26 </span>
+                            <span className="monthpost">Tháng 6 </span>
+                            <span className="yearpost">2020</span>
+                          </div>
+                          <ul className="menu-content">
+                            <li className="menu-content-item">
+                              <a
+                                href="#"
+                                className="item__link fa fa-bookmark"
+                              />
+                            </li>
+                            <li className="menu-content-item">
+                              <a href="#" className="item__link fa fa-heart">
+                                <span className="item-data">18</span>
+                              </a>
+                            </li>
+                            <li className="menu-content-item">
+                              <a href="#" className="item__link fa fa-comment">
+                                <span className="item-data">3</span>
+                              </a>
+                            </li>
+                          </ul>
                         </div>
-                        <div className="icon__social d-inline">
-                          <i className="fa fa-comment-alt" />
-                          <span className="count__number">1</span>
+                        <div className="datanews">
+                          <div className="contentnews">
+                            <span className="authornews">Paul Pogba</span>
+                            <h1 className="titlenews">
+                              <a className="title__link" href="#">
+                                Stranger Things: The sound of the Upside Down
+                              </a>
+                            </h1>
+                            <p className="text-description">
+                              The antsy bingers of Netflix will eagerly
+                              anticipate the digital release of the Survive
+                              soundtrack, out today.
+                            </p>
+                            <a href="#" className="button-watch">
+                              Xem thêm
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="row__below row">
-                    <div className="row__left col-md-8 col-sm-12">
-                      <div className="left__below row">
-                        <div className="left__item col-6">
-                          <div className="item__img">
-                            <img className="img-fluid" src="https://s3img.vcdn.vn/123phim/2020/05/david-fincher-bac-thay-su-dung-visual-effects-15900519940266.png" alt="hinhanh" />
-                          </div>
-                          <div className="item__text">
-                            <a className="item__title" href="#">
-                              Vũ trụ Điện ảnh Valiant được Sony đưa lên màn bạc
-                              như thế nào?
-                            </a>
-                            <p className="item__description">
-                              Nước cờ đầu tiên mang tên Bloodshot có đủ sức để
-                              Sony và Valiant thu hút khán giả?
-                            </p>
-                          </div>
-                          <div className="item__icon">
-                            <div className="icon__social d-inline">
-                              <i className="fa fa-thumbs-up" />
-                              <span className="count__number">5</span>
-                            </div>
-                            <div className="icon__social d-inline">
-                              <i className="fa fa-comment-alt" />
-                              <span className="count__number">1</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="left__item col-6">
-                          <div className="item__img">
-                            <img className="img-fluid" src="https://s3img.vcdn.vn/123phim/2020/05/mau-sac-anh-huong-den-qua-trinh-xem-phim-cua-ban-nhu-the-nao-15887590668973.png" alt="hinhanh" />
-                          </div>
-                          <div className="item__text">
-                            <a className="item__title" href="#">
-                              Công thức nào đã giúp Pixar lấy được cả nụ cười
-                              lẫn nước mắt của khán giả?
-                            </a>
-                            <p className="item__description">
-                              Onward sẽ thực sự tiếp nối thành công của những
-                              tác phẩm tiền nhiệm?
-                            </p>
-                          </div>
-                          <div className="item__icon">
-                            <div className="icon__social d-inline">
-                              <i className="fa fa-thumbs-up" />
-                              <span className="count__number">1</span>
-                            </div>
-                            <div className="icon__social d-inline">
-                              <i className="fa fa-comment-alt" />
-                              <span className="count__number">1</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row__right col-md-4 col-sm-12">
-                      <ul>
-                        <li className="right__item">
-                          <a className="item__link" href="#">
-                            <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/05/len-nham-xe-cua-ke-bien-thai-phuong-anh-dao-vo-tinh-tro-thanh-nhan-chung-bi-truy-sat-15887406665769.png" alt="hinhanh" />
-                            </div>
-                            <div className="item__title">
-                              Trước khi 'nín thở' với Vùng Đất Câm Lặng II, bạn
-                              cần phải biết trước điều gì?
-                            </div>
-                          </a>
-                        </li>
-                        <li className="right__item">
-                          <a className="item__link" href="#">
-                            <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/05/trailer-truyen-thuyet-ve-quan-tien-ngap-tran-bi-an-tu-cau-chuyen-khi-vuon-hiep-nguoi-den-can-benh-co-dan-ong-la-khoi-ngay-15891896054703.png" alt="hinhanh" />
-                            </div>
-                            <div className="item__title">
-                              Khi đế chế 'số một' làng phim kinh dị Blumhouse
-                              bắt tay thiên tài tái sáng tạo Kẻ Vô Hình
-                            </div>
-                          </a>
-                        </li>
-                        <li className="right__item">
-                          <a className="item__link" href="#">
-                            <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/05/diem-mat-nhung-phim-viet-cong-pha-phong-chieu-trong-nam-2020-15885662853299.jpg" alt="hinhanh" />
-                            </div>
-                            <div className="item__title">
-                              Đạo diễn siêu phẩm Searching tái xuất trong tác
-                              phẩm kinh dị - giật gân Run
-                            </div>
-                          </a>
-                        </li>
-                        <li className="right__item">
-                          <a className="item__link" href="#">
-                            <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/05/nhung-yeu-to-dang-mong-doi-cua-bang-chung-vo-hinh-15891853448581.png" alt="hinhanh" />
-                            </div>
-                            <div className="item__title">
-                              'Đế chế' mafia nào từng khuynh đảo màn ảnh bạc?
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+
                   <div className="readMore">
                     <button className="btn btn__readmore">XEM THÊM</button>
                   </div>
@@ -237,16 +166,21 @@ export default class News extends Component {
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
                         <a href="#">
-                          <img className="img-fluid" src="https://s3img.vcdn.vn/123phim/2020/04/stormbreaker-va-mjolnir-loai-vu-khi-nao-cua-thor-manh-hon-15876330404511.png" alt="hinhanh" />
+                          <img
+                            className="img-fluid"
+                            src="https://s3img.vcdn.vn/123phim/2020/04/stormbreaker-va-mjolnir-loai-vu-khi-nao-cua-thor-manh-hon-15876330404511.png"
+                            alt="hinhanh"
+                          />
                         </a>
                       </div>
                       <div className="item__text">
                         <a className="item__title" href="#">
-                          [Review] Stormbreaker và Mjolnir: Loại vũ khí nào của Thor mạnh hơn?
+                          [Review] Stormbreaker và Mjolnir: Loại vũ khí nào của
+                          Thor mạnh hơn?
                         </a>
                         <p className="item__description">
-                          Tác phẩm mới nhất của Marvel tiếp tục là câu chuyện hài
-                          hước và cảm xúc về tình cảm gia đình.
+                          Tác phẩm mới nhất của Marvel tiếp tục là câu chuyện
+                          hài hước và cảm xúc về tình cảm gia đình.
                         </p>
                       </div>
                       <div className="item__icon">
@@ -263,7 +197,11 @@ export default class News extends Component {
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
                         <a href="#">
-                          <img className="img-fluid" src="https://s3img.vcdn.vn/123phim/2020/03/review-sieu-ve-si-so-vo-giai-cuu-tong-thong-chua-bao-gio-lay-loi-va-hai-huoc-den-the-15840925415754.jpg" alt="hinhanh" />
+                          <img
+                            className="img-fluid"
+                            src="https://s3img.vcdn.vn/123phim/2020/03/review-sieu-ve-si-so-vo-giai-cuu-tong-thong-chua-bao-gio-lay-loi-va-hai-huoc-den-the-15840925415754.jpg"
+                            alt="hinhanh"
+                          />
                         </a>
                       </div>
                       <div className="item__text">
@@ -358,7 +296,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/02/review-birds-of-prey-15809871977193.jpg" alt="hinhanh" />
+                              <img
+                                src="https://s3img.vcdn.vn/123phim/2020/02/review-birds-of-prey-15809871977193.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [Review] Tháng Năm Hạnh Phúc Ta Từng Có - Buông bỏ
@@ -369,7 +310,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/02/review-bi-mat-cua-gio-cau-chuyen-tinh-nguoi-duyen-ma-day-nuoc-mat-15806427358700.jpg" alt="hinhanh" />
+                              <img
+                                src="https://s3img.vcdn.vn/123phim/2020/02/review-bi-mat-cua-gio-cau-chuyen-tinh-nguoi-duyen-ma-day-nuoc-mat-15806427358700.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [Review] Sắc Đẹp Dối Trá - Hương Giang kể chuyện
@@ -380,7 +324,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/01/gai-gia-lam-chieu-3-cuoc-chien-me-chong-nang-dau-cua-gioi-sieu-giau-xu-hue-15798623446424.jpg" alt="hinhanh" />
+                              <img
+                                src="https://s3img.vcdn.vn/123phim/2020/01/gai-gia-lam-chieu-3-cuoc-chien-me-chong-nang-dau-cua-gioi-sieu-giau-xu-hue-15798623446424.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [Review] Birds of Prey - Màn lột xác hoành tráng
@@ -391,7 +338,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="https://s3img.vcdn.vn/123phim/2020/01/30-chua-phai-tet-phim-vong-lap-thoi-gian-thuong-hieu-viet-15797534706701.jpg" alt="hinhanh" />
+                              <img
+                                src="https://s3img.vcdn.vn/123phim/2020/01/30-chua-phai-tet-phim-vong-lap-thoi-gian-thuong-hieu-viet-15797534706701.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [Review] Bí Mật Của Gió - Câu chuyện “tình người
@@ -418,7 +368,11 @@ export default class News extends Component {
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
                         <a href="#">
-                          <img className="img-fluid" src="http://s3img.vcdn.vn/123phim/2017/06/bhd-star-gia-ve-45k-tai-bhd-star-quang-trung-14974982146099.jpg" alt="hinhanh" />
+                          <img
+                            className="img-fluid"
+                            src="http://s3img.vcdn.vn/123phim/2017/06/bhd-star-gia-ve-45k-tai-bhd-star-quang-trung-14974982146099.jpg"
+                            alt="hinhanh"
+                          />
                         </a>
                       </div>
                       <div className="item__text">
@@ -445,7 +399,11 @@ export default class News extends Component {
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
                         <a href="#">
-                          <img className="img-fluid" src="https://s3img.vcdn.vn/123phim/2017/09/bhd-star-goi-phim-trang-yeu-thuong-15065869628551.jpg" alt="hinhanh" />
+                          <img
+                            className="img-fluid"
+                            src="https://s3img.vcdn.vn/123phim/2017/09/bhd-star-goi-phim-trang-yeu-thuong-15065869628551.jpg"
+                            alt="hinhanh"
+                          />
                         </a>
                       </div>
                       <div className="item__text">
@@ -535,7 +493,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="http://s3img.vcdn.vn/123phim/2017/03/galaxy-hoa-than-sieu-nhan-nhan-nhieu-uu-dai-14906148212096.jpg" alt="hinhanh" />
+                              <img
+                                src="http://s3img.vcdn.vn/123phim/2017/03/galaxy-hoa-than-sieu-nhan-nhan-nhieu-uu-dai-14906148212096.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               CGV – 79.000Đ/vé cuối tuần khi thanh toán bằng
@@ -546,7 +507,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="http://s3img.vcdn.vn/123phim/2017/06/123phim-ddc-mua-ve-online-nhan-qua-lien-tay-14969118909584.jpg" alt="hinhanh" />
+                              <img
+                                src="http://s3img.vcdn.vn/123phim/2017/06/123phim-ddc-mua-ve-online-nhan-qua-lien-tay-14969118909584.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [123Phim] Thứ 6 Không Đen Tối - Ưu đãi huỷ diệt
@@ -557,7 +521,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="http://s3img.vcdn.vn/123phim/2017/06/ddc-xem-phim-gia-re-truoc-10h-va-sau-22h-14968911599222.jpg" alt="hinhanh" />
+                              <img
+                                src="http://s3img.vcdn.vn/123phim/2017/06/ddc-xem-phim-gia-re-truoc-10h-va-sau-22h-14968911599222.jpg"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [123Phim] NHẬP MÃ 'PSM30K' - Giảm ngay 30k khi đặt
@@ -568,7 +535,10 @@ export default class News extends Component {
                         <li className="right__item">
                           <a className="item__link" href="#">
                             <div className="item__img">
-                              <img src="http://s3img.vcdn.vn/123phim/2017/06/ff4a2d1afce265cae66b8872197f1e5e.png" alt="hinhanh" />
+                              <img
+                                src="http://s3img.vcdn.vn/123phim/2017/06/ff4a2d1afce265cae66b8872197f1e5e.png"
+                                alt="hinhanh"
+                              />
                             </div>
                             <div className="item__title">
                               [Mega GS] Một đoá hoa thay ngàn lời yêu

@@ -33,36 +33,43 @@ export default function Comment(props) {
       .catch((err) => {
         console.log(err.response.data);
       });
-  }, []);
+  }, [comment]);
   const renderComment = () => {
-    return comment.reverse().map((item, index) => {
-      if (item.maPhim === parseInt(maPhim)) {
-        return (
-          <div className="comment__items" key={index}>
-            <div className="comment__info">
-              <div className="items__img">
-                <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="commentavt" />
+    if (comment) {
+      return comment.reverse().map((item, index) => {
+        if (item.maPhim === parseInt(maPhim)) {
+          return (
+            <div className="comment__items" key={index}>
+              <div className="comment__info">
+                <div className="items__img">
+                  <img
+                    src="https://i.ibb.co/PCjW83Y/avt.png"
+                    alt="commentavt"
+                  />
+                </div>
+                <div className="items__info">
+                  <p className="info--name">{item.taiKhoan}</p>
+                  <p className="info--time">{item.ngayBinhLuan}</p>
+                </div>
+                <div className="items__rating">
+                  <p className="rating--point">
+                    {countRatingMark(item.rating)}
+                  </p>
+                  <div className="rating--stars">{renderStar(item.rating)}</div>
+                </div>
               </div>
-              <div className="items__info">
-                <p className="info--name">{item.taiKhoan}</p>
-                <p className="info--time">{item.ngayBinhLuan}</p>
-              </div>
-              <div className="items__rating">
-                <p className="rating--point">{countRatingMark(item.rating)}</p>
-                <div className="rating--stars">{renderStar(item.rating)}</div>
+              <div className="comment__content">{item.binhLuan}</div>
+              <hr />
+              <div className="comment__icon">
+                <i className="far fa-thumbs-up" />
+                <span className="count--number">0 </span>
+                <span className="like--text">Thích</span>
               </div>
             </div>
-            <div className="comment__content">{item.binhLuan}</div>
-            <hr />
-            <div className="comment__icon">
-              <i className="far fa-thumbs-up" />
-              <span className="count--number">0 </span>
-              <span className="like--text">Thích</span>
-            </div>
-          </div>
-        );
-      }
-    });
+          );
+        }
+      });
+    }
   };
   return (
     <Fragment>
