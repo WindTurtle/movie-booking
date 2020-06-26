@@ -68,7 +68,11 @@ export default function Movie(props) {
             <TableCell>{phim.tenPhim}</TableCell>
             <TableCell>{phim.biDanh}</TableCell>
             <TableCell>
-              <img style={{ width: 120, height: 170 }} src={phim.hinhAnh}></img>
+              <img
+                style={{ width: 120, height: 170 }}
+                src={phim.hinhAnh}
+                alt={phim.hinhAnh}
+              ></img>
             </TableCell>
             <TableCell>{phim.trailer}</TableCell>
             <TableCell>{phim.moTa}</TableCell>
