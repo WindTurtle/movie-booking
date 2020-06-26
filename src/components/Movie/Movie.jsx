@@ -71,7 +71,7 @@ export default function AllMovie(props) {
           </form>
         </div>
       </div>
-      <div className="row">{renderDanhSachPhim()}</div>
+      <div className="row movielist-content">{renderDanhSachPhim()}</div>
     </div>
   );
 }

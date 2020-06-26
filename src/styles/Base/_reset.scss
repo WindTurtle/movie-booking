@@ -1,6 +1,7 @@
 //Khai báo các giá trị mặc định của web
 // @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap");
+@import '../Helper/variables';
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +9,18 @@
   // font-family: 'Roboto Condensed', ;
   // font-family: "Roboto";
   // font-family: 'Maven Pro', sans-serif;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 body {
   background-color: rgb(33, 33, 33);
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: $color-gray-6;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-gray-2;
+    border-radius: 5px;
+  }
 }
 html {
   scroll-behavior: smooth;

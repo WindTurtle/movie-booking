@@ -31,16 +31,19 @@ export default function ShowTime(props) {
   };
 
   const renderTime = (cumRap) => {
-    return cumRap.lichChieuPhim?.slice(0, 4).map((lichChieu, index) => {
+    return cumRap.lichChieuPhim?.map((lichChieu, index) => {
       return (
         <div className="timeshow__item" key={index}>
           <NavLink
             className="timeshow__link"
             to={`/booking/${lichChieu.maLichChieu}`}
           >
-            <span className="time__begin">
-              {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
-            </span>
+            <div className="time__begin mb-2">
+              {moment(lichChieu.ngayChieuGioChieu).format("DD/MM/yyyy")}
+              <p>
+                {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+              </p>
+            </div>
           </NavLink>
         </div>
       );
