@@ -45,6 +45,18 @@ export default function Carousel(props) {
             <div className="item__img">
               <img
                 className="img-fluid"
+                src="https://s3img.vcdn.vn/123phim/2020/06/soi-15927940748987.png"
+                alt="phim soi"
+              />
+              <div className="background__overlay">
+                <i className="fa fa-play carousel__button" />
+              </div>
+            </div>
+          </div>
+          <div className="item">
+            <div className="item__img">
+              <img
+                className="img-fluid"
                 src="https://s3img.vcdn.vn/123phim/2020/05/vi-anh-deo-tin-15906776637571.png"
                 alt="hinh anh phim"
               />
