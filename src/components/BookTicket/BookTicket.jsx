@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
 export default function BookTicket(props) {
   let { danhSachPhim } = props;
+
   var moment = require("moment");
   let [thongTinPhim, setThongTinPhim] = useState([]);
   let [maPhim, setMaPhim] = useState({});
@@ -87,11 +88,13 @@ export default function BookTicket(props) {
       return rap.cumRapChieu?.map((cumRap) => {
         if (maCumRap === cumRap.maCumRap) {
           return cumRap.lichChieuPhim?.map((ngayChieu, index) => {
-            return (
-              <option value={ngayChieu.maLichChieu} key={index}>
-                {moment(ngayChieu.ngayChieuGioChieu).format("hh:mm A")}
-              </option>
-            );
+            if (maLichChieu === ngayChieu.maLichChieu) {
+              return (
+                <option value={ngayChieu.maLichChieu} key={index}>
+                  {moment(ngayChieu.ngayChieuGioChieu).format("hh:mm A")}
+                </option>
+              );
+            }
           });
         }
       });
@@ -109,9 +112,7 @@ export default function BookTicket(props) {
               defaultValue={"DEFAULT"}
               onChange={handleInput}
             >
-              <option value="DEFAULT">
-                Chọn phim
-              </option>
+              <option value="DEFAULT">Chọn phim</option>
               {renderDSPhim()}
             </select>
           </div>
@@ -124,19 +125,23 @@ export default function BookTicket(props) {
               onChange={handleInputCumRap}
               defaultValue={"DEFAULT"}
             >
-              <option value="DEFAULT">
-                Chọn rạp
-              </option>
+              <option value="DEFAULT">Chọn rạp</option>
               {renderCumRap()}
             </select>
           </div>
         </div>
-        <div id="chooseday__dropdown" className="select__item col-md-2 col-xs-6">
+        <div
+          id="chooseday__dropdown"
+          className="select__item col-md-2 col-xs-6"
+        >
           <div className="select__form">
-            <select name="slct" id="slct" defaultValue={"DEFAULT"}>
-              <option value="DEFAULT">
-                Chọn ngày
-              </option>
+            <select
+              name="slct"
+              id="slct"
+              onChange={handleInputLichChieu}
+              defaultValue={"DEFAULT"}
+            >
+              <option value="DEFAULT">Chọn ngày</option>
               {renderNgayChieu()}
             </select>
           </div>
@@ -149,14 +154,14 @@ export default function BookTicket(props) {
               defaultValue={"DEFAULT"}
               onChange={handleInputLichChieu}
             >
-              <option value="DEFAULT">
-                Chọn giờ
-              </option>
+              <option value="DEFAULT">Chọn giờ</option>
               {renderGioChieu()}
             </select>
           </div>
         </div>
-        <div className="col-md-4 col-sm-12 select__item button__form">{renderDatVe()}</div>
+        <div className="col-md-4 col-sm-12 select__item button__form">
+          {renderDatVe()}
+        </div>
       </div>
     </div>
   );
