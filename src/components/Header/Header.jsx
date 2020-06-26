@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import "../Header/Header.scss";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";

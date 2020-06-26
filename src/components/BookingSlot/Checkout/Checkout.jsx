@@ -110,7 +110,7 @@ export default function Checkout(props) {
           </button>
         </div>
         <div className="payForm">
-          <a className="pay__link" href="#">
+          <a className="pay__link" href="/#">
             <span className="title__text">Hình thức thanh toán</span>
             <p className="text__notification">
               Vui lòng chọn ghế để hiển thị phương thức thanh toán phù hợp.

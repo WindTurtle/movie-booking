@@ -79,6 +79,8 @@ export default function BookTicket(props) {
               </option>
             );
           });
+        } else {
+          return null;
         }
       });
     });

@@ -14,6 +14,7 @@ export default function ModalTrailer(props) {
       <div className="modal-dialog modal-lg">
         <div className="modal-content" style={{ position: "relative" }}>
           <iframe
+            title={xemChiTiet.trailer}
             width="100%"
             height="500px"
             src={xemChiTiet.trailer}

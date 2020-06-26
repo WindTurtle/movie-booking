@@ -67,12 +67,14 @@ export default class News extends Component {
                           <div className="contentnews">
                             <span className="authornews">Anh Phong</span>
                             <h1 className="titlenews">
-                              <a className="title__link" href="#">
+                              <a className="title__link" href="/#">
                                 Một thành viên của Avengers sẽ "biến chất"?
                               </a>
                             </h1>
                             <p className="text-description">
-                            Marvel Studios đang ủ ý tưởng cho quân mình đánh quân ta, khi dự định biến một thành viên cao cấp của nhóm Avengers trở thành phản diện...
+                              Marvel Studios đang ủ ý tưởng cho quân mình đánh
+                              quân ta, khi dự định biến một thành viên cao cấp
+                              của nhóm Avengers trở thành phản diện...
                             </p>
                             <label htmlFor="show-menu" className="menu-button">
                               <span />
@@ -81,19 +83,17 @@ export default class News extends Component {
                           <input type="checkbox" id="show-menu" />
                           <ul className="menu-content">
                             <li className="menu-content-item">
-                              <a
-                                className="item__link"
-                                href="#"
-                                className="item__link fa fa-tag"
-                              />
+                              <a className="item__link" href="/#">
+                                <i className="fa fa-tag"></i>
+                              </a>
                             </li>
                             <li className="menu-content-item">
-                              <a href="#" className="item__link fa fa-heart">
+                              <a href="/#" className="item__link fa fa-heart">
                                 <span className="item-data">47</span>
                               </a>
                             </li>
                             <li className="menu-content-item">
-                              <a href="#" className="item__link fa fa-comment">
+                              <a href="/#" className="item__link fa fa-comment">
                                 <span className="item-data">8</span>
                               </a>
                             </li>
@@ -112,17 +112,19 @@ export default class News extends Component {
                           <ul className="menu-content">
                             <li className="menu-content-item">
                               <a
-                                href="#"
+                                href="/#"
                                 className="item__link fa fa-bookmark"
-                              />
+                              >
+                                <i className="fa fa-bookmark"></i>
+                              </a>
                             </li>
                             <li className="menu-content-item">
-                              <a href="#" className="item__link fa fa-heart">
+                              <a href="/#" className="item__link fa fa-heart">
                                 <span className="item-data">18</span>
                               </a>
                             </li>
                             <li className="menu-content-item">
-                              <a href="#" className="item__link fa fa-comment">
+                              <a href="/#" className="item__link fa fa-comment">
                                 <span className="item-data">3</span>
                               </a>
                             </li>
@@ -132,7 +134,7 @@ export default class News extends Component {
                           <div className="contentnews">
                             <span className="authornews">Paul Pogba</span>
                             <h1 className="titlenews">
-                              <a className="title__link" href="#">
+                              <a className="title__link" href="/#">
                                 Stranger Things: The sound of the Upside Down
                               </a>
                             </h1>
@@ -141,7 +143,7 @@ export default class News extends Component {
                               anticipate the digital release of the Survive
                               soundtrack, out today.
                             </p>
-                            <a href="#" className="button-watch">
+                            <a href="/#" className="button-watch">
                               Xem thêm
                             </a>
                           </div>
@@ -165,16 +167,16 @@ export default class News extends Component {
                   <div className="row__above row">
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
-                        <a href="#">
+                        <a href="/#">
                           <img
                             className="img-fluid"
                             src="https://s3img.vcdn.vn/123phim/2020/04/stormbreaker-va-mjolnir-loai-vu-khi-nao-cua-thor-manh-hon-15876330404511.png"
-                            alt="hinhanh"
+                            alt="hinhanhstorm"
                           />
                         </a>
                       </div>
                       <div className="item__text">
-                        <a className="item__title" href="#">
+                        <a className="item__title" href="/#">
                           [Review] Stormbreaker và Mjolnir: Loại vũ khí nào của
                           Thor mạnh hơn?
                         </a>
@@ -196,16 +198,16 @@ export default class News extends Component {
                     </div>
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
-                        <a href="#">
+                        <a href="/#">
                           <img
                             className="img-fluid"
                             src="https://s3img.vcdn.vn/123phim/2020/03/review-sieu-ve-si-so-vo-giai-cuu-tong-thong-chua-bao-gio-lay-loi-va-hai-huoc-den-the-15840925415754.jpg"
-                            alt="hinhanh"
+                            alt="hinhansds"
                           />
                         </a>
                       </div>
                       <div className="item__text">
-                        <a className="item__title" href="#">
+                        <a className="item__title" href="/#">
                           [Review] Kẻ Vô Hình - Còn gì đáng sợ hơn kẻ giết người
                           bệnh hoạn vô hình?
                         </a>
@@ -234,11 +236,11 @@ export default class News extends Component {
                             <img
                               className="img-fluid"
                               src="https://s3img.vcdn.vn/123phim/2020/03/covid-19-la-ban-chinh-thuc-cua-mev-1-phim-contagion-2011-15843500427339.jpg"
-                              alt="hinhanh"
+                              alt="hinhansdsddh"
                             />
                           </div>
                           <div className="item__text">
-                            <a className="item__title" href="#">
+                            <a className="item__title" href="/#">
                               [Review] Cậu Bé Ma 2 - Bạn trai của 'bé Beo' là
                               đây chứ đâu xa
                             </a>
@@ -264,11 +266,11 @@ export default class News extends Component {
                             <img
                               className="img-fluid"
                               src="https://s3img.vcdn.vn/123phim/2020/02/review-nhim-sonic-cuoi-tha-ga-cung-chang-nhim-sieu-thanh-lay-loi-15821907845631.jpg"
-                              alt="hinhanh"
+                              alt="hinhaa212anh"
                             />
                           </div>
                           <div className="item__text">
-                            <a className="item__title" href="#">
+                            <a className="item__title" href="/#">
                               [Review] Nhím Sonic - Cười thả ga cùng chàng nhím
                               siêu thanh lầy lội
                             </a>
@@ -294,11 +296,11 @@ export default class News extends Component {
                     <div className="row__right col-md-4 col-sm-12">
                       <ul>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="https://s3img.vcdn.vn/123phim/2020/02/review-birds-of-prey-15809871977193.jpg"
-                                alt="hinhanh"
+                                alt="ad223"
                               />
                             </div>
                             <div className="item__title">
@@ -308,7 +310,7 @@ export default class News extends Component {
                           </a>
                         </li>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="https://s3img.vcdn.vn/123phim/2020/02/review-bi-mat-cua-gio-cau-chuyen-tinh-nguoi-duyen-ma-day-nuoc-mat-15806427358700.jpg"
@@ -322,11 +324,11 @@ export default class News extends Component {
                           </a>
                         </li>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="https://s3img.vcdn.vn/123phim/2020/01/gai-gia-lam-chieu-3-cuoc-chien-me-chong-nang-dau-cua-gioi-sieu-giau-xu-hue-15798623446424.jpg"
-                                alt="hinhanh"
+                                alt="gai-gia-lam-chieu"
                               />
                             </div>
                             <div className="item__title">
@@ -336,11 +338,11 @@ export default class News extends Component {
                           </a>
                         </li>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="https://s3img.vcdn.vn/123phim/2020/01/30-chua-phai-tet-phim-vong-lap-thoi-gian-thuong-hieu-viet-15797534706701.jpg"
-                                alt="hinhanh"
+                                alt="30chualatet"
                               />
                             </div>
                             <div className="item__title">
@@ -367,16 +369,16 @@ export default class News extends Component {
                   <div className="row__above row">
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
-                        <a href="#">
+                        <a href="/#">
                           <img
                             className="img-fluid"
                             src="http://s3img.vcdn.vn/123phim/2017/06/bhd-star-gia-ve-45k-tai-bhd-star-quang-trung-14974982146099.jpg"
-                            alt="hinhanh"
+                            alt="bhdkhuyenami"
                           />
                         </a>
                       </div>
                       <div className="item__text">
-                        <a className="item__title" href="#">
+                        <a className="item__title" href="/#">
                           CGV &amp; BHD Star – Mua 2 vé tính tiền 1 khi thanh
                           toán qua ZaloPay
                         </a>
@@ -398,16 +400,16 @@ export default class News extends Component {
                     </div>
                     <div className="row__item col-md-6 col-sm-12">
                       <div className="item__img">
-                        <a href="#">
+                        <a href="/#">
                           <img
                             className="img-fluid"
                             src="https://s3img.vcdn.vn/123phim/2017/09/bhd-star-goi-phim-trang-yeu-thuong-15065869628551.jpg"
-                            alt="hinhanh"
+                            alt="bhdstarthay"
                           />
                         </a>
                       </div>
                       <div className="item__text">
-                        <a className="item__title" href="#">
+                        <a className="item__title" href="/#">
                           Mua vé phim BHD Star - Nhận ngay Hoàn Tiền 20%
                         </a>
                         <p className="item__description">
@@ -435,11 +437,11 @@ export default class News extends Component {
                             <img
                               className="img-fluid"
                               src="http://s3img.vcdn.vn/123phim/2017/05/bhd-uu-dai-grab-14943206847693.jpg"
-                              alt="hinhanh"
+                              alt="212grapb"
                             />
                           </div>
                           <div className="item__text">
-                            <a className="item__title" href="#">
+                            <a className="item__title" href="/#">
                               Chào bạn mới - BHD Star Mua 2 Tính Tiền 1
                             </a>
                             <p className="item__description">
@@ -463,11 +465,11 @@ export default class News extends Component {
                             <img
                               className="img-fluid"
                               src="http://s3img.vcdn.vn/123phim/2017/06/zalo-pay-phim-hot-gia-hoi-14975106730615.jpg"
-                              alt="hinhanh"
+                              alt="zaloshs"
                             />
                           </div>
                           <div className="item__text">
-                            <a className="item__title" href="#">
+                            <a className="item__title" href="/#">
                               Vui Tết cùng ZaloPay - CGV Mua 1 Tặng 1
                             </a>
                             <p className="item__description">
@@ -491,11 +493,11 @@ export default class News extends Component {
                     <div className="row__right col-md-4 col-sm-12">
                       <ul>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="http://s3img.vcdn.vn/123phim/2017/03/galaxy-hoa-than-sieu-nhan-nhan-nhieu-uu-dai-14906148212096.jpg"
-                                alt="hinhanh"
+                                alt="galaxys2"
                               />
                             </div>
                             <div className="item__title">
@@ -505,11 +507,11 @@ export default class News extends Component {
                           </a>
                         </li>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="http://s3img.vcdn.vn/123phim/2017/06/123phim-ddc-mua-ve-online-nhan-qua-lien-tay-14969118909584.jpg"
-                                alt="hinhanh"
+                                alt="ddcs22"
                               />
                             </div>
                             <div className="item__title">
@@ -519,11 +521,11 @@ export default class News extends Component {
                           </a>
                         </li>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="http://s3img.vcdn.vn/123phim/2017/06/ddc-xem-phim-gia-re-truoc-10h-va-sau-22h-14968911599222.jpg"
-                                alt="hinhanh"
+                                alt="ddc-morgana"
                               />
                             </div>
                             <div className="item__title">
@@ -533,11 +535,11 @@ export default class News extends Component {
                           </a>
                         </li>
                         <li className="right__item">
-                          <a className="item__link" href="#">
+                          <a className="item__link" href="/#">
                             <div className="item__img">
                               <img
                                 src="http://s3img.vcdn.vn/123phim/2017/06/ff4a2d1afce265cae66b8872197f1e5e.png"
-                                alt="hinhanh"
+                                alt="hinhgido"
                               />
                             </div>
                             <div className="item__title">

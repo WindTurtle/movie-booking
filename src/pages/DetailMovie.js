@@ -8,7 +8,7 @@ const DetailMovie = (props) => {
     qLyPhimService.layThongTinPhim(props.match.params.maphim).then((result) => {
       setPhim(result.data);
     });
-  }, []);
+  }, [props.match.params.maphim]);
 
   return (
     <Fragment>

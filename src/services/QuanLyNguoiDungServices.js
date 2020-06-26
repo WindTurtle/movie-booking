@@ -1,5 +1,5 @@
 import axios from "axios";
-import { domain, token, groupID } from "../config/setting";
+import { domain, token } from "../config/setting";
 export class QuanLyNguoiDung {
   dangNhap = (userLogin) => {
     return axios({

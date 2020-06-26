@@ -11,12 +11,12 @@ export default class Footer extends Component {
                 <p className="above__title">AP Movie</p>
                 <ul className="above__list">
                   <li className="list__item">
-                    <a className="list__link" href="#">
+                    <a className="list__link" href="/#">
                       FAQ
                     </a>
                   </li>
                   <li className="list__item">
-                    <a className="list__link" href="#">
+                    <a className="list__link" href="/#">
                       Brand Guidelines
                     </a>
                   </li>
@@ -26,12 +26,12 @@ export default class Footer extends Component {
                 <p className="above__title non--title" />
                 <ul className="above__list">
                   <li className="list__item">
-                    <a className="list__link" href="#">
+                    <a className="list__link" href="/#">
                       Thoả thuận sử dụng
                     </a>
                   </li>
                   <li className="list__item">
-                    <a className="list__link" href="#">
+                    <a className="list__link" href="/#">
                       Chính sách bảo mật
                     </a>
                   </li>
@@ -41,7 +41,7 @@ export default class Footer extends Component {
                 <p className="above__title">ĐỐI TÁC</p>
                 <ul className="img__list">
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/QPJb0sq/cgv.png"
                         alt="hinhanh"
@@ -49,7 +49,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/qy7Zxt6/bhd.png"
                         alt="hinhanh"
@@ -57,7 +57,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/nnYH6XW/galaxy.png"
                         alt="hinhanh"
@@ -65,7 +65,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/Y7spP5M/cinestar.png"
                         alt="hinhanh"
@@ -73,7 +73,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/vZ9myZy/lotte.png"
                         alt="hinhanh"
@@ -81,7 +81,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/r2g97r7/megags.png"
                         alt="hinhanh"
@@ -89,7 +89,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/7NDTSnJ/beta.jpg"
                         alt="hinhanh"
@@ -97,7 +97,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/Hq57mwP/dongdacinema.png"
                         alt="hinhanh"
@@ -105,7 +105,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/VQ0wbkj/TOUCH.png"
                         alt="hinhanh"
@@ -113,7 +113,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/bKGdjCY/cnx.jpg"
                         alt="hinhanh"
@@ -121,7 +121,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/nDZgccs/STARLIGHT.png"
                         alt="hinhanh"
@@ -129,7 +129,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/Yc2Jzzm/dcine.png"
                         alt="hinhanh"
@@ -137,7 +137,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/kMwVgNK/zalopay-icon.png"
                         alt="hinhanh"
@@ -145,7 +145,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/Jtqmn5J/payoo.jpg"
                         alt="hinhanh"
@@ -153,7 +153,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/kcKrb8N/VCB.png"
                         alt="hinhanh"
@@ -161,7 +161,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/2K08K6K/AGRIBANK.png"
                         alt="hinhanh"
@@ -169,7 +169,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/xq10kSK/viettin.png"
                         alt="hinhanh"
@@ -177,7 +177,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/j6xvWHm/IVB.png"
                         alt="hinhanh"
@@ -185,7 +185,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/yWmpqsj/123go.png"
                         alt="hinhanh"
@@ -193,7 +193,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="img__item">
-                    <a className="img__link" href="#">
+                    <a className="img__link" href="/#">
                       <img
                         src="https://i.ibb.co/4VRdzs4/laban.png"
                         alt="hinhanh"
@@ -206,7 +206,7 @@ export default class Footer extends Component {
                 <p className="above__title">MOBILE APP</p>
                 <ul className="logo__list">
                   <li className="logo__item">
-                    <a className="logo__link" href="#">
+                    <a className="logo__link" href="/#">
                       <img
                         src="https://i.ibb.co/Zm8vZgX/apple-logo.png"
                         alt="hinhanh"
@@ -214,7 +214,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="logo__item">
-                    <a className="logo__link" href="#">
+                    <a className="logo__link" href="/#">
                       <img
                         src="https://i.ibb.co/m6YfCrT/android-logo.png"
                         alt="hinhanh"
@@ -227,7 +227,7 @@ export default class Footer extends Component {
                 <p className="above__title">SOCIAL</p>
                 <ul className="logo__list">
                   <li className="logo__item">
-                    <a className="logo__link" href="#">
+                    <a className="logo__link" href="/#">
                       <img
                         className="img__social"
                         src="https://i.ibb.co/9H50pyY/facebook-logo.png"
@@ -236,7 +236,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="logo__item">
-                    <a className="logo__link" href="#">
+                    <a className="logo__link" href="/#">
                       <img
                         className="img__social"
                         src="https://i.ibb.co/1MrJQT3/zalo-logo.png"
@@ -267,7 +267,7 @@ export default class Footer extends Component {
                   <br />
                   <span>
                     Email:
-                    <a className="middle__link" href="#">
+                    <a className="middle__link" href="/#">
                       support@info.vn
                     </a>
                   </span>

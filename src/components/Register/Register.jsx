@@ -39,7 +39,8 @@ export default class Register extends Component {
     };
 
     if (name === "email") {
-      let regexEmail = /^[a-z][a-z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
+      let regexEmail =
+        "^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$";
       if (value.match(regexEmail)) {
         newErrors.email = "";
       } else {

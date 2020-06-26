@@ -9,13 +9,13 @@ export default function MovieInfo(props) {
     if (rating > 5) rating = 5;
     var content = [];
     for (let i = 0; i < rating; i++) {
-      var star = [];
+      let star = [];
       star.push(<i className="fa fa-star" key={i}></i>);
       content.push(star);
     }
     for (let i = 0; i < 5 - rating; i++) {
-      var star = [];
-      star.push(<i className="fa fa-star" key={i}></i>);
+      let star = [];
+      star.push(<i className="fa fa-star-half-alt" key={i}></i>);
       content.push(star);
     }
     return content;

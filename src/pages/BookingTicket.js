@@ -5,8 +5,8 @@ import { qLyPhimService } from "../services/QuanLyPhimServices";
 export default function BookingTicket(props) {
   let [thongTinPhongVe, setThongTinPhongVe] = useState({});
   let [danhSachGheDangDat, setDanhSachGheDangDat] = useState([]);
+  let { maLichChieu } = props.match.params;
   useEffect(() => {
-    let { maLichChieu } = props.match.params;
     qLyPhimService
       .layThongTinPhongVe(maLichChieu)
       .then((result) => {
@@ -15,7 +15,7 @@ export default function BookingTicket(props) {
       .catch((err) => {
         console.log(err.response.data);
       });
-  }, []);
+  }, [maLichChieu]);
   return (
     <Fragment>
       <div className="container-fluid bg-light" style={{ paddingTop: 20 }}>

@@ -66,7 +66,9 @@ export default function CreateShowTimeForm(props) {
   const renderHinhAnhPhim = () => {
     return danhSachPhim.map((phim, index) => {
       if (maPhim === phim.maPhim) {
-        return <img src={phim.hinhAnh} atl={index} />;
+        return <img src={phim.hinhAnh} alt="hinh anh phim" key={index} />;
+      } else {
+        return null;
       }
     });
   };

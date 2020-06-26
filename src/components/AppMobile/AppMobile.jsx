@@ -20,12 +20,12 @@ export default class AppMobile extends Component {
                 <button className="btn__app">App miễn phí - Tải về ngay</button>
                 <p className="text__appversion">
                   Đã có hai phiên bản
-                  <a className="appforos__link" href="#">
+                  <a className="appforos__link" href="/#">
                     {" "}
                     iOS
                   </a>
                   {" & "}
-                  <a className="appforos__link" href="#">
+                  <a className="appforos__link" href="/#">
                     Android
                   </a>
                 </p>

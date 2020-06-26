@@ -14,7 +14,7 @@ export default function TheaterSystem(props) {
           aria-selected="true"
           key={index}
         >
-          <img src={rap.logo} alt={rap.logo} />
+          <img src={rap.logo} alt={rap.maHeThongRap} />
         </a>
       );
     });

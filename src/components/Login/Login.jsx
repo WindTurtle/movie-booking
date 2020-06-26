@@ -63,7 +63,7 @@ const Login = (props) => {
               <div className="img__logo">
                 <img
                   src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
-                  atl="logo"
+                  alt="logo"
                 />
                 <span className="text-logo">AP Movie</span>
               </div>

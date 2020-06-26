@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 export default function InfoTicketBooked(props) {
   var moment = require("moment");
   let { thongTin } = props;
@@ -63,57 +63,4 @@ export default function InfoTicketBooked(props) {
       </div>
     </div>
   );
-}
-{
-  /* <OwlCarousel
-              loop
-              items={4}
-              margin={10}
-              dots={true}
-              responsive={responsive}
-              className="moviebookedCarousel owl-carousel owl-theme"
-            >
-              <div className="item">
-                <div className="item__img">
-                  <img
-                    className="img-fluid"
-                    src="https://s3img.vcdn.vn/mobile/123phim/2020/05/quy-lun-tinh-nghich-chuyen-luu-dien-the-gioi-15903757824561_215x318.png"
-                  />
-                </div>
-              </div>
-              <div className="item">
-                <div className="item__img">
-                  <img
-                    className="img-fluid"
-                    src="https://s3img.vcdn.vn/mobile/123phim/2020/05/duong-ham-sinh-tu-15900291863915_215x318.png"
-                  />
-                </div>
-              </div>
-              <div className="item">
-                <div className="item__img">
-                  <img
-                    className="img-fluid"
-                    src="https://s3img.vcdn.vn/mobile/123phim/2020/05/pretoria-phi-vu-dao-tau-15889071029254_215x318.png"
-                  />
-                </div>
-              </div>
-              <div className="item">
-                <div className="item__img">
-                  <img
-                    className="img-fluid"
-                    atl="11"
-                    src="https://s3img.vcdn.vn/mobile/123phim/2020/03/ke-dao-tau-giac-mo-coma-c16-15838249622299_215x318.jpg"
-                  />
-                </div>
-              </div>
-              <div className="item">
-                <div className="item__img">
-                  <img
-                    className="img-fluid"
-                    atl="11"
-                    src="https://s3img.vcdn.vn/mobile/123phim/2020/02/bloodshot-15815812953448_215x318.jpg"
-                  />
-                </div>
-              </div>
-            </OwlCarousel> */
-}
+};
