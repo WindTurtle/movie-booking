@@ -16,8 +16,10 @@
     "axios": "^0.19.2",
     "dayjs": "^1.8.18",
     "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "moment": "^2.26.0",
     "node-sass": "^4.14.1",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-credit-cards": "^0.8.3",
     "react-dom": "^16.13.1",
@@ -36,10 +38,11 @@
     "typescript": "^3.9.5"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
