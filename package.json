@@ -14,8 +14,7 @@
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.3.3",
     "axios": "^0.19.2",
-    "lodash": "^4.17.15",
-    "lodash.groupby": "^4.6.0",
+    "dayjs": "^1.8.18",
     "moment": "^2.26.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -30,9 +29,10 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.1.1",
+    "styled-components": "^4.4.0",
     "styled-loaders-react": "^1.1.0",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "typescript": "^3.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
