@@ -54,7 +54,6 @@ export default function MovieCarousel(props) {
               <div className="item__link">
                 <div className="item__img">
                   <img
-                    style={{ height: 270 }}
                     src={phim.hinhAnh}
                     alt={phim.hinhAnh}
                   />

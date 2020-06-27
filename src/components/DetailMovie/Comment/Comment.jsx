@@ -79,8 +79,8 @@ export default function Comment(props) {
         <div className="youthink__items">
           <div className="items__img">
             <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="avt" />
+            <span className="items__text">Bình luận nào...</span>
           </div>
-          <span className="items__text">Bạn nghĩ gì về phim này?</span>
           <div className="items__stars">
             <i className="fa fa-star" />
             <i className="fa fa-star" />

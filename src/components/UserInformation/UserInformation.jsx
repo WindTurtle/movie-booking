@@ -7,9 +7,9 @@ export default function Information(props) {
   const renderAdmin = () => {
     if (info.maLoaiNguoiDung === "QuanTri") {
       return (
-        <button className="btn btn-block btn-success">
+        <button className="btn btn-block btn__admin">
           <NavLink
-            style={{ textDecoration: "none", color: "#fff" }}
+            className="admin__link"
             to="/dashboard"
           >
             Tới trang quản trị
@@ -64,8 +64,8 @@ export default function Information(props) {
                       <td>{info.maLoaiNguoiDung}</td>
                     </tr>
                   </tbody>
-                  {renderAdmin()}
                 </table>
+                {renderAdmin()}
               </div>
               <div className="col-md-7 col-sm-12 col-right bg-light">
                 <div id="accordion">

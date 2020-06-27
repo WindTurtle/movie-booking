@@ -24,17 +24,6 @@
           transform: translateX(-50%);
           box-shadow: 1px 1px 9px 1px $color-black-0;
         }
-        .btn-danger {
-          position: absolute;
-          right: 20px;
-          top: 80%;
-        }
-        .btn-success {
-          position: absolute;
-          left: 20px;
-          top: 10%;
-          @include Text($fs-3, $fw-bold);
-        }
       }
       .tableInfo {
         padding: spacing(7) spacing(2);
@@ -60,6 +49,18 @@
                 @include responsive_laptop--mini {
                   @include Text($fs-1 - 1, $fw-regular);
                 }
+              }
+            }
+            .btn__admin {
+              color: $color-black-0;
+              @include Text($fs-3, $fw-bold);
+              box-shadow: 5px 5px 5px 5px rgba(77, 77, 77, 0.5);
+              &:hover{
+                box-shadow: 0px 0px 0px 0px rgba(77, 77, 77, 0.5);
+              }
+              .admin__link{
+                text-decoration: none;
+                color: $color-blue;
               }
             }
           }

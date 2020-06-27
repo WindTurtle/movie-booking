@@ -56,52 +56,6 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
-  <script type="text/javascript">
-    const FloatLabel = (() => {
-      // add active class
-      const handleFocus = (e) => {
-        const target = e.target;
-        target.parentNode.classList.add('active');
-        target.setAttribute('placeholder', target.getAttribute('data-placeholder'));
-      };
-
-      // remove active class
-      const handleBlur = (e) => {
-        const target = e.target;
-        if (!target.value) {
-          target.parentNode.classList.remove('active');
-        }
-        target.removeAttribute('placeholder');
-      };
-
-      // register events
-      const bindEvents = (element) => {
-        const floatField = element.querySelector('input');
-        floatField.addEventListener('focus', handleFocus);
-        floatField.addEventListener('blur', handleBlur);
-      };
-
-      // get DOM elements
-      const init = () => {
-        const floatContainers = document.querySelectorAll('.container-form');
-
-        floatContainers.forEach((element) => {
-
-          if (element.querySelector('input').value) {
-            element.classList.add('active');
-          }
-
-          bindEvents(element);
-        });
-      };
-
-      return {
-        init: init
-      };
-    })();
-
-    FloatLabel.init();
-  </script>
 </body>
 
 </html>

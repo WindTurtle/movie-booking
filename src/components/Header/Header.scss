@@ -18,31 +18,38 @@ header {
     padding-bottom: 0;
     .navbar-brand {
       flex-grow: 2.5;
-      @include responsive_mobile {
-        flex-grow: 15;
+      @include responsive_mobile--tiny {
+        flex-grow: 0;
       }
-      @include responsive_tablet {
-        flex-grow: 15;
-      }
-      @include responsive_laptop--medium {
-        flex-grow: 15;
-      }
+      // @include responsive_tablet {
+      //   flex-grow: 15;
+      // }
+      // @include responsive_laptop--medium {
+      //   flex-grow: 4;
+      // }
       img {
         width: 45px;
         height: 45px;
         border-radius: 5px;
-        // animation-name: spin;
-        // animation-duration: 4000ms;
-        // animation-iteration-count: infinite;
-        // animation-timing-function: linear;
+        @include responsive_mobile--tiny {
+          width: 40px;
+          height: 40px;
+        }
       }
       .text-logo {
         color: $color-blue;
         font-family: "Metal Mania", cursive;
+        @include responsive_mobile--tiny {
+          @include Text($fs-0, $fw-bold);
+        }
       }
     }
     .header__mobile {
       display: none;
+      @include responsive_mobile--tiny {
+        display: block;
+        margin-right: spacing(0);
+      }
       @include responsive_mobile {
         display: block;
         margin-right: spacing(3);
@@ -61,11 +68,18 @@ header {
         .login__link {
           text-decoration: none;
           img {
+            @include responsive_mobile--tiny {
+              width: 20px;
+            }
             width: 30px;
             border-radius: 50%;
             margin: spacing(0.3);
           }
           .login__text {
+            @include responsive_mobile--tiny {
+              @include Text($fs-1, $fw-regular);
+              margin-right: spacing(1);
+            }
             @include Text($fs-0 - 1, $fw-regular);
             color: $color-gray-2;
             margin-right: spacing(2);
@@ -99,6 +113,11 @@ header {
           border-radius: 20px;
           cursor: pointer;
           transition: 0.5s ease-in-out;
+          @include responsive_mobile--tiny {
+            @include Text($fs-1 - 3, $fw-regular);
+            margin-right: spacing(0);
+            padding: spacing(0.3);
+          }
           &:hover {
             box-shadow: 2px 2px 4px 1px $color-gray-2;
           }

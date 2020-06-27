@@ -82,13 +82,12 @@ export default function CinemaSystem(props) {
     setValue(index);
   };
   return (
-    <div className={classes.root} style={{ marginTop: "65px" }}>
+    <div className={classes.root} style={{ marginTop: "60px" }}>
       <AppBar
         position="static"
         color="default"
         style={{
           backgroundColor: "#fff",
-          position: "sticky",
         }}
       >
         <Tabs

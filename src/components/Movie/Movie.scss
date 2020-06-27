@@ -36,12 +36,15 @@
           border-bottom: 1px solid #bbb;
         }
         &:focus {
-          width: 700px;
+          width: 100%;
           z-index: 1;
           border-bottom: 1px solid #bbb;
           cursor: text;
           @include responsive_mobile {
             width: 450px;
+          }
+          @include responsive_mobile--tiny {
+            width: 390px;
           }
         }
         &::placeholder {
@@ -78,16 +81,6 @@
   }
 
   .movielist-content {
-    overflow-y: scroll;
-    height: 1200px;
-    &::-webkit-scrollbar {
-      width: 4px;
-      background-color: $color-gray-6;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $color-blue;
-      border-radius: 5px;
-    }
     .movie-card {
       padding: spacing(0.8);
       .card-link {

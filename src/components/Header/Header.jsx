@@ -70,7 +70,7 @@ export default function Header(props) {
               </NavLink>
             </li>
             <li className="nav-item">
-              <i class="fa fa-project-diagram"></i>
+              <i className="fa fa-project-diagram"></i>
               <NavLink className="nav-link" to="/clustercinema">
                 Cụm Rạp
               </NavLink>
