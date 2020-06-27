@@ -36,7 +36,7 @@
           border-bottom: 1px solid #bbb;
         }
         &:focus {
-          width: 100%;
+          width: 700px;
           z-index: 1;
           border-bottom: 1px solid #bbb;
           cursor: text;
@@ -46,12 +46,18 @@
           @include responsive_mobile--tiny {
             width: 390px;
           }
+          @include responsive_mobile--stiny {
+            width: 360px;
+          }
         }
         &::placeholder {
           font-family: "Maven Pro", sans-serif;
           color: $color-blue;
           @include responsive_mobile {
             @include Text($fs-4 - 10, $fw-regular);
+          }
+          @include responsive_mobile--stiny {
+            @include Text($fs-3, $fw-regular);
           }
         }
       }

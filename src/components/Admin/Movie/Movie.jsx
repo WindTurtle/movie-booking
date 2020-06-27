@@ -63,7 +63,7 @@ export default function Movie(props) {
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       .map((phim, index) => {
         return (
-          <TableRow hover role="checkbox" tabIndex={-1} key={index}>
+          <TableRow hover role="checkbox" tabIndex={-1} key={phim.maPhim}>
             <TableCell>{phim.maPhim}</TableCell>
             <TableCell>{phim.tenPhim}</TableCell>
             <TableCell>{phim.biDanh}</TableCell>

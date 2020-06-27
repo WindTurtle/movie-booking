@@ -15,11 +15,12 @@ export default function ModalTrailer(props) {
         <div className="modal-content" style={{ position: "relative" }}>
           <iframe
             title={xemChiTiet.trailer}
+            type="text/html"
             width="100%"
             height="500px"
             src={xemChiTiet.trailer}
             frameBorder={0}
-            // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
           <div className="close__btn" data-dismiss="modal">

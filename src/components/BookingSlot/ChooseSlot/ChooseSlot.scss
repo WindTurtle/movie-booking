@@ -216,8 +216,8 @@
           .slot__picking {
             padding: 0;
             .slot__row {
-              display: grid;
-              grid-template-columns: repeat(16, 1fr);
+              // display: grid;
+              // grid-template-columns: repeat(16, 1fr);
               text-align: center;
               .slot__item {
                 margin-bottom: spacing(1);

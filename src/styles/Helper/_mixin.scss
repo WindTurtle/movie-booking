@@ -4,7 +4,7 @@
 }
 
 //comment rating
-@mixin star-rating( $filled-color: #60c5ef, $empty-color: #444, $size: 80px, $width: 400px) {
+@mixin star-rating( $filled-color: #60c5ef, $empty-color: #444, $size: 80px, $width: 100%) {
   $star--filled: ★;
   $star--empty: ☆;
   width: $width;
@@ -64,13 +64,19 @@
   }
  }
 
-$tiny__mobile:"only screen and (max-width: #{getBreakpoint("tiny")})";
-$mobile: "only screen and (max-width: #{getBreakpoint("small")})";
+$stiny__mobile:"only screen and (max-width: #{getBreakpoint("tiny") - 1px})";
+$tiny__mobile:"only screen and (min-width: #{getBreakpoint("tiny") + 1px}) and (max-width: #{getBreakpoint("small") - 1px})";
+$mobile: "only screen and (max-width: #{getBreakpoint("small") - 1px})";
 $tablet: "only screen and (min-width: #{getBreakpoint("small") + 1px}) and (max-width: #{getBreakpoint("medium") - 1px})";
 $screen__small: "only screen and (min-width: #{getBreakpoint("medium")}) and (max-width: #{getBreakpoint("large")})";
 $screen__medium: "only screen and (min-width: #{getBreakpoint("large") + 1px}) and (max-width: #{getBreakpoint("extra-large") - 1px})";
 
 
+@mixin responsive_mobile--stiny() {
+  @media #{$stiny__mobile} {
+    @content;
+  }
+}
 @mixin responsive_mobile--tiny() {
   @media #{$tiny__mobile} {
     @content;
