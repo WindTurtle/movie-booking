@@ -12,7 +12,7 @@
         background-size: cover;
         position: relative;
         height: 300px;
-        border-radius: 0 0 20px 20px;
+        border-radius: 0 0 10px 10px;
         img {
           width: 200px;
           height: 200px;
@@ -29,8 +29,8 @@
         padding: spacing(7) spacing(2);
         .row {
           .col-left {
-            box-shadow: 1px 1px 9px 1px $color-gray-6;
-            border-radius: 20px;
+            box-shadow: 0 10px 40px 0 rgba(16, 36, 94, 0.2);
+            border-radius: 5px;
             padding: spacing(2);
             animation: slideToRight 1s linear;
             @include responsive_mobile {
@@ -39,12 +39,14 @@
             @include responsive_tablet {
               margin-bottom: spacing(1.5);
             }
-            h2 {
+            .info-title {
+              color: $color-gray-3;
               @include responsive_laptop--mini {
                 @include Text($fs-3, $fw-bold);
               }
             }
             .table {
+              color: $color-gray-3;
               tbody {
                 @include responsive_laptop--mini {
                   @include Text($fs-1 - 1, $fw-regular);
@@ -52,30 +54,36 @@
               }
             }
             .btn__admin {
-              color: $color-black-0;
+              background-color: $color-blue;
               @include Text($fs-3, $fw-bold);
-              box-shadow: 5px 5px 5px 5px rgba(77, 77, 77, 0.5);
-              &:hover{
-                box-shadow: 0px 0px 0px 0px rgba(77, 77, 77, 0.5);
+              border-radius: 0 0 5px 5px;
+
+              &:hover {
+                background: none;
+                border: 1px solid $color-blue;
               }
-              .admin__link{
+              &:hover .admin__link {
+                color: $color-white-0;
+              }
+              .admin__link {
                 text-decoration: none;
-                color: $color-blue;
+                color: $color-black-0;
               }
             }
           }
           .col-right {
-            box-shadow: 1px 1px 9px 1px $color-gray-6;
-            border-radius: 20px;
+            box-shadow: 0 10px 40px 0 rgba(16, 36, 94, 0.2);
+            border-radius: 5px;
             min-width: 65%;
             padding: spacing(2);
             animation: slideToLeft 1s linear;
+            color: $color-gray-1;
             #accordion {
               .card {
                 .collapse {
                   .card-body {
                     overflow-y: scroll;
-                    max-height: 270px;
+                    max-height: 300px;
                     padding: 0;
                     &::-webkit-scrollbar {
                       width: 4px;

@@ -3,8 +3,36 @@ import "../Header/Header.scss";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
 import { dangXuatAction } from "../../redux/actions/QuanLyNguoiDungActions";
+
 export default function Header(props) {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
   const taiKhoan = useSelector(
     (state) => state.QuanLyNguoiDungReducer.taiKhoan
   );
@@ -18,13 +46,57 @@ export default function Header(props) {
     if (taiKhoan) {
       return (
         <Fragment>
-          <NavLink className="login__link" to="/profile">
+          <div
+            className="login__link"
+            ref={anchorRef}
+            aria-controls={open ? "menu-list-grow" : undefined}
+            aria-haspopup="true"
+            onClick={handleToggle}
+            style={{ cursor: "pointer" }}
+          >
             <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="user" />
             <span className="login__text">{taiKhoan}</span>
-          </NavLink>
-          <span className="logOut__btn mr-2 text-light" onClick={LogOut}>
-            Log out
-          </span>
+          </div>
+          <Popper
+            open={open}
+            anchorEl={anchorRef.current}
+            role={undefined}
+            transition
+            disablePortal
+          >
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                style={{
+                  transformOrigin:
+                    placement === "bottom" ? "center top" : "center bottom",
+                }}
+              >
+                <Paper>
+                  <ClickAwayListener onClickAway={handleClose}>
+                    <MenuList
+                      autoFocusItem={open}
+                      id="menu-list-grow"
+                      onKeyDown={handleListKeyDown}
+                    >
+                      <MenuItem onClick={handleClose}>
+                        <NavLink
+                          to="/profile"
+                          style={{ textDecoration: "none", color: "#333" }}
+                        >
+                          <i className="fa fa-user mr-1"></i>
+                          Profile
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem onClick={LogOut}>
+                        <i className="fa fa-sign-out-alt mr-1"></i>Logout
+                      </MenuItem>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper>
         </Fragment>
       );
     }

@@ -1,17 +1,27 @@
 import React from "react";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 import "./UserInformation.scss";
 import { Redirect, NavLink } from "react-router-dom";
 import InfoTicketBooked from "./InfoTicketBooked/InfoTicketBooked";
+
+// const useStyles = makeStyles({
+//   table: {
+//     minWidth: 650,
+//   },
+// });
 export default function Information(props) {
   const info = JSON.parse(localStorage.getItem("userLogin"));
+  // const classes = useStyles();
   const renderAdmin = () => {
     if (info.maLoaiNguoiDung === "QuanTri") {
       return (
         <button className="btn btn-block btn__admin">
-          <NavLink
-            className="admin__link"
-            to="/dashboard"
-          >
+          <NavLink className="admin__link" to="/dashboard">
             Tới trang quản trị
           </NavLink>
         </button>
@@ -25,6 +35,7 @@ export default function Information(props) {
     return <Redirect to="/home" />;
   }
   let { thongTin } = props;
+
   return (
     <div className="profile container-fluid text-light">
       <div className="row">
@@ -35,39 +46,65 @@ export default function Information(props) {
           </div>
           <div className="tableInfo">
             <div className="row">
-              <div className="col-md-4 col-sm-12 col-left bg-light">
-                <h2 className="text-dark">Thông tin cá nhân</h2>
-                <table className="table">
-                  <tbody>
-                    <tr>
-                      <th scope="row">Tên</th>
-                      <td>{info.hoTen}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Tài khoản</th>
-                      <td>{info.taiKhoan}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Mã nhóm</th>
-                      <td>{info.maNhom}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Phone</th>
-                      <td>{info.soDT}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Email</th>
-                      <td>{info.email}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Loại người dùng</th>
-                      <td>{info.maLoaiNguoiDung}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="col-md-4 col-sm-12 col-left bg-dark">
+                <h2 className="info-title">Thông tin cá nhân</h2>
+                <TableContainer component={Paper} >
+                  <Table aria-label="simple table">
+                    <TableBody>
+                      <TableRow component="th" scope="row">
+                        <TableCell component="th" scope="row">
+                          Tài khoản:
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {info.taiKhoan}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell component="th" scope="row">
+                          Họ tên:
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {info.hoTen}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell component="th" scope="row">
+                          Nhóm:
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {info.maNhom}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell component="th" scope="row">
+                          Email:
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {info.email}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell component="th" scope="row">
+                          Số điện thoại:
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {info.soDT}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell component="th" scope="row">
+                          <i className="fa fa-user"></i>
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {info.maLoaiNguoiDung}
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
                 {renderAdmin()}
               </div>
-              <div className="col-md-7 col-sm-12 col-right bg-light">
+              <div className="col-md-7 col-sm-12 col-right bg-dark">
                 <div id="accordion">
                   <InfoTicketBooked thongTin={thongTin} />
                 </div>
