@@ -56,7 +56,7 @@ export default function NewsComponent(props) {
           </div>
         </div>
       </div>
-      <div className="news__container container">
+      <div className="news__container container-fluid">
         <div className="news__content row">
           <div className="news__left col-md-9 col-sm-12">
             <h3 className="news__title">Tin mới</h3>
