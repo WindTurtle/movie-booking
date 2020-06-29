@@ -13,6 +13,6 @@ export default function News(props) {
       .catch((err) => {
         console.log(err.response.data);
       });
-  });
+  }, []);
   return <NewsComponent danhSachTinTuc={danhSachTinTuc} />;
 }

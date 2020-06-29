@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import "./NewsComponent.scss";
+import { NavLink } from "react-router-dom";
 export default function NewsComponent(props) {
   let { danhSachTinTuc } = props;
   var moment = require("moment");
@@ -12,9 +13,12 @@ export default function NewsComponent(props) {
           </div>
           <div className="items__text">
             <h2 className="items__text-title">
-              <a className="items__text-link" href="/#">
+              <NavLink
+                className="items__text-link"
+                to={`/detailnews/${tinTuc.id}`}
+              >
                 {tinTuc.title}
-              </a>
+              </NavLink>
             </h2>
             <p className="items__text-description">{tinTuc.description1}</p>
             <div className="items__text-author">
@@ -38,9 +42,12 @@ export default function NewsComponent(props) {
           </div>
           <div className="items__text">
             <h5 className="items__text-title">
-              <a className="items__text-link" href="/#">
+              <NavLink
+                className="items__text-link"
+                to={`/detailnews/${tinTuc.id}`}
+              >
                 {tinTuc.title}
-              </a>
+              </NavLink>
             </h5>
           </div>
         </div>
@@ -56,7 +63,7 @@ export default function NewsComponent(props) {
           </div>
         </div>
       </div>
-      <div className="news__container container-fluid">
+      <div className="news__container container">
         <div className="news__content row">
           <div className="news__left col-md-9 col-sm-12">
             <h3 className="news__title">Tin mới</h3>

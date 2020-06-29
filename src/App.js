@@ -19,6 +19,7 @@ import { Stretch } from "styled-loaders-react";
 import CreateShowTime from "./pages/CreateShowTime";
 import ClusterCinema from "./pages/ClusterCinema";
 import News from "./pages/News";
+import DetailNews from "./pages/DetailNews";
 class App extends Component {
   state = {
     loading: true,
@@ -61,6 +62,11 @@ class App extends Component {
                   Component={ClusterCinema}
                 />
                 <HomeTemplate exact path="/news" Component={News} />
+                <HomeTemplate
+                  exact
+                  path="/detailnews/:matintuc"
+                  Component={DetailNews}
+                />
                 <AdminTemplate exact path="/dashboard" Component={Dashboard} />
                 <AdminTemplate
                   exact

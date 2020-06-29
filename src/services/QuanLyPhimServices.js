@@ -46,6 +46,12 @@ export class QuanLyPhimServices {
       method: "GET",
     });
   };
+  layChiTietTinTuc = (maTinTuc) => {
+    return axios({
+      url: `https://5e9829e75eabe7001681bbfb.mockapi.io/news/${maTinTuc}`,
+      method: "GET",
+    });
+  };
 }
 
 export const qLyPhimService = new QuanLyPhimServices();

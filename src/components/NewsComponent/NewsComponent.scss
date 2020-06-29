@@ -34,6 +34,7 @@
         color: $color-blue;
         position: relative;
         font-style: italic;
+        font-weight: bold;
         text-transform: uppercase;
         opacity: 0.9;
         &::after {
@@ -157,6 +158,7 @@
         position: relative;
         font-style: italic;
         text-transform: uppercase;
+        font-weight: bold;
         opacity: 0.9;
         &::after {
           content: "";
