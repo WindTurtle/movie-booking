@@ -1,0 +1,234 @@
+@import "../connect";
+
+.news__header {
+  margin: spacing(6) spacing(0);
+  background: url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/02/IPHONE-796x431.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // margin: spacing(1) spacing(-1.5);
+  padding: spacing(5);
+  position: relative;
+  .overlay {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: rgba($color-black-0, 0.5);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title__description {
+      text-transform: uppercase;
+
+      color: $color-white-0;
+      @include Text($fs-1 + 2, $fw-sbold);
+    }
+  }
+}
+.news__container {
+  .news__content {
+    .news__left {
+      .news__title {
+        color: $color-blue;
+        position: relative;
+        font-style: italic;
+        text-transform: uppercase;
+        opacity: 0.9;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 5px;
+          width: 100px;
+          height: 4px;
+          background-color: $color-blue;
+        }
+      }
+      .news__items {
+        display: flex;
+        border-bottom: 1px solid $color-blue;
+        padding: spacing(2) 0;
+        @include responsive_mobile {
+          flex-direction: column;
+        }
+        &:hover img {
+          opacity: 0.7;
+        }
+        &:hover .items__text .items__text-title .items__text-link {
+          color: $color-blue;
+          text-decoration: underline;
+        }
+        &:first-of-type {
+          display: flex;
+          flex-direction: column-reverse;
+          .items__text {
+            padding: 0;
+          }
+          .items__img {
+            // padding: spacing(2);
+            @include responsive_mobile {
+              padding: spacing(0);
+            }
+            img {
+              width: 100%;
+              height: 450px;
+              @include responsive_mobile {
+                height: 300px;
+              }
+            }
+          }
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+        .items__img {
+          img {
+            width: 260px;
+            height: 200px;
+            @include responsive_mobile {
+              width: 100%;
+              height: 300px;
+            }
+            @include responsive_laptop--mini {
+              width: 260px;
+              height: 200px;
+            }
+          }
+        }
+        .items__text {
+          padding: spacing(0) spacing(2);
+          @include responsive_mobile {
+            padding: spacing(1) spacing(0);
+          }
+          .items__text-title {
+            .items__text-link {
+              color: $color-gray-3;
+              transition: linear 0.2s;
+              @include responsive_mobile {
+                @include Text($fs-2, $fw-bold);
+              }
+              @include responsive_tablet {
+                @include Text($fs-3 - 4, $fw-bold);
+              }
+              @include responsive_laptop--mini {
+                @include Text($fs-3 - 4, $fw-bold);
+              }
+            }
+          }
+          .items__text-description {
+            color: $color-gray-2;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include responsive_mobile {
+              @include Text($fs-1, $fw-regular);
+            }
+            @include responsive_tablet {
+              @include Text($fs-1 + 2, $fw-regular);
+            }
+            @include responsive_laptop--mini {
+              @include Text($fs-1 + 2, $fw-regular);
+            }
+          }
+          .items__text-author {
+            color: $color-gray-6;
+            text-transform: uppercase;
+            @include Text($fs-1, $fw-bold);
+            @include responsive_laptop--mini {
+              @include Text($fs-1 - 2, $fw-regular);
+            }
+            .items__text-days {
+              margin-left: spacing(3);
+              color: $color-gray-4;
+            }
+          }
+        }
+      }
+    }
+    .news__right {
+      .news__title {
+        color: $color-blue;
+        position: relative;
+        font-style: italic;
+        text-transform: uppercase;
+        opacity: 0.9;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 5px;
+          width: 100px;
+          height: 4px;
+          background-color: $color-blue;
+        }
+      }
+      .news__items {
+        display: flex;
+        border-bottom: 1px solid $color-blue;
+        flex-direction: column;
+        padding: spacing(1) 0;
+        &:hover img {
+          opacity: 0.7;
+        }
+        &:hover .items__text .items__text-title .items__text-link {
+          color: $color-blue;
+          text-decoration: underline;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+        .items__img {
+          img {
+            width: 100%;
+            height: 200px;
+            @include responsive_mobile {
+              width: 100%;
+              height: 300px;
+            }
+            @include responsive_tablet {
+              width: 100%;
+              height: 300px;
+            }
+            @include responsive_laptop--mini {
+              width: 100%;
+              height: 100px;
+            }
+          }
+        }
+        .items__text {
+          padding: spacing(1) spacing(0);
+          .items__text-title {
+            .items__text-link {
+              color: $color-gray-3;
+              transition: linear 0.2s;
+            }
+          }
+        }
+      }
+    }
+  }
+  .readMore {
+    display: flex;
+    justify-content: center;
+    padding: spacing(3) 0;
+    margin-bottom: spacing(2);
+    .btn__readmore {
+      border: 1px solid $color-gray-2;
+      color: $color-gray-3;
+      padding: spacing(0.5) spacing(2);
+      background: none;
+      box-shadow: none;
+      transition: 0.2s ease-in-out;
+      border-radius: 3px;
+      &:hover {
+        border: 1px solid $color-blue;
+        background-color: $color-blue;
+        color: $color-white-0;
+      }
+    }
+  }
+}

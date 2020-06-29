@@ -40,6 +40,12 @@ export class QuanLyPhimServices {
       method: "GET",
     });
   };
+  layTinTuc = () => {
+    return axios({
+      url: "https://5e9829e75eabe7001681bbfb.mockapi.io/news",
+      method: "GET",
+    });
+  };
 }
 
 export const qLyPhimService = new QuanLyPhimServices();

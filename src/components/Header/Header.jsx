@@ -149,7 +149,7 @@ export default function Header(props) {
             </li>
             <li className="nav-item">
               <i className="fa fa-newspaper" />
-              <NavLink className="nav-link" to="/#news">
+              <NavLink className="nav-link" to="/news">
                 Tin Tức
               </NavLink>
             </li>
