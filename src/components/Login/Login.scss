@@ -1,10 +1,11 @@
 @import "../connect";
 
-.backgroundBody {
+.backgroundBodyUser {
   background: url("https://i.ibb.co/Ybnw70Q/homeappbg.jpg");
   display: flex;
   justify-content: center;
   background-repeat: no-repeat;
+  background-size: cover;
   .container-fluid {
     padding: spacing(10) spacing(5);
     max-width: 500px;

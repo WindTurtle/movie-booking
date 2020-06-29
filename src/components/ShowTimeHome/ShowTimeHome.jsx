@@ -6,9 +6,9 @@ export default function ShowTimeHome(props) {
   let { rap, cumRap } = props;
   return (
     <section id="schedule" className="schedule">
-      <h1 className="schedule__title">Lịch Chiếu</h1>
       <div className="schedule__content">
         <div className="container">
+          <h1 className="schedule__title text-center">Lịch Chiếu</h1>
           <div className="schedule__row row bg-light">
             <div className="main__tab col-2">
               <div
