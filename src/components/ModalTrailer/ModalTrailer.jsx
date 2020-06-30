@@ -11,7 +11,7 @@ export default function ModalTrailer(props) {
       aria-labelledby="myLargeModalLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-lg">
+      <div className="modal-dialog modal-lg modal-dialog-centered">
         <div className="modal-content" style={{ position: "relative" }}>
           <iframe
             title={xemChiTiet.trailer}
