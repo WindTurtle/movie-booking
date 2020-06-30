@@ -57,7 +57,6 @@ export default class AddMovieModal extends Component {
     }
 
     this.setState({ values: newValues, errors: newErrors });
-    console.log(this.state);
   };
   handleSubmit = (event) => {
     event.preventDefault();

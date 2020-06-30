@@ -19,6 +19,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
+import NoteAddIcon from "@material-ui/icons/NoteAdd";
 import { NavLink, Route } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -210,6 +211,15 @@ const AdminLayout = (props) => {
               <ListItem button key="Tạo lịch chiếu">
                 <LibraryAddIcon style={{ marginRight: 32 }} />
                 <ListItemText primary="Tạo lịch chiếu" />
+              </ListItem>
+            </NavLink>
+            <NavLink
+              to="/newsmanagement"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <ListItem button key="Quản lý tin tức">
+                <NoteAddIcon style={{ marginRight: 32 }} />
+                <ListItemText primary="Quản lý tin tức" />
               </ListItem>
             </NavLink>
           </List>

@@ -73,5 +73,25 @@ export class QuanLyAdmin {
       },
     });
   };
+  themTinTuc = (tinTuc) => {
+    return axios({
+      url: "https://5e9829e75eabe7001681bbfb.mockapi.io/news",
+      method: "POST",
+      data: tinTuc,
+    });
+  };
+  suaTinTuc = (id, tinTuc) => {
+    return axios({
+      url: `https://5e9829e75eabe7001681bbfb.mockapi.io/news/${id}`,
+      method: "PUT",
+      data: tinTuc,
+    });
+  };
+  xoaTinTuc = (id) => {
+    return axios({
+      url: `https://5e9829e75eabe7001681bbfb.mockapi.io/news/${id}`,
+      method: "DELETE",
+    });
+  };
 }
 export const qLyAdminService = new QuanLyAdmin();

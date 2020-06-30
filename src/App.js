@@ -12,14 +12,15 @@ import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
 import Dashboard from "./pages/Dashboard";
 import UserManagement from "./pages/UserManagement";
 import MovieManagement from "./pages/MovieManagement";
-import { LoginAdminTemplate } from "./templates/LoginAdminTemplate/LoginAdminTemplate";
-import LoginAdmin from "./pages/LoginAdmin";
+// import { LoginAdminTemplate } from "./templates/LoginAdminTemplate/LoginAdminTemplate";
+// import LoginAdmin from "./pages/LoginAdmin";
 import AllMovie from "./pages/AllMovie";
 import { Stretch } from "styled-loaders-react";
 import CreateShowTime from "./pages/CreateShowTime";
 import ClusterCinema from "./pages/ClusterCinema";
 import News from "./pages/News";
 import DetailNews from "./pages/DetailNews";
+import NewsManagement from "./pages/NewsManagement";
 class App extends Component {
   state = {
     loading: true,
@@ -83,11 +84,16 @@ class App extends Component {
                   path="/createshowtime"
                   Component={CreateShowTime}
                 />
-                <LoginAdminTemplate
+                <AdminTemplate
+                  exact
+                  path="/newsmanagement"
+                  Component={NewsManagement}
+                />
+                {/* <LoginAdminTemplate
                   exact
                   path="/loginadmin"
                   Component={LoginAdmin}
-                />
+                /> */}
               </Switch>
             </Fragment>
           </BrowserRouter>

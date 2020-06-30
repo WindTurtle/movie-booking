@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   container: {
-    maxHeight: 440,
+    maxHeight: 600,
   },
 });
 
@@ -140,7 +140,7 @@ export default function Movie(props) {
         <i className="fa fa-plus"></i>
       </button>
       <AddMovieModal />
-      <TableContainer className={classes.container}>
+      <TableContainer className={classes.container} >
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
