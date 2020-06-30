@@ -29,7 +29,7 @@ export default function NewsDetailComponent(props) {
   };
 
   const renderHinhAnh = () => {
-    if (tinTuc.image3 === "") {
+    if (tinTuc.image3 === "none") {
       return null;
     } else {
       return (

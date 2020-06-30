@@ -7,7 +7,7 @@ import { Fragment } from "react";
 export default class EditMovieModal extends Component {
   state = {
     values: {
-      hinhAnh: {},
+      hinhAnh: "",
       maPhim: "",
       tenPhim: "",
       biDanh: "",
@@ -72,8 +72,10 @@ export default class EditMovieModal extends Component {
       [name]: value === "" ? "không được bỏ trống!" : "",
     };
 
+    // if (name === "hinhAnh") {
+    //   newValues[name] = event.target.files[0];
+    // }
     if (name === "ngayKhoiChieu") {
-      // console.log(value);
       newValues[name] = moment(value, "yyyy-MM-DD").format("DD/MM/yyyy");
     }
     if (name === "maPhim") {
@@ -116,7 +118,10 @@ export default class EditMovieModal extends Component {
       return;
     }
     // gọi api hoạc dispatch redux
-
+    // var form_data = new FormData();
+    // for (let key in this.state.values) {
+    //   form_data.append(key, this.state.values[key]);
+    // }
     qLyAdminService
       .suaPhim(values)
       .then((res) => {
@@ -225,10 +230,10 @@ export default class EditMovieModal extends Component {
                         required
                       />
                       {/* <input
-                      type="file"
-                      name="hinhAnh"
-                      onChange={this.handleChangeInput}
-                    ></input> */}
+                        type="file"
+                        name="hinhAnh"
+                        onChange={this.handleChangeInput}
+                      ></input> */}
                       <div className="placeholder">Hình ảnh</div>
                       <span className="text-danger">
                         {this.state.errors.hinhAnh}
@@ -302,4 +307,3 @@ export default class EditMovieModal extends Component {
     return <Fragment>{this.renderModal()}</Fragment>;
   }
 }
-

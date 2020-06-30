@@ -9,7 +9,7 @@ export default function User(props) {
   const renderDanhSachNguoiDung = () => {
     return danhSachNguoiDung?.map((user, index) => {
       return (
-        <tr key={index} className="user-item">
+        <tr key={user.taiKhoan} className="user-item">
           <td>{index + 1}</td>
           <td>{user.taiKhoan}</td>
           <td>{user.hoTen}</td>

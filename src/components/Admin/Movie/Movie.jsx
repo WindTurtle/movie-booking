@@ -75,7 +75,9 @@ export default function Movie(props) {
               ></img>
             </TableCell>
             <TableCell>{phim.trailer}</TableCell>
-            <TableCell>{phim.moTa}</TableCell>
+            <TableCell>
+              <div className="text__description--ellipse">{phim.moTa}</div>
+            </TableCell>
             <TableCell>{phim.ngayKhoiChieu}</TableCell>
             <TableCell>{phim.danhGia}</TableCell>
             <TableCell>
@@ -140,7 +142,7 @@ export default function Movie(props) {
         <i className="fa fa-plus"></i>
       </button>
       <AddMovieModal />
-      <TableContainer className={classes.container} >
+      <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
