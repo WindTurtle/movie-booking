@@ -14,6 +14,7 @@ import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
 
+var moment = require("moment");
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -78,7 +79,7 @@ export default function Movie(props) {
             <TableCell>
               <div className="text__description--ellipse">{phim.moTa}</div>
             </TableCell>
-            <TableCell>{phim.ngayKhoiChieu}</TableCell>
+            <TableCell>{moment(phim.ngayKhoiChieu).format("DD/MM/yyyy")}</TableCell>
             <TableCell>{phim.danhGia}</TableCell>
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>

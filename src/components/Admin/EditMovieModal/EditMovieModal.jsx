@@ -1,20 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./EditMovieModal.scss";
 import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
 import { Fragment } from "react";
-export default class EditMovieModal extends Component {
-  state = {
+export default function EditMovieModal(props) {
+  let { phim } = props;
+  let [state, setState] = useState({
     values: {
-      hinhAnh: "",
-      maPhim: "",
-      tenPhim: "",
-      biDanh: "",
-      trailer: "",
-      moTa: "",
-      ngayKhoiChieu: "",
-      danhGia: "",
+      hinhAnh: phim.hinhAnh,
+      maPhim: phim.maPhim,
+      tenPhim: phim.tenPhim,
+      biDanh: phim.biDanh,
+      trailer: phim.trailer,
+      moTa: phim.moTa,
+      ngayKhoiChieu: phim.ngayKhoiChieu,
+      danhGia: phim.danhGia,
       maNhom: groupID,
     },
     errors: {
@@ -28,47 +29,18 @@ export default class EditMovieModal extends Component {
       maNhom: "",
       danhGia: "",
     },
-  };
+  });
 
-  componentDidMount() {
-    let { phim } = this.props;
-    var moment = require("moment");
-    this.setState({
-      values: {
-        hinhAnh: phim.hinhAnh,
-        maPhim: phim.maPhim,
-        tenPhim: phim.tenPhim,
-        biDanh: phim.biDanh,
-        trailer: phim.trailer,
-        moTa: phim.moTa,
-        ngayKhoiChieu: moment(phim.ngayKhoiChieu).format("DD/MM/yy"),
-        danhGia: phim.danhGia,
-        maNhom: groupID,
-      },
-      errors: {
-        maPhim: "",
-        tenPhim: "",
-        biDanh: "",
-        hinhAnh: "",
-        trailer: "",
-        moTa: "",
-        ngayKhoiChieu: "",
-        maNhom: "",
-        danhGia: "",
-      },
-    });
-  }
-
-  handleChangeInput = (event) => {
+  const handleChangeInput = (event) => {
     var { value, name } = event.target;
     var moment = require("moment");
     //tạo ra object this.state.values mới
     let newValues = {
-      ...this.state.values,
+      ...state.values,
       [name]: value,
     };
     let newErrors = {
-      ...this.state.errors,
+      ...state.errors,
       [name]: value === "" ? "không được bỏ trống!" : "",
     };
 
@@ -94,13 +66,13 @@ export default class EditMovieModal extends Component {
         newErrors.danhGia = "Chỉ được nhập số từ 1 tới 10";
       }
     }
-    this.setState({ values: newValues, errors: newErrors });
-    console.log(this.state);
+    setState({ values: newValues, errors: newErrors });
+    console.log(state);
   };
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let valid = true;
-    let { values, errors } = this.state;
+    let { values, errors } = state;
 
     for (let key in values) {
       if (values[key] === "") {
@@ -119,8 +91,8 @@ export default class EditMovieModal extends Component {
     }
     // gọi api hoạc dispatch redux
     // var form_data = new FormData();
-    // for (let key in this.state.values) {
-    //   form_data.append(key, this.state.values[key]);
+    // for (let key in state.values) {
+    //   form_data.append(key, state.values[key]);
     // }
     qLyAdminService
       .suaPhim(values)
@@ -144,8 +116,7 @@ export default class EditMovieModal extends Component {
       });
   };
 
-  renderModal = () => {
-    let { phim } = this.props;
+  const renderModal = () => {
     return (
       <div
         className="editMovieModal modal fade"
@@ -171,7 +142,7 @@ export default class EditMovieModal extends Component {
               </button>
             </div>
             <div className="modal-body">
-              <form onSubmit={this.handleSubmit} className="user-form">
+              <form onSubmit={handleSubmit} className="user-form">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
                     <div className="textb">
@@ -179,9 +150,9 @@ export default class EditMovieModal extends Component {
                         type="text"
                         name="maPhim"
                         className="text-secondary"
-                        onChange={this.handleChangeInput}
+                        onChange={handleChangeInput}
                         disabled
-                        value={this.state.values.maPhim}
+                        value={state.values.maPhim}
                         style={{ cursor: "no-drop" }}
                         required
                       />
@@ -191,52 +162,50 @@ export default class EditMovieModal extends Component {
                       >
                         Mã phim
                       </div>
-                      <span className="text-danger">
-                        {this.state.errors.maPhim}
-                      </span>
+                      <span className="text-danger">{state.errors.maPhim}</span>
                     </div>
                     <div className="textb">
                       <input
                         type="text"
                         name="tenPhim"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.tenPhim}
+                        onChange={handleChangeInput}
+                        value={state.values.tenPhim}
                         required
                       />
                       <div className="placeholder">Tên phim</div>
                       <span className="text-danger">
-                        {this.state.errors.tenPhim}
+                        {state.errors.tenPhim}
                       </span>
                     </div>
                     <div className="textb">
                       <input
                         type="text"
                         name="biDanh"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.biDanh}
+                        onChange={handleChangeInput}
+                        value={state.values.biDanh}
                         required
                       />
                       <div className="placeholder">Bí danh</div>
-                      <span className="text-danger">
-                        {this.state.errors.biDanh}
-                      </span>
+                      <span className="text-danger">{state.errors.biDanh}</span>
                     </div>
                     <div className="textb">
                       <input
                         type="text"
                         name="hinhAnh"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.hinhAnh}
+                        onChange={handleChangeInput}
+                        value={state.values.hinhAnh}
                         required
                       />
-                      {/* <input
+                      {/* <div>Thêm hình ảnh mới nếu có</div>
+                      <input
                         type="file"
                         name="hinhAnh"
                         onChange={this.handleChangeInput}
-                      ></input> */}
+                        ref={this.state.values.hinhAnh}
+                      /> */}
                       <div className="placeholder">Hình ảnh</div>
                       <span className="text-danger">
-                        {this.state.errors.hinhAnh}
+                        {state.errors.hinhAnh}
                       </span>
                     </div>
                   </div>
@@ -245,52 +214,55 @@ export default class EditMovieModal extends Component {
                       <input
                         type="text"
                         name="trailer"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.trailer}
+                        onChange={handleChangeInput}
+                        value={state.values.trailer}
                         required
                       />
                       <div className="placeholder">Trailer</div>
                       <span className="text-danger">
-                        {this.state.errors.trailer}
+                        {state.errors.trailer}
                       </span>
                     </div>
                     <div className="textb">
                       <input
                         type="text"
                         name="moTa"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.moTa}
+                        onChange={handleChangeInput}
+                        value={state.values.moTa}
                         required
                       />
                       <div className="placeholder">Mô tả</div>
-                      <span className="text-danger">
-                        {this.state.errors.moTa}
-                      </span>
+                      <span className="text-danger">{state.errors.moTa}</span>
                     </div>
                     <div className="textb">
                       <input
-                        type="text"
+                        type="date"
                         name="ngayKhoiChieu"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.ngayKhoiChieu}
+                        onChange={handleChangeInput}
+                        // value={state.values.ngayKhoiChieu}
                         required
                       />
-                      <div className="placeholder">Ngày khởi chiếu</div>
+                      <div
+                        className="placeholder"
+                        style={{ left: "10px", top: "-15px" }}
+                      >
+                        Ngày khởi chiếu
+                      </div>
                       <span className="text-danger">
-                        {this.state.errors.ngayKhoiChieu}
+                        {state.errors.ngayKhoiChieu}
                       </span>
                     </div>
                     <div className="textb">
                       <input
                         type="text"
                         name="danhGia"
-                        onChange={this.handleChangeInput}
-                        value={this.state.values.danhGia}
+                        onChange={handleChangeInput}
+                        value={state.values.danhGia}
                         required
                       />
                       <div className="placeholder">Rating</div>
                       <span className="text-danger">
-                        {this.state.errors.danhGia}
+                        {state.errors.danhGia}
                       </span>
                     </div>
                   </div>
@@ -303,7 +275,5 @@ export default class EditMovieModal extends Component {
       </div>
     );
   };
-  render() {
-    return <Fragment>{this.renderModal()}</Fragment>;
-  }
+  return <Fragment>{renderModal()}</Fragment>;
 }
