@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -12,6 +12,7 @@ import AddNewsModal from "../AddNewsModal/AddNewsModal";
 import "./News.scss";
 import EditNewsModal from "../EditNewsModal/EditNewsModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
+import { qLyPhimService } from "../../../services/QuanLyPhimServices";
 import swal from "sweetalert";
 
 const useStyles = makeStyles({
@@ -32,8 +33,19 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-export default function News(props) {
-  let { listTinTuc } = props;
+export default function News() {
+  let [listTinTuc, setTinTuc] = useState([]);
+
+  useEffect(() => {
+    qLyPhimService
+      .layTinTuc()
+      .then((result) => {
+        setTinTuc(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
 
   const xoaTinTuc = (id) => {
     qLyAdminService

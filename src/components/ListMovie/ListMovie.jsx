@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../ListMovie/ListMovie.scss";
 import MovieCarousel from "../MovieCarousel/MovieCarousel";
-export default function ListMovie(props) {
-  let { danhSachPhim } = props;
+import { qLyPhimService } from "../../services/QuanLyPhimServices";
+export default function ListMovie() {
+  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layDanhSachPhim()
+      .then((result) => {
+        setDanhSachPhim(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   return (
     <div id="listMovie" className="listMovie">
       <div className="container">

@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import UserInformation from "../components/UserInformation/UserInformation";
-import { qlyNguoiDung } from "../services/QuanLyNguoiDungServices";
+import { userLogin } from "../config/setting";
 const Profile = (props) => {
-  let [user, setUser] = useState([]);
-  useEffect(() => {
-    qlyNguoiDung
-      .layThongTinTaiKhoan(JSON.parse(localStorage.getItem("userLogin")))
-      .then((result) => {
-        setUser(result.data);
-      });
-  }, []);
-  return <UserInformation thongTin={user} />;
+  if (!localStorage.getItem(userLogin)) {
+    props.history.push("/");
+  }
+
+  return <UserInformation />;
 };
 
 export default Profile;

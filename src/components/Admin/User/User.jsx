@@ -4,8 +4,20 @@ import ModalUser from "../ModalUser/ModalUser";
 import EditModal from "../EditUserModal/EditUserModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
-export default function User(props) {
-  let { listNguoiDung } = props;
+export default function User() {
+  let [listNguoiDung, setListNguoiDung] = useState([]);
+
+  useEffect(() => {
+    qLyAdminService
+      .layDanhSachNguoiDung()
+      .then((res) => {
+        setListNguoiDung(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
+
   const renderDanhSachNguoiDung = () => {
     return danhSachNguoiDung?.map((user, index) => {
       return (

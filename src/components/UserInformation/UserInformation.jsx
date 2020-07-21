@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -8,15 +8,19 @@ import Paper from "@material-ui/core/Paper";
 import "./UserInformation.scss";
 import { Redirect, NavLink } from "react-router-dom";
 import InfoTicketBooked from "./InfoTicketBooked/InfoTicketBooked";
-
-// const useStyles = makeStyles({
-//   table: {
-//     minWidth: 650,
-//   },
-// });
-export default function Information(props) {
+import EditInformation from "./EditInformation/EditInformation";
+import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
+import { userLogin } from "../../config/setting";
+export default function Information() {
   const info = JSON.parse(localStorage.getItem("userLogin"));
-  // const classes = useStyles();
+  let [thongTin, setThongTin] = useState([]);
+  useEffect(() => {
+    qlyNguoiDung
+      .layThongTinTaiKhoan(JSON.parse(localStorage.getItem(userLogin)))
+      .then((result) => {
+        setThongTin(result.data);
+      });
+  }, []);
   const renderAdmin = () => {
     if (info.maLoaiNguoiDung === "QuanTri") {
       return (
@@ -34,7 +38,6 @@ export default function Information(props) {
   if (!localStorage.getItem("userLogin")) {
     return <Redirect to="/home" />;
   }
-  let { thongTin } = props;
 
   return (
     <div className="profile container-fluid text-light">
@@ -42,13 +45,12 @@ export default function Information(props) {
         <div className="col-12 col-avt">
           <div className="img-avt p-5 text-center">
             <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="hinhanh" />
-            {/* <button className="btn btn-success">Chỉnh sửa thông tin</button> */}
           </div>
           <div className="tableInfo">
             <div className="row">
               <div className="col-md-4 col-sm-12 col-left bg-dark">
                 <h2 className="info-title">Thông tin cá nhân</h2>
-                <TableContainer component={Paper} >
+                <TableContainer component={Paper}>
                   <Table aria-label="simple table">
                     <TableBody>
                       <TableRow component="th" scope="row">
@@ -106,6 +108,7 @@ export default function Information(props) {
               </div>
               <div className="col-md-7 col-sm-12 col-right bg-dark">
                 <div id="accordion">
+                  <EditInformation />
                   <InfoTicketBooked thongTin={thongTin} />
                 </div>
               </div>

@@ -5,7 +5,29 @@ import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import TableShowTimeList from "../TableShowTimeList/TableShowTimeList";
 import swal from "sweetalert";
 export default function CreateShowTimeForm(props) {
-  let { danhSachPhim, heThongRap } = props;
+  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layDanhSachPhim()
+      .then((result) => {
+        setDanhSachPhim(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
+
+  let [heThongRap, setHeThongRap] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layHeThongRap()
+      .then((result) => {
+        setHeThongRap(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   var moment = require("moment");
   let [maPhim, setMaPhim] = useState();
   const layMaPhim = (event) => {
@@ -66,7 +88,7 @@ export default function CreateShowTimeForm(props) {
   const renderHinhAnhPhim = () => {
     return danhSachPhim.map((phim, index) => {
       if (maPhim === phim.maPhim) {
-        return <img src={phim.hinhAnh} alt="hinh anh phim" key={index} />;
+        return <img src={phim.hinhAnh} alt={phim.hinhAnh} key={index} />;
       } else {
         return null;
       }

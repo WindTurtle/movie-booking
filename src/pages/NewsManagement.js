@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import News from "../components/Admin/News/News";
-import { qLyPhimService } from "../services/QuanLyPhimServices";
+import { userLogin } from "../config/setting";
 export default function NewsManagement(props) {
-  let [listTinTuc, setTinTuc] = useState([]);
+  const info = JSON.parse(localStorage.getItem(userLogin));
+  if (
+    !localStorage.getItem(userLogin) ||
+    info.maLoaiNguoiDung === "KhachHang"
+  ) {
+    props.history.push("/");
+  }
 
-  useEffect(() => {
-    qLyPhimService
-      .layTinTuc()
-      .then((result) => {
-        setTinTuc(result.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
-  return <News listTinTuc={listTinTuc} />;
+  return <News />;
 }

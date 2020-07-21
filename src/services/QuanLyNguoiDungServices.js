@@ -47,5 +47,12 @@ export class QuanLyNguoiDung {
       data: binhLuan,
     });
   };
+  thongTinTaiKhoan = (taiKhoan) => {
+    return axios({
+      url: `${domain}/QuanLyNguoiDung/ThongTinTaiKhoan`,
+      method: "POST",
+      data: taiKhoan,
+    });
+  };
 }
 export const qlyNguoiDung = new QuanLyNguoiDung();

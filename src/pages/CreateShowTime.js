@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CreateShowTimeForm from "../components/Admin/CreateShowTime/CreateShowTimeForm";
-import { qLyPhimService } from "../services/QuanLyPhimServices";
-export default function CreateShowTime() {
-  let [danhSachPhim, setDanhSachPhim] = useState([]);
-  useEffect(() => {
-    qLyPhimService
-      .layDanhSachPhim()
-      .then((result) => {
-        setDanhSachPhim(result.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
-
-  let [heThongRap, setHeThongRap] = useState([]);
-  useEffect(() => {
-    qLyPhimService
-      .layHeThongRap()
-      .then((result) => {
-        setHeThongRap(result.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
+import { userLogin } from "../config/setting";
+export default function CreateShowTime(props) {
+  const info = JSON.parse(localStorage.getItem(userLogin));
+  if (
+    !localStorage.getItem(userLogin) ||
+    info.maLoaiNguoiDung === "KhachHang"
+  ) {
+    props.history.push("/");
+  }
 
   return (
     <div>
-      <CreateShowTimeForm danhSachPhim={danhSachPhim} heThongRap={heThongRap} />
+      <CreateShowTimeForm />
     </div>
   );
 }

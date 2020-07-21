@@ -7,7 +7,7 @@ import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import swal from "sweetalert";
 const Login = (props) => {
-  let { thongTin } = props;
+  let { navigator } = props;
   const dispatch = useDispatch();
   let [state, setState] = useState({
     values: {
@@ -43,7 +43,7 @@ const Login = (props) => {
           icon: "success",
           button: "OK",
         });
-        thongTin.history.push("/home");
+        navigator.history.push("/home");
       })
       .catch((err) => {
         console.log(err.response.data);

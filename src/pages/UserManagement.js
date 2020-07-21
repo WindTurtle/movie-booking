@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import User from "../components/Admin/User/User";
-import { qLyAdminService } from "../services/QuanLyAdminService";
+import { userLogin } from "../config/setting";
 export default function UserManagement(props) {
-  const [danhSachNguoiDung, setDanhSachNguoiDung] = useState([]);
+  const info = JSON.parse(localStorage.getItem(userLogin));
+  if (
+    !localStorage.getItem(userLogin) ||
+    info.maLoaiNguoiDung === "KhachHang"
+  ) {
+    props.history.push("/");
+  }
 
-  useEffect(() => {
-    qLyAdminService
-      .layDanhSachNguoiDung()
-      .then((res) => {
-        setDanhSachNguoiDung(res.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
-
-  return <User listNguoiDung={danhSachNguoiDung} />;
+  return <User />;
 }

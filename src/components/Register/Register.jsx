@@ -71,7 +71,7 @@ export default class Register extends Component {
       return;
     }
     // gọi api hoạc dispatch redux
-    let { thongTin } = this.props;
+    let { navigator } = this.props;
     qlyNguoiDung
       .dangKy(values)
       .then((res) => {
@@ -80,7 +80,7 @@ export default class Register extends Component {
           icon: "success",
           button: "OK",
         });
-        thongTin.history.push("/login");
+        navigator.history.push("/login");
       })
       .catch((err) => {
         swal({

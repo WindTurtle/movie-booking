@@ -1,8 +1,20 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import "./NewsComponent.scss";
 import { NavLink } from "react-router-dom";
-export default function NewsComponent(props) {
-  let { danhSachTinTuc } = props;
+import { qLyPhimService } from "../../services/QuanLyPhimServices";
+export default function NewsComponent() {
+  let [danhSachTinTuc, setDanhSachTinTuc] = useState([]);
+
+  useEffect(() => {
+    qLyPhimService
+      .layTinTuc()
+      .then((res) => {
+        setDanhSachTinTuc(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   var moment = require("moment");
   const renderTinTuc = () => {
     return danhSachTinTuc.map((tinTuc, index) => {

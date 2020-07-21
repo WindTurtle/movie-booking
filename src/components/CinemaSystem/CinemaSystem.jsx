@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CardCinema from "../CardCinema/CardCinema";
 import SwipeableViews from "react-swipeable-views";
+import { qLyPhimService } from "../../services/QuanLyPhimServices";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -49,7 +50,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CinemaSystem(props) {
-  let { lstHeThongRap, cumRap } = props;
+  let [lstHeThongRap, setHeThongRap] = useState([]);
+
+  useEffect(() => {
+    qLyPhimService
+      .layHeThongRap()
+      .then((result) => {
+        setHeThongRap(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
+  let [cumRap, setCumRap] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layCumRapTheoHeThong()
+      .then((res) => {
+        setCumRap(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   const renderHeThongRap = () => {
     return lstHeThongRap?.map((rap, index) => {
       return (
@@ -104,7 +127,7 @@ export default function CinemaSystem(props) {
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
-        style={{ backgroundColor: "#333"}}
+        style={{ backgroundColor: "#333" }}
       >
         {renderCumRap()}
       </SwipeableViews>

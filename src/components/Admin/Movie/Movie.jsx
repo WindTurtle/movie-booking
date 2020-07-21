@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -12,6 +12,7 @@ import "./Movie.scss";
 import AddMovieModal from "../AddMovieModal/AddMovieModal";
 import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
+import { qLyPhimService } from "../../../services/QuanLyPhimServices";
 import swal from "sweetalert";
 
 var moment = require("moment");
@@ -58,8 +59,18 @@ const xoaPhim = (maPhim) => {
 };
 
 export default function Movie(props) {
+  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layDanhSachPhim()
+      .then((result) => {
+        setDanhSachPhim(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   const renderDanhSachPhim = () => {
-    let { danhSachPhim } = props;
     return danhSachPhim
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       .map((phim, index) => {
@@ -79,7 +90,9 @@ export default function Movie(props) {
             <TableCell>
               <div className="text__description--ellipse">{phim.moTa}</div>
             </TableCell>
-            <TableCell>{moment(phim.ngayKhoiChieu).format("DD/MM/yyyy")}</TableCell>
+            <TableCell>
+              {moment(phim.ngayKhoiChieu).format("DD/MM/yyyy")}
+            </TableCell>
             <TableCell>{phim.danhGia}</TableCell>
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -131,7 +144,6 @@ export default function Movie(props) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  let { danhSachPhim } = props;
   return (
     <Paper className={classes.root}>
       <button

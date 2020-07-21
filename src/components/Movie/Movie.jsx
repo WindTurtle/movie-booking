@@ -2,9 +2,20 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../Movie/Movie.scss";
 import ModalTrailer from "../ModalTrailer/ModalTrailer";
-export default function AllMovie(props) {
+import { qLyPhimService } from "../../services/QuanLyPhimServices";
+export default function AllMovie() {
   var moment = require("moment");
-  let { danhSachPhim } = props;
+  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layDanhSachPhim()
+      .then((result) => {
+        setDanhSachPhim(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   const [searchTerm, setSearchTerm] = useState("");
   const [danhSachPhimSearch, setDanhSachPhimSearch] = useState([]);
   const handleChange = (event) => {

@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Statistic.scss";
-export default function Statistic(props) {
-  let { lstHeThongRap } = props;
+import { qLyPhimService } from "../../../services/QuanLyPhimServices";
+export default function Statistic() {
+  let [lstHeThongRap, setHeThongRap] = useState([]);
+
+  useEffect(() => {
+    qLyPhimService
+      .layHeThongRap()
+      .then((result) => {
+        setHeThongRap(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   const renderRap = () => {
     return lstHeThongRap.map((rap, index) => {
       return (

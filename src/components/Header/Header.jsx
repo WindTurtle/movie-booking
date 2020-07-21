@@ -10,6 +10,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { dangXuatAction } from "../../redux/actions/QuanLyNguoiDungActions";
+import { userLogin } from "../../config/setting";
 
 export default function Header(props) {
   const [open, setOpen] = React.useState(false);
@@ -41,6 +42,25 @@ export default function Header(props) {
 
   const LogOut = () => {
     dispatch(dangXuatAction());
+  };
+  const renderMenuControl = () => {
+    if (
+      JSON.parse(localStorage.getItem(userLogin)).maLoaiNguoiDung === "QuanTri"
+    ) {
+      return (
+        <MenuItem onClick={handleClose}>
+          <NavLink
+            to="/dashboard"
+            style={{ textDecoration: "none", color: "#333" }}
+          >
+            <i className="fa fa-user mr-1"></i>
+            Admin
+          </NavLink>
+        </MenuItem>
+      );
+    } else {
+      return null;
+    }
   };
   const renderLogin = () => {
     if (taiKhoan) {
@@ -79,6 +99,7 @@ export default function Header(props) {
                       id="menu-list-grow"
                       onKeyDown={handleListKeyDown}
                     >
+                      {renderMenuControl()}
                       <MenuItem onClick={handleClose}>
                         <NavLink
                           to="/profile"
