@@ -67,7 +67,6 @@ export default function EditMovieModal(props) {
       }
     }
     setState({ values: newValues, errors: newErrors });
-    console.log(state);
   };
   const handleSubmit = (event) => {
     event.preventDefault();

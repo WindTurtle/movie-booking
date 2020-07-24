@@ -14,6 +14,7 @@ import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import { qLyPhimService } from "../../../services/QuanLyPhimServices";
 import swal from "sweetalert";
+import UploadImageMovieModal from "../UploadImageMovieModal/UploadImageMovieModal";
 
 var moment = require("moment");
 const useStyles = makeStyles({
@@ -81,7 +82,7 @@ export default function Movie(props) {
             <TableCell>{phim.biDanh}</TableCell>
             <TableCell>
               <img
-                style={{ width: 120, height: 170 }}
+                style={{ width: 70, height: 90 }}
                 src={phim.hinhAnh}
                 alt={phim.hinhAnh}
               ></img>
@@ -96,7 +97,7 @@ export default function Movie(props) {
             <TableCell>{phim.danhGia}</TableCell>
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <div className="edit-action">
+                <div className="edit-action mr-2">
                   <i
                     style={{
                       cursor: "pointer",
@@ -108,6 +109,18 @@ export default function Movie(props) {
                   ></i>
                 </div>
                 <EditMovieModal phim={phim} />
+                <div className="upload-action mr-2">
+                  <i
+                    style={{
+                      cursor: "pointer",
+                      color: "#55c934",
+                    }}
+                    className="fa fa-file-image"
+                    data-toggle="modal"
+                    data-target={`#du${phim.maPhim}`}
+                  ></i>
+                </div>
+                <UploadImageMovieModal phim={phim} />
                 <div className="delete-action">
                   <i
                     style={{ cursor: "pointer", color: "#fb4226" }}

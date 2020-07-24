@@ -43,16 +43,34 @@ export class QuanLyAdmin {
       data: form_data,
     });
   };
-  suaPhim = (form_data) => {
+  // themPhim = (infoMovie) => {
+  //   return axios({
+  //     url: `${domain}/QuanLyPhim/ThemPhim`,
+  //     method: "POST",
+  //     data: infoMovie,
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem(token),
+  //     },
+  //   });
+  // };
+  // suaPhim = (form_data) => {
+  //   return axios({
+  //     url: `${domain}/QuanLyPhim/CapNhatPhimUpload`,
+  //     method: "POST",
+  //     data: form_data,
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem(token),
+  //     },
+  //   });
+  // };
+  uploadHinhAnhPhim = (hinhAnh) => {
     return axios({
-      url: `${domain}/QuanLyPhim/CapNhatPhimUpload`,
+      url: `${domain}/QuanLyPhim/UploadHinhAnhPhim`,
       method: "POST",
-      data: form_data,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem(token),
-      },
+      data: hinhAnh,
     });
   };
+
   suaPhim = (phim) => {
     return axios({
       url: `${domain}/QuanLyPhim/CapNhatPhim`,
@@ -63,15 +81,16 @@ export class QuanLyAdmin {
       },
     });
   };
-  // xoaPhim = (maPhim) => {
-  //   return axios({
-  //     url: `${domain}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
-  //     method: "DELETE",
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem(token),
-  //     },
-  //   });
-  // };
+
+  xoaPhim = (maPhim) => {
+    return axios({
+      url: `${domain}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+      },
+    });
+  };
 
   taoLichChieu = (thongTin) => {
     return axios({
