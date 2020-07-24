@@ -36,30 +36,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const xoaPhim = (maPhim) => {
-  qLyAdminService
-    .xoaPhim(maPhim)
-    .then((res) => {
-      swal({
-        title: "Xóa phim thành công",
-        icon: "success",
-        button: "OK",
-      });
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    })
-    .catch((err) => {
-      swal({
-        title: err.response.data,
-        text: "Xóa không thành công",
-        icon: "warning",
-        button: "OK",
-      });
-    });
-};
-
-export default function Movie(props) {
+export default function Movie() {
   let [danhSachPhim, setDanhSachPhim] = useState([]);
   useEffect(() => {
     qLyPhimService
@@ -134,7 +111,25 @@ export default function Movie(props) {
                         dangerMode: true,
                       }).then((willDelete) => {
                         if (willDelete) {
-                          xoaPhim(phim.maPhim);
+                          qLyAdminService
+                            .xoaPhim(phim.maPhim)
+                            .then((res) => {
+                              swal({
+                                title: "Xóa phim thành công",
+                                icon: "success",
+                                button: "OK",
+                              });
+                              setTimeout(() => {
+                                window.location.reload();
+                              }, 2000);
+                            })
+                            .catch((err) => {
+                              swal({
+                                title: "Xóa không thành công",
+                                icon: "warning",
+                                button: "OK",
+                              });
+                            });
                         }
                       });
                     }}

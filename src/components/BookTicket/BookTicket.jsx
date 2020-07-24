@@ -2,9 +2,19 @@ import React, { useState, useEffect } from "react";
 import "./BookTicket.scss";
 import { NavLink } from "react-router-dom";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
-export default function BookTicket(props) {
-  let { danhSachPhim } = props;
+export default function BookTicket() {
 
+  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layDanhSachPhim()
+      .then((result) => {
+        setDanhSachPhim(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   var moment = require("moment");
   let [thongTinPhim, setThongTinPhim] = useState([]);
   let [maPhim, setMaPhim] = useState({});
