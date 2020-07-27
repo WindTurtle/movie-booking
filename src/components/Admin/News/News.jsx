@@ -56,9 +56,14 @@ export default function News() {
           icon: "success",
           button: "OK",
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        qLyPhimService
+          .layTinTuc()
+          .then((result) => {
+            setTinTuc(result.data);
+          })
+          .catch((err) => {
+            console.log(err.response.data);
+          });
       })
       .catch((err) => {
         swal({

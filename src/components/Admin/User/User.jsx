@@ -70,9 +70,14 @@ export default function User() {
           icon: "success",
           button: "OK",
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        qLyAdminService
+          .layDanhSachNguoiDung()
+          .then((res) => {
+            setListNguoiDung(res.data);
+          })
+          .catch((err) => {
+            console.log(err.response.data);
+          });
       })
       .catch((err) => {
         swal({

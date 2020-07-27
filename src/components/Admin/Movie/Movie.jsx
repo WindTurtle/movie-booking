@@ -119,9 +119,14 @@ export default function Movie() {
                                 icon: "success",
                                 button: "OK",
                               });
-                              setTimeout(() => {
-                                window.location.reload();
-                              }, 2000);
+                              qLyPhimService
+                                .layDanhSachPhim()
+                                .then((result) => {
+                                  setDanhSachPhim(result.data);
+                                })
+                                .catch((err) => {
+                                  console.log(err.response.data);
+                                });
                             })
                             .catch((err) => {
                               swal({
