@@ -15,12 +15,12 @@ import MovieManagement from "./pages/MovieManagement";
 // import { LoginAdminTemplate } from "./templates/LoginAdminTemplate/LoginAdminTemplate";
 // import LoginAdmin from "./pages/LoginAdmin";
 import AllMovie from "./pages/AllMovie";
-import { Stretch } from "styled-loaders-react";
 import CreateShowTime from "./pages/CreateShowTime";
 import ClusterCinema from "./pages/ClusterCinema";
 import News from "./pages/News";
 import DetailNews from "./pages/DetailNews";
 import NewsManagement from "./pages/NewsManagement";
+import SpinnerLoading from "./components/SpinnerLoading/SpinnerLoading";
 class App extends Component {
   state = {
     loading: true,
@@ -34,9 +34,7 @@ class App extends Component {
     return (
       <div>
         {this.state.loading ? (
-          <div className="loader">
-            <Stretch color="#60c5ef" size="70px" />
-          </div>
+          <SpinnerLoading />
         ) : (
           <BrowserRouter>
             <Fragment>

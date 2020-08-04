@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../ListMovie/ListMovie.scss";
 import MovieCarousel from "../MovieCarousel/MovieCarousel";
-import { qLyPhimService } from "../../services/QuanLyPhimServices";
+
 export default function ListMovie() {
-  let [danhSachPhim, setDanhSachPhim] = useState([]);
-  useEffect(() => {
-    qLyPhimService
-      .layDanhSachPhim()
-      .then((result) => {
-        setDanhSachPhim(result.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
   return (
     <div id="listMovie" className="listMovie">
       <div className="container">
@@ -53,7 +42,7 @@ export default function ListMovie() {
               role="tabpanel"
               aria-labelledby="pills-home-tab"
             >
-              <MovieCarousel danhSachPhim={danhSachPhim} />
+              <MovieCarousel />
             </div>
             <div
               className="tab-pane fade"
@@ -61,7 +50,7 @@ export default function ListMovie() {
               role="tabpanel"
               aria-labelledby="pills-profile-tab"
             >
-              <MovieCarousel danhSachPhim={danhSachPhim} />
+              <MovieCarousel />
             </div>
           </div>
         </div>

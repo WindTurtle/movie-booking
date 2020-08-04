@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CardCinema from "../CardCinema/CardCinema";
 import SwipeableViews from "react-swipeable-views";
+import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,12 +52,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CinemaSystem(props) {
   let [lstHeThongRap, setHeThongRap] = useState([]);
-
+  let [loading, setLoading] = useState(true);
   useEffect(() => {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
         setHeThongRap(result.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -68,6 +70,7 @@ export default function CinemaSystem(props) {
       .layCumRapTheoHeThong()
       .then((res) => {
         setCumRap(res.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -104,33 +107,37 @@ export default function CinemaSystem(props) {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  return (
-    <div className={classes.root} style={{ marginTop: "60px" }}>
-      <AppBar
-        position="static"
-        color="default"
-        style={{
-          backgroundColor: "#fff",
-        }}
-      >
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          aria-label="simple tabs example"
+  if (loading) {
+    return <SpinnerLoading />;
+  } else {
+    return (
+      <div className={classes.root} style={{ marginTop: "60px" }}>
+        <AppBar
+          position="static"
+          color="default"
+          style={{
+            backgroundColor: "#fff",
+          }}
         >
-          {renderHeThongRap()}
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-        style={{ backgroundColor: "#333" }}
-      >
-        {renderCumRap()}
-      </SwipeableViews>
-    </div>
-  );
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            aria-label="simple tabs example"
+          >
+            {renderHeThongRap()}
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+          index={value}
+          onChangeIndex={handleChangeIndex}
+          style={{ backgroundColor: "#333" }}
+        >
+          {renderCumRap()}
+        </SwipeableViews>
+      </div>
+    );
+  }
 }

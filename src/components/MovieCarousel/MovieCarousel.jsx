@@ -1,12 +1,23 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./MovieCarousel.scss";
-export default function MovieCarousel(props) {
+import { qLyPhimService } from "../../services/QuanLyPhimServices";
+export default function MovieCarousel() {
   var moment = require("moment");
-  let { danhSachPhim } = props;
+  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  useEffect(() => {
+    qLyPhimService
+      .layDanhSachPhim()
+      .then((result) => {
+        setDanhSachPhim(result.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   var settings = {
     dots: false,
     infinite: true,
@@ -15,6 +26,7 @@ export default function MovieCarousel(props) {
     slidesToScroll: 4,
     autoplay: true,
     autoplaySpeed: 7000,
+    rows: 2,
     responsive: [
       {
         breakpoint: 1024,
@@ -53,10 +65,7 @@ export default function MovieCarousel(props) {
             <div className="item__inrow p-2 mb-2" key={index}>
               <div className="item__link">
                 <div className="item__img">
-                  <img
-                    src={phim.hinhAnh}
-                    alt={phim.hinhAnh}
-                  />
+                  <img src={phim.hinhAnh} alt={phim.hinhAnh} />
                   <div className="overlay">
                     <NavLink
                       className="play__button"

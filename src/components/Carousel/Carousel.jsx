@@ -15,18 +15,6 @@ export default function Carousel() {
           items={1}
           className="myHotMovieCarousel owl-carousel owl-theme"
         >
-          {/* <div className="item">
-            <div className="item__img">
-              <img
-                className="img-fluid"
-                src="https://s3img.vcdn.vn/123phim/2020/05/tunnel-15906774078880.png"
-                alt="phime tunal"
-              />
-              <div className="background__overlay">
-                <i className="fa fa-play carousel__button" />
-              </div>
-            </div>
-          </div> */}
           <div className="item">
             <div className="item__img">
               <img

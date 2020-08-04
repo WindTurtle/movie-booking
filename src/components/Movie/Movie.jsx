@@ -3,14 +3,19 @@ import { NavLink } from "react-router-dom";
 import "../Movie/Movie.scss";
 import ModalTrailer from "../ModalTrailer/ModalTrailer";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
+import LazyLoad from "react-lazyload";
+import { CSSTransition } from "react-transition-group";
+import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 export default function AllMovie() {
   var moment = require("moment");
   let [danhSachPhim, setDanhSachPhim] = useState([]);
+  let [loading, setLoading] = useState(true);
   useEffect(() => {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
         setDanhSachPhim(result.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -47,10 +52,21 @@ export default function AllMovie() {
                   <p className="description">{phim.moTa}</p>
                 </div>
               </div>
-              <div
-                className="content-right"
-                style={{ backgroundImage: `url(${phim.hinhAnh})` }}
-              ></div>
+              <LazyLoad throttle={200}>
+                <CSSTransition
+                  key="1"
+                  transitionName="fade"
+                  transitionAppear
+                  transitionAppearTimeout={1000}
+                  transitionEnter={false}
+                  transitionLeave={false}
+                >
+                  <div
+                    className="content-right"
+                    style={{ backgroundImage: `url(${phim.hinhAnh})` }}
+                  ></div>
+                </CSSTransition>
+              </LazyLoad>
             </div>
           </NavLink>
           <div
@@ -65,24 +81,32 @@ export default function AllMovie() {
       );
     });
   };
-  return (
-    <div className="container all-movie">
-      <div className="search">
-        <div id="wrap">
-          <form autoComplete="on">
-            <input
-              id="search"
-              name="search"
-              type="text"
-              value={searchTerm}
-              onChange={handleChange}
-              placeholder="Nhập tên phim cần tìm"
-            />
-            <input id="search_submit" defaultValue="Rechercher" type="submit" />
-          </form>
+  if (loading) {
+    return <SpinnerLoading />;
+  } else {
+    return (
+      <div className="container all-movie">
+        <div className="search">
+          <div id="wrap">
+            <form autoComplete="on">
+              <input
+                id="search"
+                name="search"
+                type="text"
+                value={searchTerm}
+                onChange={handleChange}
+                placeholder="Nhập tên phim cần tìm"
+              />
+              <input
+                id="search_submit"
+                defaultValue="Rechercher"
+                type="submit"
+              />
+            </form>
+          </div>
         </div>
+        <div className="row movielist-content">{renderDanhSachPhim()}</div>
       </div>
-      <div className="row movielist-content">{renderDanhSachPhim()}</div>
-    </div>
-  );
+    );
+  }
 }
