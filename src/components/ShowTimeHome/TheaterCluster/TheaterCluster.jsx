@@ -38,7 +38,7 @@ export default function TheaterCluster(props) {
     return cumRap.lstCumRap?.map((rap, index) => {
       return (
         <div
-          className="tab-pane fade show active"
+          className="tab-pane fade show"
           id={rap.maCumRap}
           role="tabpanel"
           aria-labelledby="v-pills-home-tab"

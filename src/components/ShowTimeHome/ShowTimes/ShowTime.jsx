@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 export default function ShowTime(props) {
   let { rap, maCumRap } = props;
   var moment = require("moment");
-  console.log(rap);
   const renderShowTime = (phim) => {
     return phim.lstLichChieuTheoPhim?.slice(0, 4).map((lichChieu, index) => {
       return (
@@ -33,7 +32,7 @@ export default function ShowTime(props) {
             <a
               className="film__link"
               data-toggle="collapse"
-              href={`#${"id" + phim.maPhim}`}
+              href={`#${"id" + phim.maPhim + index}`}
               role="button"
               aria-expanded="false"
               aria-controls={phim.maPhim}
@@ -49,7 +48,7 @@ export default function ShowTime(props) {
                 </div>
               </div>
             </a>
-            <div className="collapse" id={"id" + phim.maPhim}>
+            <div className="collapse" id={"id" + phim.maPhim + index}>
               <div className="collapse__content">{renderShowTime(phim)}</div>
             </div>
           </li>
