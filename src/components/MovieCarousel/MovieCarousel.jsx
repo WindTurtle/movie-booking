@@ -26,7 +26,6 @@ export default function MovieCarousel() {
     slidesToScroll: 4,
     autoplay: true,
     autoplaySpeed: 7000,
-    rows: 2,
     responsive: [
       {
         breakpoint: 1024,

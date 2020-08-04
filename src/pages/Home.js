@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Fragment>
       <Carousel />
-      <ScrollAnimation animateIn="flipInX">
+      <ScrollAnimation animateIn="zoomIn">
         <ListMovie />
       </ScrollAnimation>
       <ScrollAnimation animateIn="fadeIn">

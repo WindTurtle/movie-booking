@@ -46,7 +46,7 @@ export default function TheaterCluster(props) {
         >
           <div className="tab__list">
             <ul>
-              <ShowTime rap={rap} />
+              <ShowTime rap={rap} maCumRap={rap.maCumRap} />
             </ul>
           </div>
         </div>

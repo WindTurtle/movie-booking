@@ -8,7 +8,7 @@ header {
   box-shadow: 0 0 15px $color-black-dark-3;
   transition: all 0.2s;
   .bg-dark {
-    background-color: rgba(50, 50, 50, 0.9) !important;
+    background-color: rgba(40, 40, 40, 0.85) !important;
     background: none;
   }
   &:hover {
@@ -169,7 +169,7 @@ header {
           .nav-link {
             text-decoration: none;
             color: $color-gray-2;
-            @include Text($fs-0 - 1, $fw-regular);
+            @include Text($fs-0 - 1, $fw-bold);
           }
         }
       }
