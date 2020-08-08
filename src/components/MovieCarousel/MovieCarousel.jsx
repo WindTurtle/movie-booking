@@ -70,7 +70,7 @@ export default function MovieCarousel() {
                       className="play__button"
                       to={`/moviedetail/${phim.maPhim}`}
                     >
-                      <i className="fa fa-play play__icon" />
+                      <i className="fa fa-info play__icon" />
                     </NavLink>
                   </div>
                   <span className="film__age age--C">{phim.maNhom}</span>

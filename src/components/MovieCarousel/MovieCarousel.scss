@@ -5,6 +5,7 @@
   outline: none;
   &:hover .item__link .item__img .overlay {
     opacity: 1;
+    animation: slide 0.3s linear;
   }
   &:hover .item__link .item__info .item__button {
     opacity: 1;
@@ -22,10 +23,10 @@
         width: 100%;
         border-radius: 3px;
         height: 290px;
-        @include responsive_mobile--stiny{
+        @include responsive_mobile--stiny {
           height: 420px;
         }
-        @include responsive_mobile--tiny{
+        @include responsive_mobile--tiny {
           height: 400px;
         }
       }
@@ -40,14 +41,15 @@
         height: 100%;
         border-radius: 4px;
         top: 0;
-        background: linear-gradient(to top, $color-black-0, transparent 100%);
+        background: linear-gradient(to top, $color-black-1, transparent 100%);
         transition: all 0.2s;
         .play__button {
           width: 60px;
           height: 60px;
-          border: 0.5px solid rgba(110, 214, 255, 0.5);
-          background-color: rgba(110, 214, 255, 0.5);
+          border: 2px solid rgba(110, 214, 255, 0.5);
+          background-color: rgba(25, 50, 50, 0.6);
           text-align: center;
+          position: absolute;
           line-height: spacing(6);
           border-radius: 50%;
           @include Text($fs-2, $fw-bold);
@@ -255,5 +257,16 @@
         }
       }
     }
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
