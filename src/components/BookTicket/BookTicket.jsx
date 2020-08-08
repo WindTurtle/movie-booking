@@ -3,7 +3,6 @@ import "./BookTicket.scss";
 import { NavLink } from "react-router-dom";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
 export default function BookTicket() {
-
   let [danhSachPhim, setDanhSachPhim] = useState([]);
   useEffect(() => {
     qLyPhimService
@@ -20,6 +19,7 @@ export default function BookTicket() {
   let [maPhim, setMaPhim] = useState({});
   let [maLichChieu, setMaLichChieu] = useState();
   let [maCumRap, setMaCumRap] = useState();
+  let [ngayChieu, setNgayChieu] = useState();
   var handleInput = (event) => {
     let maPhim = parseInt(event.target.value);
     setMaPhim(maPhim);
@@ -27,6 +27,10 @@ export default function BookTicket() {
   var handleInputLichChieu = (event) => {
     let maLichChieu = event.target.value;
     setMaLichChieu(maLichChieu);
+  };
+  var handleInputNgayChieu = (event) => {
+    let ngayChieu = event.target.value;
+    setNgayChieu(ngayChieu);
   };
 
   var handleInputCumRap = (event) => {
@@ -78,17 +82,35 @@ export default function BookTicket() {
     });
   };
 
+  const groupBy = (array, key) => {
+    // Return the end result
+    return array.reduce((result, currentValue) => {
+      // If an array already present for key, push it to the array. Else create an array and push the object
+      (result[moment(currentValue[key]).format("yyyy-MM-DD")] =
+        result[moment(currentValue[key]).format("yyyy-MM-DD")] || []).push(
+        currentValue
+      );
+      // Return the current iteration `result` value, this will be taken as next iteration `result` value and accumulate
+      return result;
+    }, {}); // empty object is the initial value for result object
+  };
   const renderNgayChieu = () => {
     return thongTinPhim.heThongRapChieu?.map((rap) => {
       return rap.cumRapChieu.map((cumRap) => {
         if (maCumRap === cumRap.maCumRap) {
-          return cumRap.lichChieuPhim.map((ngayChieu, index) => {
+          const listLichChieu = groupBy(
+            cumRap.lichChieuPhim,
+            "ngayChieuGioChieu"
+          );
+          let entries = Object.entries(listLichChieu);
+          let dataLayout = entries.map(([value], i) => {
             return (
-              <option value={ngayChieu.maLichChieu} key={index}>
-                {moment(ngayChieu.ngayChieuGioChieu).format("DD-MM-yyyy")}
+              <option value={value} key={i}>
+                {moment(value).format("DD-MM-yyyy")}
               </option>
             );
           });
+          return dataLayout;
         } else {
           return null;
         }
@@ -99,15 +121,26 @@ export default function BookTicket() {
     return thongTinPhim.heThongRapChieu?.map((rap) => {
       return rap.cumRapChieu?.map((cumRap) => {
         if (maCumRap === cumRap.maCumRap) {
-          return cumRap.lichChieuPhim?.map((ngayChieu, index) => {
-            if (maLichChieu === ngayChieu.maLichChieu) {
-              return (
-                <option value={ngayChieu.maLichChieu} key={index}>
-                  {moment(ngayChieu.ngayChieuGioChieu).format("hh:mm A")}
-                </option>
-              );
-            }
+          const listLichChieu = groupBy(
+            cumRap.lichChieuPhim,
+            "ngayChieuGioChieu"
+          );
+          let entries = Object.entries(listLichChieu);
+          let dataLayout = entries.map(([index, value], i) => {
+            console.log(value);
+            return value.map((item) => {
+              if (ngayChieu === index) {
+                return (
+                  <option value={item.maLichChieu} key={i}>
+                    {moment(item.ngayChieuGioChieu).format("hh:mm A")}
+                  </option>
+                );
+              } else {
+                return null;
+              }
+            });
           });
+          return dataLayout;
         }
       });
     });
@@ -150,7 +183,7 @@ export default function BookTicket() {
             <select
               name="slct"
               id="slct"
-              onChange={handleInputLichChieu}
+              onChange={handleInputNgayChieu}
               defaultValue={"DEFAULT"}
             >
               <option value="DEFAULT">Chọn ngày</option>
