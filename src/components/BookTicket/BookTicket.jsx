@@ -127,7 +127,6 @@ export default function BookTicket() {
           );
           let entries = Object.entries(listLichChieu);
           let dataLayout = entries.map(([index, value], i) => {
-            console.log(value);
             return value.map((item) => {
               if (ngayChieu === index) {
                 return (
