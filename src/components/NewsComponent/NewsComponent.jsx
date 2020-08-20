@@ -3,6 +3,7 @@ import "./NewsComponent.scss";
 import { NavLink } from "react-router-dom";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 export default function NewsComponent() {
   let [danhSachTinTuc, setDanhSachTinTuc] = useState([]);
   let [loading, setLoading] = useState(true);
@@ -31,10 +32,16 @@ export default function NewsComponent() {
                 className="items__text-link"
                 to={`/detailnews/${tinTuc.id}`}
               >
-                {tinTuc.title}
+                {tinTuc.title || (
+                  <SkeletonTheme color="#202020" highlightColor="#444">
+                    <h2>
+                      <Skeleton count={3} duration={2} />
+                    </h2>
+                  </SkeletonTheme>
+                )}
               </NavLink>
             </h2>
-            <p className="items__text-description">{tinTuc.description1}</p>
+            ;<p className="items__text-description">{tinTuc.description1}</p>
             <div className="items__text-author">
               {tinTuc.author}
               <span className="items__text-days">
