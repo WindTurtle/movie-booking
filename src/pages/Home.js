@@ -5,13 +5,12 @@ import News from "../components/News/News";
 import AppMobile from "../components/AppMobile/AppMobile";
 import ShowTimeHome from "../components/ShowTimeHome/ShowTimeHome";
 import ScrollAnimation from "react-animate-on-scroll";
+
 export default function Home() {
   return (
     <Fragment>
       <Carousel />
-      <ScrollAnimation animateIn="zoomIn">
-        <ListMovie />
-      </ScrollAnimation>
+      <ListMovie />
       <ScrollAnimation animateIn="fadeIn">
         <ShowTimeHome />
       </ScrollAnimation>
