@@ -31,7 +31,7 @@ export default function ShowTimeHome() {
     <section id="schedule" className="schedule">
       <div className="schedule__content">
         <div className="container">
-          <h1 className="schedule__title text-center">Lịch Chiếu</h1>
+          <h1 className="schedule__title text-center mb-4">Lịch Chiếu</h1>
           <div className="schedule__row row bg-light">
             <div className="main__tab col-2">
               <div

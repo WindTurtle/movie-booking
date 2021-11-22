@@ -31,23 +31,30 @@ export default function ShowTime(props) {
   };
 
   const renderTime = (cumRap) => {
-    return cumRap.lichChieuPhim?.map((lichChieu, index) => {
-      return (
-        <div className="timeshow__item" key={index}>
-          <NavLink
-            className="timeshow__link"
-            to={`/booking/${lichChieu.maLichChieu}`}
-          >
-            <div className="time__begin mb-2">
-              {moment(lichChieu.ngayChieuGioChieu).format("DD/MM/yyyy")}
-              <p>
-                {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
-              </p>
-            </div>
-          </NavLink>
-        </div>
-      );
-    });
+    return (
+      <div>
+        <div className="film__version my-4">2D Digital</div>
+        <ul className="d-flex flex-wrap">
+          {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+            return (
+              <div className="timeshow__item" key={index}>
+                <NavLink
+                  className="timeshow__link"
+                  to={`/booking/${lichChieu.maLichChieu}`}
+                >
+                  <div className="time__begin mb-2">
+                    {moment(lichChieu.ngayChieuGioChieu).format("DD/MM/yyyy")}
+                    <p>
+                      {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+                    </p>
+                  </div>
+                </NavLink>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+    );
   };
   const renderShowTime = (heThongRap) => {
     return heThongRap.cumRapChieu?.map((cumRap, index) => {
@@ -73,10 +80,7 @@ export default function ShowTime(props) {
           </a>
           <div className="collapse" id={cumRap.maCumRap}>
             <div className="collapse__content">
-              <div className="film__version">2D Digital</div>
-              <div className="film__timeshow">
-                <ul>{renderTime(cumRap)}</ul>
-              </div>
+              <div className="film__timeshow">{renderTime(cumRap)}</div>
             </div>
           </div>
         </li>
@@ -101,7 +105,7 @@ export default function ShowTime(props) {
   };
   return (
     <section className="tabBookMovie">
-      <div className="container-fluid">
+      <div className="container">
         <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li className="nav-item">
             <a

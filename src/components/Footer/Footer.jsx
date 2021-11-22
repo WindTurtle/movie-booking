@@ -3,7 +3,7 @@ import "../Footer/Footer.scss";
 export default class Footer extends Component {
   render() {
     return (
-      <footer>
+      <footer className="container">
         <div className="footer__content">
           <div className="footer__above">
             <div className="above__row row">
@@ -250,7 +250,7 @@ export default class Footer extends Component {
           </div>
           <hr className="gachchan" />
           <div className="footer__below">
-            <div className="below__row row">
+            <div className="below__row justify-content-center align-items-center row">
               <div className="below__left col-md-3 col-xs-12 col-sm-12">
                 <img
                   src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"

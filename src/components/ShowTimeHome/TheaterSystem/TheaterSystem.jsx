@@ -5,7 +5,7 @@ export default function TheaterSystem(props) {
     return heThongRap?.map((rap, index) => {
       return (
         <a
-          className="nav-link"
+          className="nav-link d-flex justify-content-center align-items-center"
           id="v-pills-home-tab"
           data-toggle="pill"
           href={`#${rap.maHeThongRap}`}

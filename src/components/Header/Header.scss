@@ -147,9 +147,9 @@ header {
       }
       .navbar-nav {
         .nav-item {
+          flex-direction: column;
           display: flex;
           justify-content: center;
-          flex-direction: column;
           margin-right: spacing(1);
           padding-top: spacing(1);
           transition: all 0.2s;

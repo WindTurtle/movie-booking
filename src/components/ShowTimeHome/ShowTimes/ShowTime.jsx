@@ -1,15 +1,16 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
+import "./ShowTime.scss";
 
 export default function ShowTime(props) {
   let { rap, maCumRap } = props;
   var moment = require("moment");
   const renderShowTime = (phim) => {
-    return phim.lstLichChieuTheoPhim?.slice(0, 4).map((lichChieu, index) => {
-      return (
-        <div className="film__timeshow" key={index}>
-          <ul>
-            <li className="timeshow__item">
+    return (
+      <ul className="d-flex flex-wrap">
+        {phim.lstLichChieuTheoPhim?.map((lichChieu, index) => {
+          return (
+            <li className="timeshow__item" key={index}>
               <NavLink
                 className="timeshow__link"
                 to={`/booking/${lichChieu.maLichChieu}`}
@@ -19,10 +20,10 @@ export default function ShowTime(props) {
                 </span>
               </NavLink>
             </li>
-          </ul>
-        </div>
-      );
-    });
+          );
+        })}
+      </ul>
+    );
   };
   const renderMovie = () => {
     if (rap.maCumRap === maCumRap) {

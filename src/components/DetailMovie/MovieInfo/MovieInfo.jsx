@@ -44,12 +44,15 @@ export default function MovieInfo(props) {
           <div className="rating__stars">{renderStar(phim.danhGia)}</div>
         </div>
       </div>
-      <div className="form__info container-fluid">
+      <div className="form__info container">
         <div className="row">
-          <div className="movie__poster col-3">
-            <div className="poster__img">
+          <div className="movie__poster text-left col-3">
+            <div
+              style={{ width: 220, height: 300 }}
+              className="poster__img d-flex justify-content-center align-items-center"
+            >
               <img
-                style={{ width: 220, height: 300 }}
+                className="w-100 h-100"
                 src={phim.hinhAnh}
                 alt={phim.hinhAnh}
               />
@@ -63,23 +66,30 @@ export default function MovieInfo(props) {
             </div>
           </div>
           <div className="movie__info col-6">
-            <div className="showtime">
-              {moment(phim.ngayKhoiChieu).format("DD-MM-yy")}
+            <div>
+              <div className="showtime">
+                {moment(phim.ngayKhoiChieu).format("DD-MM-yy")}
+              </div>
+              <div className="mb-3 d-flex justify-content-start align-items-center">
+                <span className="age--C">{phim.maNhom}</span>
+                <span className="name">{phim.tenPhim}</span>
+              </div>
+
+              <p className="during">120 phút</p>
+              <a href="#movieTheater">
+                <button className="bookTicket-btn">Mua Vé</button>
+              </a>
             </div>
-            <span className="age--C">{phim.maNhom}</span>
-            <span className="name">{phim.tenPhim}</span>
-            <p className="during">120 phút</p>
-            <a href="#movieTheater">
-              <button className="bookTicket-btn">Mua Vé</button>
-            </a>
           </div>
-          <div className="movie__rating col-2">
-            <div className="rating__point">
-              {countRatingMark(phim.danhGia)}
-              <div className="vongtronxanh"></div>
+          <div className="movie__rating d-flex justify-content-end col-3">
+            <div>
+              <div className="rating__point">
+                {countRatingMark(phim.danhGia)}
+                <div className="vongtronxanh"></div>
+              </div>
+              <div className="rating__stars">{renderStar(phim.danhGia)}</div>
+              <div className="rating__text">{phim.danhGia} người đánh giá</div>
             </div>
-            <div className="rating__stars">{renderStar(phim.danhGia)}</div>
-            <div className="rating__text">{phim.danhGia} người đánh giá</div>
           </div>
         </div>
       </div>

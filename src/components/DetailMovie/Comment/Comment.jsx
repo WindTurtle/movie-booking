@@ -92,9 +92,9 @@ export default function Comment(props) {
       </div>
       <ModalComment maPhim={maPhim} />
       <div className="list__comment">{renderComment()}</div>
-      <div className="readMore">
+      {/* <div className="readMore">
         <button className="btn btn__readmore">XEM THÊM</button>
-      </div>
+      </div> */}
     </Fragment>
   );
 }

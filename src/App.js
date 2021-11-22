@@ -1,6 +1,7 @@
-import React, {  Component } from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import "./App.scss";
+import ScrollToTop from "./config/ScrollToTop";
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -24,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <ScrollToTop />
         <Switch>
           <HomeTemplate exact path="/" Component={Home} />
           <HomeTemplate exact path="/home" Component={Home} />
@@ -69,11 +71,6 @@ class App extends Component {
             path="/newsmanagement"
             Component={NewsManagement}
           />
-          {/* <LoginAdminTemplate
-                  exact
-                  path="/loginadmin"
-                  Component={LoginAdmin}
-                /> */}
         </Switch>
       </BrowserRouter>
     );

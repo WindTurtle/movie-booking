@@ -157,27 +157,35 @@ export default function Header(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <i className="fa fa-film"></i>
               <NavLink className="nav-link" to="/allmovie">
-                Phim
+                <div className="d-flex flex-column">
+                  <i className="mb-2 fa fa-film"></i>
+                  <span>Phim</span>
+                </div>
               </NavLink>
             </li>
             <li className="nav-item">
-              <i className="fa fa-project-diagram"></i>
               <NavLink className="nav-link" to="/clustercinema">
-                Cụm Rạp
+                <div className="d-flex flex-column">
+                  <i className="mb-2 fa fa-project-diagram" />
+                  <span>Cụm Rạp</span>
+                </div>
               </NavLink>
             </li>
             <li className="nav-item">
-              <i className="fa fa-newspaper" />
               <NavLink className="nav-link" to="/news">
-                Tin Tức
+                <div className="d-flex flex-column">
+                  <i className="mb-2 fa fa-newspaper" />
+                  <span>Tin Tức</span>
+                </div>
               </NavLink>
             </li>
             <li className="nav-item">
-              <i className="fa fa-mobile" />
               <NavLink className="nav-link" to="/#forMobile">
-                Ứng dụng
+                <div className="d-flex flex-column">
+                  <i className="mb-2 fa fa-mobile" />
+                  <span>Ứng dụng</span>
+                </div>
               </NavLink>
             </li>
           </ul>

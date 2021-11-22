@@ -107,7 +107,6 @@
   }
   .form__info {
     position: absolute;
-    padding: (0) spacing(20);
     @include responsive_mobile {
       display: none;
     }
@@ -155,9 +154,9 @@
         }
       }
       .movie__info {
-        margin-left: spacing(1);
-        padding-right: 0;
-        padding-top: spacing(6.5);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         @include responsive_laptop--mini {
           margin-left: spacing(4);
         }

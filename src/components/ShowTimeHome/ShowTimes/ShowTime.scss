@@ -1,0 +1,30 @@
+@import "../../connect";
+
+.collapse__content {
+  ul {
+    margin-top: spacing(2);
+    .timeshow__item {
+      margin-bottom: spacing(2.5);
+      .timeshow__link {
+        text-decoration: none;
+        .time__begin {
+          background-color: $color-gray-5;
+          border: 1px solid $color-gray-6;
+          padding: spacing(1) spacing(1);
+          margin-right: spacing(1);
+          border-radius: 7px;
+          color: $color-green;
+          @include Text($fs-0 + 1, $fw-medium);
+          transition: all 0.3s;
+          &:hover {
+            color: $color-blue;
+          }
+          .time__end {
+            @include Text($fs-1, $fw-medium);
+            color: $color-gray-2;
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,19 +10,21 @@ export default function MovieCarousel() {
   var moment = require("moment");
   let [danhSachPhim, setDanhSachPhim] = useState([]);
   let [loading, setLoading] = useState(true);
+
   useEffect(() => {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
-        setDanhSachPhim(result.data);
-        setTimeout(() => {
+        if (result) {
           setLoading(false);
-        }, 2000);
+        }
+        setDanhSachPhim(result.data);
       })
       .catch((err) => {
         console.log(err.response.data);
       });
   }, []);
+
   var settings = {
     dots: false,
     infinite: true,
@@ -64,7 +66,7 @@ export default function MovieCarousel() {
   const renderPhim = () => {
     if (loading) {
       return (
-        <Slider {...settings}>
+        <Slider style={{ position: "relative" }} {...settings}>
           {danhSachPhim.map(() => {
             return (
               <div className="item__inrow p-2 mb-2">
@@ -102,7 +104,7 @@ export default function MovieCarousel() {
         <Slider {...settings}>
           {danhSachPhim.reverse().map((phim, index) => {
             return (
-              <div className="item__inrow p-2 mb-2" key={index}>
+              <div className="item__inrow" key={index}>
                 <div className="item__link">
                   <div className="item__img">
                     <img src={phim.hinhAnh} alt={phim.hinhAnh} />
