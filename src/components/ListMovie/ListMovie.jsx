@@ -2,7 +2,7 @@ import React from "react";
 import "../ListMovie/ListMovie.scss";
 import MovieCarousel from "../MovieCarousel/MovieCarousel";
 
-export default function ListMovie() {
+export default function ListMovie({ danhSachPhim }) {
   return (
     <div id="listMovie" className="listMovie">
       <div className="container">
@@ -42,7 +42,7 @@ export default function ListMovie() {
               role="tabpanel"
               aria-labelledby="pills-home-tab"
             >
-              <MovieCarousel />
+              <MovieCarousel list={danhSachPhim} />
             </div>
             <div
               className="tab-pane fade"
@@ -50,7 +50,7 @@ export default function ListMovie() {
               role="tabpanel"
               aria-labelledby="pills-profile-tab"
             >
-              <MovieCarousel />
+              <MovieCarousel list={danhSachPhim} />
             </div>
           </div>
         </div>

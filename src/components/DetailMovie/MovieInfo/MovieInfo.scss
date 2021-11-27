@@ -131,9 +131,10 @@
             opacity: 0;
             width: 75px;
             height: 75px;
-            line-height: 78px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
-            text-align: center;
             top: 35%;
             left: 35%;
             border: 2px solid $color-white-0;

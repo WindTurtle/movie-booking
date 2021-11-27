@@ -28,7 +28,7 @@ export default function ShowTimeHome() {
       });
   }, []);
   return (
-    <section id="schedule" className="schedule">
+    <section id="schedule" className="schedule container mx-auto">
       <div className="schedule__content">
         <div className="container">
           <h1 className="schedule__title text-center mb-4">Lịch Chiếu</h1>

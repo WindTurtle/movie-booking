@@ -106,7 +106,7 @@ export default function ModalComment(props) {
         <div className="modal-content">
           <div className="modal-body">
             <form className="comment-form">
-              <div class="rating">
+              <div className="rating">
                 <input
                   type="radio"
                   name="rating"
@@ -114,7 +114,7 @@ export default function ModalComment(props) {
                   onChange={handleInput}
                   id="r1"
                 />
-                <label for="r1"></label>
+                <label htmlFor="r1"></label>
                 <input
                   type="radio"
                   name="rating"
@@ -122,7 +122,7 @@ export default function ModalComment(props) {
                   onChange={handleInput}
                   id="r2"
                 />
-                <label for="r2"></label>
+                <label htmlFor="r2"></label>
                 <input
                   type="radio"
                   name="rating"
@@ -130,7 +130,7 @@ export default function ModalComment(props) {
                   onChange={handleInput}
                   id="r3"
                 />
-                <label for="r3"></label>
+                <label htmlFor="r3"></label>
                 <input
                   type="radio"
                   name="rating"
@@ -138,7 +138,7 @@ export default function ModalComment(props) {
                   onChange={handleInput}
                   id="r4"
                 />
-                <label for="r4"></label>
+                <label htmlFor="r4"></label>
                 <input
                   type="radio"
                   name="rating"
@@ -146,7 +146,7 @@ export default function ModalComment(props) {
                   onChange={handleInput}
                   id="r5"
                 />
-                <label for="r5"></label>
+                <label htmlFor="r5"></label>
               </div>
               <div className="textb">
                 <textarea

@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { qLyPhimService } from "../services/QuanLyPhimServices";
 import NewsDetailComponent from "../components/NewsDetailComponent/NewsDetailComponent";
+import SpinnerLoading from "../components/SpinnerLoading/SpinnerLoading";
+
 export default function DetailNews(props) {
   let [tinTuc, setTinTuc] = useState([]);
-  useEffect(() => {
-    qLyPhimService
-      .layChiTietTinTuc(props.match.params.matintuc)
-      .then((result) => {
+  const [loading, $loading] = useState(true);
+  const maTinTuc = props.match.params.matintuc;
+  useMemo(() => {
+    qLyPhimService.layChiTietTinTuc(maTinTuc).then((result) => {
+      setTimeout(() => {
         setTinTuc(result.data);
-      });
-  }, [props.match.params.matintuc]);
+        $loading(false);
+      }, 1500);
+    });
+  }, [maTinTuc]);
 
   let [danhSachTinTuc, setDanhSachTinTuc] = useState([]);
 
@@ -17,7 +22,10 @@ export default function DetailNews(props) {
     qLyPhimService
       .layTinTuc()
       .then((res) => {
-        setDanhSachTinTuc(res.data);
+        setTimeout(() => {
+          setDanhSachTinTuc(res.data);
+          $loading(false);
+        }, 1500);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -25,6 +33,12 @@ export default function DetailNews(props) {
   }, []);
 
   return (
-    <NewsDetailComponent tinTuc={tinTuc} danhSachTinTuc={danhSachTinTuc} />
+    <React.Fragment>
+      {loading ? (
+        <SpinnerLoading />
+      ) : (
+        <NewsDetailComponent tinTuc={tinTuc} danhSachTinTuc={danhSachTinTuc} />
+      )}
+    </React.Fragment>
   );
 }
