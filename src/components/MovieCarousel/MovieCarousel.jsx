@@ -54,6 +54,7 @@ export default function MovieCarousel({ list }) {
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
+        loop={true}
         coverflowEffect={{
           rotate: 35,
           stretch: 0,
