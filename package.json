@@ -18,7 +18,7 @@
     "dayjs": "^1.8.18",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.14.1",
     "path": "^0.12.7",
     "react": "^16.13.1",
